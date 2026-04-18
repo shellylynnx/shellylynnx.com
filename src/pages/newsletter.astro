@@ -17,12 +17,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           No ads, no sponsors (at least not yet). Archived at <a href="/">shellylynnx.com</a>.
         </p>
 
-        <!-- Beehiiv embed: paste your embed code here.
-             In your Beehiiv dashboard: Settings → Embeds → JavaScript embed. -->
-        <div id="beehiiv-embed" style="padding: 40px; border: 1px dashed var(--color-border); border-radius: 6px; text-align: center; color: var(--color-text-dim);">
-          <p style="margin-bottom: 8px; font-weight: 500; color: var(--color-text-secondary);">Beehiiv signup form goes here.</p>
-          <p style="font-size: 0.875rem;">Paste your Beehiiv embed code into <code>src/pages/newsletter.astro</code> (and the home page newsletter section).</p>
-        </div>
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+        <iframe src="https://subscribe-forms.beehiiv.com/2f636490-db99-422f-953c-0fd1bc2a864f" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 291px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
       </div>
     </section>
   </main>
