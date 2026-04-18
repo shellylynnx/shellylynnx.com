@@ -131,7 +131,7 @@ const {
           if (!res.ok || !data.ok) {
             throw new Error(data.error || "bad_status");
           }
-          msg.textContent = "Thanks — check your inbox to confirm.";
+          msg.textContent = "Thanks! Check your inbox to confirm.";
           msg.className = "subscribe-message success";
           input.value = "";
         } catch {
