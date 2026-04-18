@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Newsletter — Shelly Xiong"
+  description="A weekly dispatch on NYC birds, illustrations, and small software tools. Free. By Shelly Xiong."
+>
+  <main style="padding-top: calc(var(--nav-height) + 40px);">
+    <section class="section newsletter" id="newsletter">
+      <div class="container" style="max-width: 720px;">
+        <h2 class="section-title">A bird in your inbox, once a week.</h2>
+        <p style="color: var(--color-text-secondary); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 16px;">
+          Every week, one short dispatch about the birds of New York City. What I'm seeing in the park, which warblers are moving through, what I drew, what I built, what I read.
+        </p>
+        <p style="color: var(--color-text-secondary); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 32px;">
+          No ads, no sponsors (at least not yet). Archived at <a href="/">shellylynnx.com</a>.
+        </p>
+
+        <!-- Beehiiv embed: paste your embed code here.
+             In your Beehiiv dashboard: Settings → Embeds → JavaScript embed. -->
+        <div id="beehiiv-embed" style="padding: 40px; border: 1px dashed var(--color-border); border-radius: 6px; text-align: center; color: var(--color-text-dim);">
+          <p style="margin-bottom: 8px; font-weight: 500; color: var(--color-text-secondary);">Beehiiv signup form goes here.</p>
+          <p style="font-size: 0.875rem;">Paste your Beehiiv embed code into <code>src/pages/newsletter.astro</code> (and the home page newsletter section).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
