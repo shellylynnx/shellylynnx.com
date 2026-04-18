@@ -230,6 +230,19 @@ body.light .icon-moon { display: block; }
     width: 120px;
     height: 120px;
     margin: 0 auto 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+    display: block;
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: block;
 }
 
 .hero-greeting {
