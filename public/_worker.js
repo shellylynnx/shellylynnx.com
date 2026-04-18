@@ -1,20 +1,7 @@
-interface Env {
-  BEEHIIV_API_KEY: string;
-}
-
-interface Body {
-  email?: string;
-}
-
 const PUBLICATION_ID = "pub_7a87cacc-76f6-44c2-8194-579a21e85939";
 
-export async function onRequestPost(context: {
-  request: Request;
-  env: Env;
-}): Promise<Response> {
+async function handleSubscribe(request, env) {
   try {
-    const { request, env } = context;
-
     if (!env.BEEHIIV_API_KEY) {
       return Response.json(
         { ok: false, error: "not_configured" },
@@ -22,8 +9,8 @@ export async function onRequestPost(context: {
       );
     }
 
-    const body = (await request.json()) as Body;
-    const email = body.email?.trim().toLowerCase();
+    const body = await request.json();
+    const email = body?.email?.trim().toLowerCase();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return Response.json(
@@ -64,3 +51,13 @@ export async function onRequestPost(context: {
     );
   }
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/api/subscribe" && request.method === "POST") {
+      return handleSubscribe(request, env);
+    }
+    return env.ASSETS.fetch(request);
+  },
+};
