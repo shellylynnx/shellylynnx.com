@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeForm from "../components/SubscribeForm.astro";
 ---
 
 <BaseLayout
@@ -17,8 +18,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           No ads, no sponsors (at least not yet). Archived at <a href="/">shellylynnx.com</a>.
         </p>
 
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-        <iframe src="https://subscribe-forms.beehiiv.com/2f636490-db99-422f-953c-0fd1bc2a864f" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 291px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+        <SubscribeForm buttonLabel="Send me the birds" />
       </div>
     </section>
   </main>

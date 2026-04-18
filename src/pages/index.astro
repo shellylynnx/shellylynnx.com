@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeForm from "../components/SubscribeForm.astro";
 ---
 
 <BaseLayout title="Shelly Xiong — NYC birder, illustrator, and developer">
@@ -129,9 +130,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p style="color: var(--color-text-secondary); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 24px; max-width: 640px;">
           One NYC species. One field observation. One link worth clicking. Plus: first access to new illustrations, tools, and zine drops. Free.
         </p>
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-        <iframe src="https://subscribe-forms.beehiiv.com/2f636490-db99-422f-953c-0fd1bc2a864f" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 291px; margin: 0 0 16px; border-radius: 0; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-        <p style="margin-top: 8px;"><a href="/newsletter" style="font-size: 0.875rem;">See the full newsletter page →</a></p>
+        <SubscribeForm buttonLabel="Send me the birds" />
+        <p style="margin-top: 16px;"><a href="/newsletter" style="font-size: 0.875rem;">See the full newsletter page →</a></p>
       </div>
     </section>
 

@@ -1,0 +1,137 @@
+---
+interface Props {
+  buttonLabel?: string;
+  placeholder?: string;
+}
+
+const {
+  buttonLabel = "Subscribe",
+  placeholder = "you@somewhere.net",
+} = Astro.props;
+---
+
+<form class="subscribe-form" novalidate>
+  <label class="sr-only" for="subscribe-email">Email address</label>
+  <input
+    type="email"
+    id="subscribe-email"
+    name="email"
+    required
+    autocomplete="email"
+    placeholder={placeholder}
+  />
+  <button type="submit" class="btn btn-primary">{buttonLabel}</button>
+  <p class="subscribe-message" aria-live="polite"></p>
+</form>
+
+<style>
+  .subscribe-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 480px;
+  }
+
+  .subscribe-form input[type="email"] {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 12px 16px;
+    background: var(--color-card-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    transition: border-color 0.2s;
+  }
+
+  .subscribe-form input[type="email"]::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  .subscribe-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+  }
+
+  .subscribe-form button {
+    flex: 0 0 auto;
+  }
+
+  .subscribe-form button[disabled] {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  .subscribe-message {
+    flex-basis: 100%;
+    min-height: 1.4em;
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .subscribe-message.success {
+    color: var(--color-secondary);
+  }
+
+  .subscribe-message.error {
+    color: var(--color-highlight);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("form.subscribe-form").forEach(
+    (form) => {
+      const input = form.querySelector<HTMLInputElement>('input[type="email"]')!;
+      const btn = form.querySelector<HTMLButtonElement>("button")!;
+      const msg = form.querySelector<HTMLParagraphElement>(".subscribe-message")!;
+      const originalLabel = btn.textContent;
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = input.value.trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        msg.textContent = "";
+        msg.className = "subscribe-message";
+
+        try {
+          const res = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+          const data = (await res.json()) as { ok: boolean; error?: string };
+          if (!res.ok || !data.ok) {
+            throw new Error(data.error || "bad_status");
+          }
+          msg.textContent = "Thanks — check your inbox to confirm.";
+          msg.className = "subscribe-message success";
+          input.value = "";
+        } catch {
+          msg.textContent =
+            "Something went wrong. Try again, or email helloshellylynnx@gmail.com.";
+          msg.className = "subscribe-message error";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
+      });
+    },
+  );
+</script>
