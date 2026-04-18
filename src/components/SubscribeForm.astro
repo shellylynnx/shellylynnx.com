@@ -54,6 +54,17 @@ const {
     border-color: var(--color-secondary);
   }
 
+  .subscribe-form input[type="email"]:-webkit-autofill,
+  .subscribe-form input[type="email"]:-webkit-autofill:hover,
+  .subscribe-form input[type="email"]:-webkit-autofill:focus,
+  .subscribe-form input[type="email"]:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-card-bg) inset;
+    -webkit-text-fill-color: var(--color-text);
+    caret-color: var(--color-text);
+    border: 1px solid var(--color-border);
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
   .subscribe-form button {
     flex: 0 0 auto;
   }
