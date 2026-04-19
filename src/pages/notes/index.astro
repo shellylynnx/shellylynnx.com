@@ -57,20 +57,30 @@ const fmt = (d: Date) =>
             <ul class="notes-list">
               {notes.map((note) => {
                 const firstBird = note.data.birdsMentioned[0];
+                const thumb =
+                  note.data.ogImage?.replace(/\.jpg$/i, "-1200.jpg") ??
+                  note.data.ogImage;
                 return (
                   <li class="notes-card" data-cat={note.data.category}>
                     <a href={`/notes/${note.id}/`} class="notes-card-link">
-                      <div class="notes-card-meta">
-                        <span class="notes-card-date">
-                          {fmt(note.data.pubDate)}
-                        </span>
-                        <span class="notes-card-cat">{note.data.category}</span>
-                        {firstBird && (
-                          <span class="notes-card-bird">{firstBird.commonName}</span>
-                        )}
+                      {thumb && (
+                        <div class="notes-card-thumb">
+                          <img src={thumb} alt="" loading="lazy" />
+                        </div>
+                      )}
+                      <div class="notes-card-text">
+                        <div class="notes-card-meta">
+                          <span class="notes-card-date">
+                            {fmt(note.data.pubDate)}
+                          </span>
+                          <span class="notes-card-cat">{note.data.category}</span>
+                          {firstBird && (
+                            <span class="notes-card-bird">{firstBird.commonName}</span>
+                          )}
+                        </div>
+                        <h2 class="notes-card-title">{note.data.title}</h2>
+                        <p class="notes-card-dek">{note.data.description}</p>
                       </div>
-                      <h2 class="notes-card-title">{note.data.title}</h2>
-                      <p class="notes-card-dek">{note.data.description}</p>
                     </a>
                   </li>
                 );
