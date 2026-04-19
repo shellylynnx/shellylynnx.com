@@ -43,6 +43,7 @@ references:
     author: "The Accidental Birder"
     title: "Fallout. A Birding Nirvana."
     date: "2018"
+    url: "https://theaccidentalbirder.com/2018/05/26/fallout-a-birding-nirvana/"
   - number: 8
     author: "Horton, K.G., et al."
     title: "Phenology of nocturnal avian migration has shifted at the continental scale"
