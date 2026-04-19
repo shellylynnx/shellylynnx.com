@@ -94,7 +94,6 @@ birdsMentioned:
     ebirdCode: "btbwar"
   - commonName: "Black-throated Green Warbler"
     ebirdCode: "btnwar"
-    note: "personal favorite this time of year"
   - commonName: "Ovenbird"
     ebirdCode: "ovenbi1"
   - commonName: "Yellow-throated Vireo"
@@ -195,6 +194,6 @@ I'll be there at first light, in the Ramble, looking up.
 
 ---
 
-### Photo credits
+## Photo Credits
 
 All photographs by Shelly Xiong, archived at the [Macaulay Library, Cornell Lab of Ornithology](https://macaulaylibrary.org/). Asset IDs: 655035195, 655012201, 655035015.

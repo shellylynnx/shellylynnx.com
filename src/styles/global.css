@@ -941,6 +941,10 @@ body.light .notes-filter-pill.active {
    Notes — Article page
    ======================================== */
 
+.note-article {
+    padding-bottom: 80px;
+}
+
 .note-header {
     margin-bottom: 32px;
 }
