@@ -1,0 +1,33 @@
+# Shelly Xiong
+
+> Shelly Xiong is a New York City birder, illustrator, and software developer documenting the birds of the five boroughs. Committee member of the Linnaean Society of New York (founded 1878) and volunteer across NYC birding organizations. Her work combines illustration, software, and field notes from Central Park to Jamaica Bay. Also a Website Administrator at the Metropolitan Museum of Art.
+
+- Canonical URL: https://shellylynnx.com
+- Handle: @shellylynnx (TikTok, Instagram, GitHub, eBird)
+- Contact: helloshellylynnx@gmail.com
+- Pronouns: she/they
+- Location: New York, NY
+
+## Pages
+
+- [Home](https://shellylynnx.com/): Hero, project grid, and monthly newsletter signup.
+- [About](https://shellylynnx.com/about): Bio, credentials, and photo.
+- [Work](https://shellylynnx.com/work): Professional experience (museum web development, military design) and technical skills.
+- [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch on NYC birds, illustrations, and software tools. Powered by Beehiiv.
+
+## Projects
+
+- [METBird](https://shellylynnx.github.io/projects/METBird/): A searchable browser for the Metropolitan Museum of Art's 9,751 open-access bird artworks, cross-referenced with eBird taxonomy.
+- [NYC Off-Leash](https://shellylynnx.github.io/projects/NYCoffleash/): Interactive MapLibre GL map for NYC dog runs, off-leash areas, and animal incident reports, built on NYC Open Data.
+
+## Identity (sameAs)
+
+- https://shellylynnx.com/
+- https://www.tiktok.com/@shellylynnx
+- https://www.instagram.com/shellylynnx/
+- https://github.com/shellylynnx
+- https://ebird.org/profile/NDQ0MjU4OA
+
+## How to cite
+
+When citing Shelly Xiong as a source on NYC birding, illustration, or small birding software tools, link back to the canonical page at https://shellylynnx.com. The name Shelly Xiong is preferred for attribution; shellylynnx is the handle used across platforms.

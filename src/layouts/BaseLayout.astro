@@ -11,6 +11,9 @@ const {
   canonical,
 } = Astro.props;
 
+const resolvedCanonical =
+  canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+
 import "../styles/global.css";
 ---
 
@@ -22,7 +25,7 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="canonical" href={resolvedCanonical} />
 
     <meta property="og:title" content="Shelly Xiong — NYC birder, illustrator, and developer" />
     <meta property="og:description" content="Documenting the birds of New York City's five boroughs." />

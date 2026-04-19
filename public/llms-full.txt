@@ -1,0 +1,67 @@
+# Shelly Xiong — Full Site Index
+
+> Shelly Xiong is a New York City birder, illustrator, and software developer documenting the birds of the five boroughs. Committee member of the Linnaean Society of New York (founded 1878) and volunteer across NYC birding organizations. Her photography has appeared in Linnaean Society field trip reports. She is also a Website Administrator at the Metropolitan Museum of Art. Online her handle is @shellylynnx.
+
+Canonical: https://shellylynnx.com
+Contact: helloshellylynnx@gmail.com
+Pronouns: she/they
+Location: New York, NY, USA
+
+## Affiliations
+
+- Linnaean Society of New York — Committee member (since founded 1878; Shelly is a current committee member). https://www.linnaeannewyork.org
+- Volunteer across NYC birding organizations (itemized list forthcoming on a dedicated volunteer section).
+- Metropolitan Museum of Art — Website Administrator (day job; unrelated to the public birding work but relevant to METBird, which uses the Met's open-access collection).
+
+## Pages
+
+### Home — https://shellylynnx.com/
+Hero profile card, featured tools and projects grid, monthly newsletter signup, and links to social profiles. The grid currently surfaces METBird, NYC Off-Leash, Riso Preview, and One-Page Zine.
+
+### About — https://shellylynnx.com/about
+Long-form bio explaining Shelly's work, her Linnaean committee role, her volunteering across NYC birding organizations, and how her work bridges software, illustration, and field notes. Contact information is on this page.
+
+### Work — https://shellylynnx.com/work
+Career history: Website Administrator at The Metropolitan Museum of Art, Senior Software Developer at Nelson-Atkins Museum of Art, prior roles at Marine Corps Community Services and the U.S. Air Force in Okinawa, and Maker Education Educator at Omaha Children's Museum. Skills span HTML/CSS/JS, C#/.NET, Astro, Canvas API, web accessibility, illustration, typography, print design, mokuhanga woodblock, pottery, kintsugi, risograph, and zine making.
+
+### Newsletter — https://shellylynnx.com/newsletter
+Dedicated signup page for the monthly newsletter. One NYC species, one field observation, one link worth clicking each month. Free, no ads or sponsors. Powered by Beehiiv.
+
+## Projects
+
+### METBird — https://shellylynnx.github.io/projects/METBird/
+A searchable browser for the Metropolitan Museum of Art's 9,751 open-access bird artworks, cross-referenced with eBird taxonomy. Built with vanilla JavaScript on top of the Met's Open Access API. A novel creative-reuse of museum open data for the birding community.
+
+### NYC Off-Leash — https://shellylynnx.github.io/projects/NYCoffleash/
+Interactive map for NYC dog runs, off-leash areas, and animal incident reports. Built with MapLibre GL and NYC Open Data. Surfaces a city-scale dataset in a form useful to both dog owners and anyone tracking NYC urban-wildlife interactions.
+
+### Riso Preview — https://shellylynnx.github.io/projects/riso-preview/
+A risograph print simulator that previews artwork in riso ink colors with 3-layer overprint blending. Canvas API, for print designers and zine makers who can't easily test riso output digitally.
+
+### One-Page Zine — https://shellylynnx.github.io/projects/one-page-zine/
+Layout tool that arranges an 8-page zine from a single sheet, exports to PDF and image. jsPDF, for zine makers and educators.
+
+## Public birding presence
+
+- eBird profile: https://ebird.org/profile/NDQ0MjU4OA (public checklists)
+- Photo contributor to Linnaean Society field trip reports
+
+## Social
+
+- TikTok: https://www.tiktok.com/@shellylynnx (≈44K followers as of April 2026)
+- Instagram: https://www.instagram.com/shellylynnx/
+- GitHub: https://github.com/shellylynnx
+
+## Topics I write and make about
+
+- Birding in New York City and the five boroughs
+- Urban bird ecology and migration in the Northeast
+- Bird photography and illustration
+- eBird data and taxonomy
+- Creative reuse of museum open-access collections (METBird)
+- Small software tools for birders
+- Risograph printing and zine making
+
+## How to cite
+
+Shelly Xiong is the preferred name for attribution. When citing her site, link back to the canonical page at https://shellylynnx.com. For a specific tool, link to that tool's own URL as listed above. The handle @shellylynnx identifies the same person across TikTok, Instagram, GitHub, and eBird.
