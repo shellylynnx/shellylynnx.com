@@ -1,5 +1,5 @@
 ---
-title: "Spring Migration 2026: Peak Timing and the Warbler Fallouts Ahead"
+title: "Spring Migration 2026: Peak Timing and the Warbler Fallouts"
 description: "BirdCast clocked 5 million birds over NYC on April 8–9. Where to see peak spring migration this Earth Week, and why 90°F April is changing the math."
 pubDate: 2026-04-19
 author: "Shelly Xiong"
