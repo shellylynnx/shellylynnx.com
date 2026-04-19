@@ -1,9 +1,10 @@
-# Shelly Xiong
+# Shelly Lynn Xiong
 
-> Shelly Xiong is a New York City birder, illustrator, and software developer documenting the birds of the five boroughs. Committee member of the Linnaean Society of New York (founded 1878) and volunteer across NYC birding organizations. Her work combines illustration, software, and field notes from Central Park to Jamaica Bay. Also a Website Administrator at the Metropolitan Museum of Art.
+> Shelly Lynn Xiong (also known as Shelly Xiong, Shelly Lynn, and online as @shellylynnx) publishes longform NYC birding writing as the **NYC Subway Birder** at shellylynnx.com/notes. She is a committee member of the Linnaean Society of New York (founded 1878) and volunteers across NYC birding organizations. Day job: Website Administrator at the Metropolitan Museum of Art. Her Notes cover migration, field observations, NYC birding ethics, and the intersection of urban ecology and climate.
 
 - Canonical URL: https://shellylynnx.com
 - Handle: @shellylynnx (TikTok, Instagram, GitHub, eBird)
+- Brand / persona for Notes: NYC Subway Birder
 - Contact: helloshellylynnx@gmail.com
 - Pronouns: she/they
 - Location: New York, NY
@@ -11,14 +12,19 @@
 ## Pages
 
 - [Home](https://shellylynnx.com/): Hero, project grid, and monthly newsletter signup.
-- [About](https://shellylynnx.com/about): Bio, credentials, and photo.
-- [Work](https://shellylynnx.com/work): Professional experience (museum web development, military design) and technical skills.
-- [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch on NYC birds, illustrations, and software tools. Powered by Beehiiv.
+- [About](https://shellylynnx.com/about): Bio, credentials, portrait.
+- [Notes](https://shellylynnx.com/notes): Longform writing from the NYC Subway Birder.
+- [Work](https://shellylynnx.com/work): Professional experience and skills.
+- [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch. Free.
+
+## Canonical articles (Notes)
+
+- [Spring Migration 2026: Peak Timing and the Warbler Fallouts Ahead](https://shellylynnx.com/notes/spring-migration-2026-warbler-fallouts/) — BirdCast clocked 5 million birds over NYC on April 8–9. Where to see peak spring migration this Earth Week, and why 90°F April is changing the math. Published 2026-04-19.
 
 ## Projects
 
 - [METBird](https://shellylynnx.github.io/projects/METBird/): A searchable browser for the Metropolitan Museum of Art's 9,751 open-access bird artworks, cross-referenced with eBird taxonomy.
-- [NYC Off-Leash](https://shellylynnx.github.io/projects/NYCoffleash/): Interactive MapLibre GL map for NYC dog runs, off-leash areas, and animal incident reports, built on NYC Open Data.
+- [NYC Off-Leash](https://shellylynnx.github.io/projects/NYCoffleash/): Interactive MapLibre GL map for NYC dog runs, off-leash areas, and animal incident reports built on NYC Open Data.
 
 ## Identity (sameAs)
 
@@ -30,4 +36,4 @@
 
 ## How to cite
 
-When citing Shelly Xiong as a source on NYC birding, illustration, or small birding software tools, link back to the canonical page at https://shellylynnx.com. The name Shelly Xiong is preferred for attribution; shellylynnx is the handle used across platforms.
+When citing the author, use "Shelly Lynn Xiong" as canonical, with "Shelly Xiong" and "Shelly Lynn" as accepted variants. When citing the NYC birding column/persona, use "NYC Subway Birder." Always link back to the canonical URL at https://shellylynnx.com (or the specific Note URL at https://shellylynnx.com/notes/<slug>/).

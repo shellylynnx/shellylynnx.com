@@ -263,6 +263,16 @@ body.light .icon-moon { display: block; }
     margin-bottom: 16px;
 }
 
+.hero-persona {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 .hero-handle {
     font-size: 0.9375rem;
     color: var(--color-secondary);
@@ -788,6 +798,375 @@ body.light .icon-moon { display: block; }
     .social-link {
         justify-content: center;
     }
+}
+
+/* ========================================
+   Notes — Index
+   ======================================== */
+
+.notes-persona-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.notes-index-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    line-height: 1.15;
+}
+
+.notes-index-dek {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 560px;
+}
+
+.notes-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.notes-filter-pill {
+    padding: 6px 14px;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.notes-filter-pill:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-secondary);
+}
+
+.notes-filter-pill.active {
+    color: var(--color-bg);
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+body.light .notes-filter-pill.active {
+    color: var(--color-bg);
+}
+
+.notes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.notes-card {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.notes-card:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.notes-card-link {
+    display: block;
+    padding: 24px 0;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.notes-card-link:hover {
+    color: var(--color-text);
+}
+
+.notes-card-link:hover .notes-card-title {
+    color: var(--color-secondary);
+}
+
+.notes-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dim);
+    margin-bottom: 10px;
+}
+
+.notes-card-cat {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+}
+
+.notes-card-bird {
+    padding: 2px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    color: var(--color-text-secondary);
+}
+
+.notes-card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.notes-card-dek {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Notes — Article page
+   ======================================== */
+
+.note-header {
+    margin-bottom: 32px;
+}
+
+.note-byline {
+    margin-bottom: 16px;
+}
+
+.note-back {
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+}
+
+.note-back:hover {
+    color: var(--color-secondary);
+}
+
+.note-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin-bottom: 16px;
+}
+
+.note-dek {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+.note-meta {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.note-meta-dot {
+    color: var(--color-text-dim);
+}
+
+.note-hero-figure {
+    margin: 0 0 32px;
+}
+
+.note-hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.note-body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.note-body p {
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+}
+
+.note-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
+    margin: 48px 0 16px;
+    color: var(--color-text);
+}
+
+.note-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    color: var(--color-text);
+}
+
+.note-body a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.note-body a:hover {
+    color: var(--color-highlight);
+}
+
+.note-body ul,
+.note-body ol {
+    margin: 0 0 20px 20px;
+    color: var(--color-text-secondary);
+}
+
+.note-body li {
+    margin-bottom: 8px;
+}
+
+.note-body blockquote {
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 20px;
+    margin: 24px 0;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.note-body hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 40px 0;
+}
+
+.note-body strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.note-body figure {
+    margin: 32px 0;
+}
+
+.note-body figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.note-body figcaption {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    margin-top: 8px;
+    text-align: center;
+}
+
+.note-section-heading {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 48px 0 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.note-birds {
+    margin-bottom: 24px;
+}
+
+.note-birds-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px 16px;
+    font-size: 0.9375rem;
+}
+
+.note-birds-list a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.note-birds-list a:hover {
+    color: var(--color-highlight);
+}
+
+.note-birds-note {
+    color: var(--color-text-dim);
+    font-size: 0.875rem;
+}
+
+.note-refs {
+    margin-top: 32px;
+    padding: 20px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+.note-refs summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+    list-style: none;
+}
+
+.note-refs summary::-webkit-details-marker {
+    display: none;
+}
+
+.note-refs summary::before {
+    content: "▸ ";
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-right: 6px;
+}
+
+.note-refs[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.note-refs-list {
+    margin: 16px 0 0 20px;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+.note-refs-list li {
+    margin-bottom: 10px;
+}
+
+.note-refs-list a {
+    color: var(--color-secondary);
 }
 
 /* ========================================

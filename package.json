@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepublish:notes": "node scripts/prepublish.mjs",
+    "substack:mirror": "node scripts/build-substack-mirror.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

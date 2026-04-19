@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("notes", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const categories = Array.from(
+  new Set(notes.map((n) => n.data.category)),
+).sort();
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<BaseLayout
+  title="Notes — NYC Subway Birder"
+  description="Longform writing on NYC birds, migration, and field observations by Shelly Xiong, the NYC Subway Birder. Field notes from Central Park to Jamaica Bay."
+>
+  <main style="padding-top: calc(var(--nav-height) + 40px);">
+    <section class="section notes-index" id="notes">
+      <div class="container" style="max-width: 880px;">
+        <p class="notes-persona-label">NYC Subway Birder</p>
+        <h1 class="notes-index-title">Notes</h1>
+        <p class="notes-index-dek">
+          Longform writing on NYC birds, migration, and what I'm seeing in the
+          parks.
+        </p>
+
+        {
+          categories.length > 1 && (
+            <div class="notes-filter" role="tablist" aria-label="Filter by category">
+              <button class="notes-filter-pill active" data-cat="all" role="tab" aria-selected="true">
+                All
+              </button>
+              {categories.map((cat) => (
+                <button class="notes-filter-pill" data-cat={cat} role="tab" aria-selected="false">
+                  {cat}
+                </button>
+              ))}
+            </div>
+          )
+        }
+
+        {
+          notes.length === 0 ? (
+            <p style="color: var(--color-text-secondary); padding: 40px 0;">
+              No notes yet. Check back soon.
+            </p>
+          ) : (
+            <ul class="notes-list">
+              {notes.map((note) => {
+                const firstBird = note.data.birdsMentioned[0];
+                return (
+                  <li class="notes-card" data-cat={note.data.category}>
+                    <a href={`/notes/${note.id}/`} class="notes-card-link">
+                      <div class="notes-card-meta">
+                        <span class="notes-card-date">
+                          {fmt(note.data.pubDate)}
+                        </span>
+                        <span class="notes-card-cat">{note.data.category}</span>
+                        {firstBird && (
+                          <span class="notes-card-bird">{firstBird.commonName}</span>
+                        )}
+                      </div>
+                      <h2 class="notes-card-title">{note.data.title}</h2>
+                      <p class="notes-card-dek">{note.data.description}</p>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>(
+    ".notes-filter-pill",
+  );
+  const cards = document.querySelectorAll<HTMLLIElement>(".notes-card");
+
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const cat = pill.dataset.cat;
+
+      pills.forEach((p) => {
+        const active = p === pill;
+        p.classList.toggle("active", active);
+        p.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      cards.forEach((card) => {
+        const show = cat === "all" || card.dataset.cat === cat;
+        (card as HTMLElement).style.display = show ? "" : "none";
+      });
+    });
+  });
+</script>

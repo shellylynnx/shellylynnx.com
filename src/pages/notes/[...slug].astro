@@ -1,0 +1,168 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const notes = await getCollection("notes", ({ data }) => !data.draft);
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+};
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const { data } = note;
+
+const canonical =
+  data.canonicalURL ?? new URL(`/notes/${note.id}/`, Astro.site).href;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
+const ogImageUrl = data.ogImage
+  ? new URL(data.ogImage, Astro.site).href
+  : new URL("/images/shelly-avatar.jpg", Astro.site).href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: {
+    "@type": "Person",
+    "@id": "https://shellylynnx.com/#shelly",
+    name: "Shelly Lynn Xiong",
+    alternateName: ["Shelly Lynn", "Shelly Xiong", "NYC Subway Birder"],
+    url: "https://shellylynnx.com",
+    sameAs: [
+      "https://www.tiktok.com/@shellylynnx",
+      "https://www.instagram.com/shellylynnx/",
+      "https://github.com/shellylynnx",
+      "https://ebird.org/profile/NDQ0MjU4OA",
+    ],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Shelly Lynn Xiong",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://shellylynnx.com/favicon.svg",
+    },
+  },
+  image: ogImageUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  keywords: data.tags.join(", "),
+  articleSection: data.category,
+  ...(data.references.length > 0 && {
+    citation: data.references.map((r) => r.url),
+  }),
+};
+
+const wordCount = note.body?.split(/\s+/).filter(Boolean).length ?? 0;
+const readTime = Math.max(1, Math.round(wordCount / 220));
+---
+
+<BaseLayout
+  title={`${data.title} — NYC Subway Birder`}
+  description={data.description}
+  canonical={canonical}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(articleSchema)}
+  />
+
+  <main style="padding-top: calc(var(--nav-height) + 40px);">
+    <article class="note-article">
+      <div class="container" style="max-width: 720px;">
+        <header class="note-header">
+          <p class="note-byline">
+            <a href="/notes" class="note-back">← Notes</a>
+          </p>
+          <h1 class="note-title">{data.title}</h1>
+          <p class="note-dek">{data.description}</p>
+          <p class="note-meta">
+            <span>{fmt(data.pubDate)}</span>
+            <span class="note-meta-dot">·</span>
+            <span>{data.author}</span>
+            <span class="note-meta-dot">·</span>
+            <span>{readTime} min read</span>
+            <span class="note-meta-dot">·</span>
+            <span>{data.category}</span>
+          </p>
+        </header>
+
+        {
+          data.ogImage && (
+            <figure class="note-hero-figure">
+              <img class="note-hero-image" src={data.ogImage} alt={data.title} loading="eager" />
+            </figure>
+          )
+        }
+
+        <div class="note-body">
+          <Content />
+        </div>
+
+        {
+          data.birdsMentioned.length > 0 && (
+            <section class="note-birds" aria-labelledby="birds-mentioned">
+              <h2 id="birds-mentioned" class="note-section-heading">
+                Birds Mentioned
+              </h2>
+              <ul class="note-birds-list">
+                {data.birdsMentioned.map((bird) => (
+                  <li>
+                    <a
+                      href={`https://ebird.org/species/${bird.ebirdCode}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {bird.commonName}
+                    </a>
+                    {bird.note && <span class="note-birds-note"> — {bird.note}</span>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {
+          data.references.length > 0 && (
+            <details class="note-refs">
+              <summary>References ({data.references.length})</summary>
+              <ol class="note-refs-list">
+                {data.references.map((ref) => (
+                  <li>
+                    {ref.author && <span>{ref.author}. </span>}
+                    {ref.url ? (
+                      <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                        {ref.title}
+                      </a>
+                    ) : (
+                      <span>{ref.title}</span>
+                    )}
+                    {ref.publication && <span>, {ref.publication}</span>}
+                    {ref.date && <span>, {ref.date}</span>}
+                    {ref.note && <span>. {ref.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )
+        }
+      </div>
+    </article>
+  </main>
+</BaseLayout>
