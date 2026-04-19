@@ -759,6 +759,25 @@ body.light .icon-moon { display: block; }
     .hero-name {
         font-size: 2.25rem;
     }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .subscribe-form button {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
