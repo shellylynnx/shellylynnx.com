@@ -853,14 +853,16 @@ body.light .icon-moon { display: block; }
     line-height: 1.2;
     color: var(--color-text);
     margin-bottom: 12px;
+    text-wrap: balance;
 }
 
 .notes-subscribe-copy {
     font-size: 1rem;
     color: var(--color-text-secondary);
     margin: 0 auto 24px;
-    max-width: 480px;
+    max-width: 520px;
     line-height: 1.55;
+    text-wrap: balance;
 }
 
 .notes-subscribe-section .subscribe-form {
