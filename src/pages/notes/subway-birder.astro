@@ -1,0 +1,274 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubscribeForm from "../../components/SubscribeForm.astro";
+import { getCollection } from "astro:content";
+
+const TAG = "subway-birder";
+const MANIFESTO_SLUG = "what-is-a-subway-birder";
+
+const allNotes = await getCollection("notes", ({ data }) => !data.draft);
+
+const columnNotes = allNotes
+  .filter((n) => (n.data.tags ?? []).includes(TAG))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const now = new Date();
+const manifesto = allNotes.find(
+  (n) => n.id === MANIFESTO_SLUG && n.data.pubDate.valueOf() <= now.valueOf(),
+);
+const manifestoLive = !!manifesto;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
+const canonical = "https://shellylynnx.com/notes/subway-birder";
+const heroImage = "/images/notes/spring-migration-2026/yerwar-655035195.jpg";
+const ogImage = `https://shellylynnx.com${heroImage}`;
+
+const title = "The Subway Birder — NYC birding, one train line at a time";
+const description =
+  "A recurring column by Shelly Lynn Xiong on birding New York City by subway. Field logs, hotspots, and timing, all reachable by train.";
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "The Subway Birder",
+  headline: "The Subway Birder — NYC birding, one train line at a time",
+  description,
+  url: canonical,
+  inLanguage: "en-US",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "shellylynnx.com",
+    url: "https://shellylynnx.com",
+  },
+  about: {
+    "@type": "Thing",
+    name: "Subway Birder",
+    description:
+      "A person who birds New York City using the MTA subway system rather than a car.",
+  },
+  author: {
+    "@type": "Person",
+    "@id": "https://shellylynnx.com/#shelly",
+    name: "Shelly Lynn Xiong",
+    alternateName: [
+      "Shelly Lynn",
+      "Shelly Xiong",
+      "The Subway Birder",
+      "NYC Subway Birder",
+    ],
+    url: "https://shellylynnx.com/about",
+    sameAs: [
+      "https://www.instagram.com/shellylynnx",
+      "https://www.tiktok.com/@shellylynnx",
+      "https://ebird.org/profile/NDQ0MjU4OA",
+    ],
+  },
+  hasPart: columnNotes.map((n) => ({
+    "@type": "Article",
+    headline: n.data.title,
+    url: `https://shellylynnx.com/notes/${n.id}/`,
+    datePublished: n.data.pubDate.toISOString(),
+  })),
+  mainEntity: {
+    "@type": "DefinedTerm",
+    name: "Subway Birder",
+    description:
+      "A New York City birder who uses the MTA subway system as their primary means of accessing birding patches across the five boroughs.",
+    inDefinedTermSet: canonical,
+  },
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(collectionSchema)}
+  />
+
+  <main style="padding-top: var(--nav-height);">
+    <section class="section subway-birder-hero">
+      <div class="container" style="max-width: 880px;">
+        <figure class="subway-hero-figure">
+          <img
+            class="subway-hero-image"
+            src={heroImage}
+            alt="A New York City bird photographed by Shelly Xiong."
+            loading="eager"
+          />
+          <figcaption>Photo © Shelly Xiong / Macaulay Library.</figcaption>
+        </figure>
+        <h1 class="subway-hero-title">The Subway Birder</h1>
+        <p class="subway-hero-dek">NYC birding, one train line at a time.</p>
+        <p class="subway-hero-byline">
+          By <a href="/about">Shelly Xiong</a>. A recurring column on
+          shellylynnx.com.
+        </p>
+      </div>
+    </section>
+
+    <section class="section subway-explainer">
+      <div class="container" style="max-width: 720px;">
+        <h2 class="section-title">What is a Subway Birder?</h2>
+        <div class="subway-explainer-body">
+          <p>
+            A Subway Birder is someone who treats the MTA as a field-guide
+            index. Every train line a transect, every stop a potential patch. No
+            car. No 5 a.m. drive to a marsh two hours away. Just a MetroCard,
+            binoculars, and the five boroughs.
+          </p>
+          <p>
+            New York City sits squarely under the Atlantic Flyway. On peak
+            spring nights, radar tracks millions of birds crossing over
+            Manhattan and Brooklyn. You don't need to leave the city to see
+            serious migration. You need to know which train gets you to the
+            right patch at dawn.
+          </p>
+          <p>
+            The Subway Birder column is my running field log of that practice.
+            Train lines to parks. Weekly hotspots. What's arriving, what's
+            peaking, what just passed through. NYC birding with a subway map
+            instead of a GPS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subway-pin-section">
+      <div class="container" style="max-width: 720px;">
+        {
+          manifestoLive ? (
+            <a
+              class="subway-pin-card"
+              href={`/notes/${MANIFESTO_SLUG}/`}
+              data-pending="false"
+            >
+              <span class="subway-pin-label">Start here</span>
+              <h3 class="subway-pin-title">What Is a Subway Birder?</h3>
+              <p class="subway-pin-dek">
+                The full argument for why NYC is the best subway-birdable city
+                in North America, and how I work the five boroughs without a
+                car.
+              </p>
+            </a>
+          ) : (
+            <div class="subway-pin-card subway-pin-card--pending" data-pending="true">
+              <span class="subway-pin-label">Coming soon</span>
+              <h3 class="subway-pin-title">What Is a Subway Birder?</h3>
+              <p class="subway-pin-dek">
+                The full argument for why NYC is the best subway-birdable city
+                in North America, and how I work the five boroughs without a
+                car.
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section subway-archive">
+      <div class="container" style="max-width: 880px;">
+        <h2 class="section-title">Recent dispatches</h2>
+        {
+          columnNotes.length === 0 ? (
+            <p class="subway-archive-empty">
+              <em>
+                New dispatches start shipping after the manifesto. Subscribe
+                below to get them in your inbox.
+              </em>
+            </p>
+          ) : (
+            <ul class="notes-list">
+              {columnNotes.slice(0, 20).map((note) => {
+                const firstBird = note.data.birdsMentioned[0];
+                const thumb =
+                  note.data.ogImage?.replace(/\.jpg$/i, "-1200.jpg") ??
+                  note.data.ogImage;
+                return (
+                  <li class="notes-card" data-cat={note.data.category}>
+                    <a href={`/notes/${note.id}/`} class="notes-card-link">
+                      {thumb && (
+                        <div class="notes-card-thumb">
+                          <img src={thumb} alt="" loading="lazy" />
+                        </div>
+                      )}
+                      <div class="notes-card-text">
+                        <div class="notes-card-meta">
+                          <span class="notes-card-date">
+                            {fmt(note.data.pubDate)}
+                          </span>
+                          <span class="notes-card-cat">{note.data.category}</span>
+                          {firstBird && (
+                            <span class="notes-card-bird">
+                              {firstBird.commonName}
+                            </span>
+                          )}
+                        </div>
+                        <h3 class="notes-card-title">{note.data.title}</h3>
+                        <p class="notes-card-dek">{note.data.description}</p>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section subway-covers">
+      <div class="container" style="max-width: 720px;">
+        <h2 class="section-title">What this column covers</h2>
+        <dl class="subway-covers-list">
+          <div>
+            <dt>Train lines, not trailheads.</dt>
+            <dd>Every post anchors to a subway line or route.</dd>
+          </div>
+          <div>
+            <dt>NYC parks and coastlines.</dt>
+            <dd>
+              Central Park, Prospect, Jamaica Bay, Floyd Bennett, Pelham Bay,
+              Randall's Island, and the rest.
+            </dd>
+          </div>
+          <div>
+            <dt>Seasonal timing.</dt>
+            <dd>Fallouts, peaks, shoulder weeks, winter waterfowl.</dd>
+          </div>
+          <div>
+            <dt>Real field logs.</dt>
+            <dd>Dates, weather, bird counts, what I missed. Not generic guides.</dd>
+          </div>
+          <div>
+            <dt>Photo credit.</dt>
+            <dd>
+              My own photos, archived at the Macaulay Library, where possible.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section notes-subscribe-section" aria-label="Subscribe">
+      <div class="container" style="max-width: 720px;">
+        <p class="notes-subscribe-kicker">One dispatch a month</p>
+        <h2 class="notes-subscribe-heading">
+          Get new Field Notes in your inbox
+        </h2>
+        <p class="notes-subscribe-copy">
+          Free, no sponsors. One NYC bird,<br />one field observation, one link
+          worth clicking.
+        </p>
+        <SubscribeForm buttonLabel="Subscribe" placeholder="you@somewhere.net" />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

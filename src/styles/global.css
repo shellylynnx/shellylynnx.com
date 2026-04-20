@@ -275,6 +275,15 @@ body.light .icon-moon { display: block; }
     margin-bottom: 8px;
 }
 
+.hero-persona a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hero-persona a:hover {
+    color: var(--color-secondary);
+}
+
 .hero-handle {
     font-size: 0.9375rem;
     color: var(--color-secondary);
@@ -1108,6 +1117,187 @@ body.light .tool-card:hover {
 .section.notes-subscribe-section {
     text-align: center;
     background: var(--color-bg-alt);
+}
+
+/* ========================================
+   Subway Birder — Section Page
+   ======================================== */
+
+.section.subway-birder-hero,
+.section.subway-archive,
+.section.subway-pin-section {
+    background: var(--color-bg);
+}
+
+.section.subway-explainer,
+.section.subway-covers {
+    background: var(--color-bg-alt);
+}
+
+.subway-hero-figure {
+    margin: 0 0 28px;
+}
+
+.subway-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.subway-hero-figure figcaption {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    margin-top: 8px;
+    text-align: center;
+}
+
+.subway-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+
+.subway-hero-dek {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    line-height: 1.35;
+}
+
+.subway-hero-byline {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.subway-hero-byline a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.subway-explainer-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+.subway-explainer-body p:last-child {
+    margin-bottom: 0;
+}
+
+.subway-pin-card {
+    display: block;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-secondary);
+    border-radius: 6px;
+    padding: 24px 28px;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+a.subway-pin-card:hover {
+    border-color: var(--color-secondary);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+body.light a.subway-pin-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.subway-pin-card--pending {
+    opacity: 0.78;
+    cursor: default;
+    border-left-color: var(--color-text-dim);
+}
+
+.subway-pin-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.subway-pin-card--pending .subway-pin-label {
+    color: var(--color-text-dim);
+}
+
+.subway-pin-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+
+.subway-pin-dek {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.subway-archive-empty {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    padding: 24px 0;
+}
+
+.subway-covers-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+}
+
+.subway-covers-list > div {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) 2fr;
+    gap: 20px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.subway-covers-list > div:last-child {
+    border-bottom: none;
+}
+
+.subway-covers-list dt {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.subway-covers-list dd {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .subway-covers-list > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
 }
 
 .notes-subscribe-kicker {

@@ -9,6 +9,15 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes("/links"),
+      serialize(item) {
+        if (
+          item.url === "https://shellylynnx.com/notes/subway-birder/" ||
+          item.url === "https://shellylynnx.com/notes/subway-birder"
+        ) {
+          item.priority = 0.9;
+        }
+        return item;
+      },
     }),
   ],
   markdown: {

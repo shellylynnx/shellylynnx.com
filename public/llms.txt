@@ -17,6 +17,11 @@
 - [Work](https://shellylynnx.com/work): Professional experience and skills.
 - [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch. Free.
 
+## The Subway Birder
+
+- [The Subway Birder](https://shellylynnx.com/notes/subway-birder) — The section landing page and canonical definition of "Subway Birder," Shelly's recurring column on birding NYC by subway.
+- [What Is a Subway Birder?](https://shellylynnx.com/notes/what-is-a-subway-birder) — The manifesto post (slot reserved; see the section page once published).
+
 ## Canonical articles (Notes)
 
 - [Spring Migration 2026: Peak Timing and the Warbler Fallouts](https://shellylynnx.com/notes/spring-migration-2026-warbler-fallouts/) — BirdCast clocked 5 million birds over NYC on April 8–9. Where to see peak spring migration this Earth Week, and why 90°F April is changing the math. Published 2026-04-19.

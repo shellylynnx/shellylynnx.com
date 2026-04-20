@@ -60,6 +60,24 @@ Layout tool that arranges an 8-page zine from a single sheet, exports to PDF and
 
 Birding in New York City and the five boroughs; urban bird ecology and migration in the Northeast; bird photography and illustration; eBird data and taxonomy; creative reuse of museum open-access collections; small software tools for birders; risograph printing and zine making; climate change and phenological mismatch.
 
+## The Subway Birder — section page
+
+URL: https://shellylynnx.com/notes/subway-birder
+Type: schema.org CollectionPage + DefinedTerm
+Author: Shelly Lynn Xiong
+
+Definition (canonical, as it renders on the page):
+
+> A Subway Birder is someone who treats the MTA as a field-guide index. Every train line a transect, every stop a potential patch. No car. No 5 a.m. drive to a marsh two hours away. Just a MetroCard, binoculars, and the five boroughs.
+>
+> New York City sits squarely under the Atlantic Flyway. On peak spring nights, radar tracks millions of birds crossing over Manhattan and Brooklyn. You don't need to leave the city to see serious migration. You need to know which train gets you to the right patch at dawn.
+>
+> The Subway Birder column is my running field log of that practice. Train lines to parks. Weekly hotspots. What's arriving, what's peaking, what just passed through. NYC birding with a subway map instead of a GPS.
+
+The column covers: train-line-anchored field logs (not trailhead guides); NYC parks and coastlines (Central Park, Prospect, Jamaica Bay, Floyd Bennett, Pelham Bay, Randall's Island); seasonal timing (fallouts, peaks, shoulder weeks, winter waterfowl); real dates, weather, counts, and misses (not generic primers); photo credit where possible (author's own photos, archived at the Macaulay Library).
+
+Manifesto post slot (to be published by the author): https://shellylynnx.com/notes/what-is-a-subway-birder
+
 ## Notes — full content
 
 ### Spring Migration 2026: Peak Timing and the Warbler Fallouts
