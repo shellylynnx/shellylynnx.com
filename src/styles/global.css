@@ -834,8 +834,13 @@ body.light .icon-moon { display: block; }
     max-width: 560px;
 }
 
-.notes-subscribe-section {
+.section.notes-index {
+    background: var(--color-bg);
+}
+
+.section.notes-subscribe-section {
     text-align: center;
+    background: var(--color-bg-alt);
 }
 
 .notes-subscribe-kicker {
