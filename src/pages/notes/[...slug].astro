@@ -82,6 +82,29 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
     set:html={JSON.stringify(articleSchema)}
   />
 
+  <script is:inline>
+    (function () {
+      function openRefsFor(hash) {
+        if (!hash || !hash.startsWith("#ref-")) return;
+        var refs = document.querySelector(".note-refs");
+        if (refs && !refs.open) refs.open = true;
+        requestAnimationFrame(function () {
+          var target = document.querySelector(hash);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a.note-cite-link");
+        if (!a) return;
+        e.preventDefault();
+        var hash = new URL(a.href).hash;
+        if (history.replaceState) history.replaceState(null, "", hash);
+        openRefsFor(hash);
+      });
+      if (window.location.hash) openRefsFor(window.location.hash);
+    })();
+  </script>
+
   <main style="padding-top: calc(var(--nav-height) + 40px);">
     <article class="note-article">
       <div class="container" style="max-width: 720px;">
@@ -143,21 +166,24 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
             <details class="note-refs">
               <summary>References ({data.references.length})</summary>
               <ol class="note-refs-list">
-                {data.references.map((ref) => (
-                  <li>
-                    {ref.author && <span>{ref.author}. </span>}
-                    {ref.url ? (
-                      <a href={ref.url} target="_blank" rel="noopener noreferrer">
-                        {ref.title}
-                      </a>
-                    ) : (
-                      <span>{ref.title}</span>
-                    )}
-                    {ref.publication && <span>, {ref.publication}</span>}
-                    {ref.date && <span>, {ref.date}</span>}
-                    {ref.note && <span>. {ref.note}</span>}
-                  </li>
-                ))}
+                {data.references.map((ref, i) => {
+                  const refNumber = ref.number ?? i + 1;
+                  return (
+                    <li id={`ref-${refNumber}`} value={refNumber}>
+                      {ref.author && <span>{ref.author}. </span>}
+                      {ref.url ? (
+                        <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                          {ref.title}
+                        </a>
+                      ) : (
+                        <span>{ref.title}</span>
+                      )}
+                      {ref.publication && <span>, {ref.publication}</span>}
+                      {ref.date && <span>, {ref.date}</span>}
+                      {ref.note && <span>. {ref.note}</span>}
+                    </li>
+                  );
+                })}
               </ol>
             </details>
           )
