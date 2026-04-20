@@ -1135,16 +1135,17 @@ body.light .tool-card:hover {
 }
 
 .subway-hero-figure {
-    margin: 0 auto 28px;
-    max-width: 420px;
-    text-align: center;
+    margin: 0 0 28px;
 }
 
 .subway-hero-image {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: 58% 68%;
     border-radius: 8px;
     display: block;
+    max-height: 420px;
 }
 
 .subway-hero-figure figcaption {
@@ -1152,6 +1153,13 @@ body.light .tool-card:hover {
     color: var(--color-text-dim);
     margin-top: 8px;
     text-align: center;
+}
+
+@media (max-width: 640px) {
+    .subway-hero-image {
+        aspect-ratio: 4 / 3;
+        max-height: 340px;
+    }
 }
 
 .subway-hero-title {
