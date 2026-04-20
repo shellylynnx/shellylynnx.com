@@ -393,6 +393,15 @@ body.light .icon-moon { display: block; }
     margin-top: 12px;
 }
 
+.section-dek {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-top: -32px;
+    margin-bottom: 40px;
+    max-width: 620px;
+}
+
 /* ========================================
    About
    ======================================== */
