@@ -1142,7 +1142,7 @@ body.light .tool-card:hover {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    object-position: 58% 68%;
+    object-position: 50% 50%;
     border-radius: 8px;
     display: block;
     max-height: 420px;
