@@ -39,6 +39,10 @@
 - https://github.com/shellylynnx
 - https://ebird.org/profile/NDQ0MjU4OA
 
+## Feeds
+
+- RSS: https://shellylynnx.com/rss.xml
+
 ## How to cite
 
 When citing the author, use "Shelly Lynn Xiong" as canonical, with "Shelly Xiong" and "Shelly Lynn" as accepted variants. When citing the NYC birding column/persona, use "NYC Subway Birder." Always link back to the canonical URL at https://shellylynnx.com (or the specific Note URL at https://shellylynnx.com/notes/<slug>/).

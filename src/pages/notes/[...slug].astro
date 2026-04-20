@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AuthorBio from "../../components/AuthorBio.astro";
 import { getCollection, render } from "astro:content";
 import type { GetStaticPaths } from "astro";
 
@@ -41,9 +42,15 @@ const articleSchema = {
     "@type": "Person",
     "@id": "https://shellylynnx.com/#shelly",
     name: "Shelly Lynn Xiong",
-    alternateName: ["Shelly Lynn", "Shelly Xiong", "NYC Subway Birder"],
+    alternateName: ["Shelly Lynn", "Shelly Xiong", "NYC Subway Birder", "shellylynnx"],
     url: "https://shellylynnx.com",
+    worksFor: {
+      "@type": "Organization",
+      name: "The Metropolitan Museum of Art",
+      url: "https://www.metmuseum.org",
+    },
     sameAs: [
+      "https://shellylynnx.com",
       "https://www.tiktok.com/@shellylynnx",
       "https://www.instagram.com/shellylynnx/",
       "https://github.com/shellylynnx",
@@ -201,6 +208,8 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
             </section>
           )
         }
+
+        <AuthorBio topics={data.topics} />
 
         {
           data.references.length > 0 && (

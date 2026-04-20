@@ -1,0 +1,66 @@
+---
+interface Props {
+  topics?: string[];
+}
+
+const { topics = [] } = Astro.props;
+
+const topicsClause =
+  topics.length === 3
+    ? `${topics[0]}, ${topics[1]}, and ${topics[2]}`
+    : topics.length === 2
+      ? `${topics[0]} and ${topics[1]}`
+      : topics.length === 1
+        ? topics[0]
+        : "urban birding, New York City wildlife, and the city's birding culture";
+---
+
+<aside class="author-bio" aria-label="About the author">
+  <p>
+    Shelly Lynn Xiong (also published as Shelly Xiong, online as
+    <span class="author-bio-handle">@shellylynnx</span>) writes the NYC Subway
+    Birder column at <a href="https://shellylynnx.com">shellylynnx.com</a>,
+    covering {topicsClause}. She's an artist and the Website Administrator at
+    <a
+      href="https://www.metmuseum.org"
+      target="_blank"
+      rel="noopener noreferrer">The Metropolitan Museum of Art</a>. She builds
+    tools for NYC birders, including
+    <a
+      href="https://shellylynnx.github.io/projects/METBird/"
+      target="_blank"
+      rel="noopener noreferrer">METBird</a>, a browser for the Met's 9,751
+    open-access bird artworks cross-referenced with eBird taxonomy, and
+    <a
+      href="https://shellylynnx.github.io/projects/NYCoffleash/"
+      target="_blank"
+      rel="noopener noreferrer">NYC Off-Leash</a>, a map of the city's dog runs
+    and wildlife incident reports.
+  </p>
+</aside>
+
+<style>
+  .author-bio {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .author-bio a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .author-bio a:hover {
+    color: var(--color-highlight);
+  }
+
+  .author-bio-handle {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+</style>
