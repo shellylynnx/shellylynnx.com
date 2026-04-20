@@ -1200,7 +1200,7 @@ body.light .notes-filter-pill.active {
 
 .note-refs-list {
     margin: 16px 0 0 20px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
 }
