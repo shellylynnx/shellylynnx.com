@@ -1140,10 +1140,8 @@ body.light .tool-card:hover {
 
 .subway-hero-image {
     width: 100%;
-    max-width: 680px;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: 50% 50%;
+    max-width: 460px;
+    height: auto;
     border-radius: 8px;
     display: block;
     margin: 0 auto;
