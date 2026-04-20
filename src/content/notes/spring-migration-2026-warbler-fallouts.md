@@ -30,6 +30,7 @@ references:
   - number: 4
     title: "Central Park climate reports, April 2026"
     publication: "National Weather Service"
+    url: "https://forecast.weather.gov/product.php?site=NWS&product=CF6&issuedby=NYC"
     note: "April 15, 2026 high of 90°F broke the daily record of 87°F set in 1941; only a trace of snow from March 1 onward"
   - number: 5
     title: "Wind and Migration"
