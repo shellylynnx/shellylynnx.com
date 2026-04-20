@@ -35,15 +35,11 @@ function parseFrontmatter(raw) {
   const fmRaw = match[1];
   const body = match[2];
   const fm = {};
-  let currentKey = null;
-  let arrayTarget = null;
   for (const line of fmRaw.split("\n")) {
     const indent = line.match(/^(\s*)/)[1].length;
     const kv = line.match(/^\s*([a-zA-Z_]+):\s*(.*)$/);
     if (indent === 0 && kv) {
       const [, key, value] = kv;
-      currentKey = key;
-      arrayTarget = null;
       if (value === "" || value === null) {
         fm[key] = null;
       } else {
@@ -51,6 +47,9 @@ function parseFrontmatter(raw) {
       }
     }
   }
+  // Detect subway-birder tag from raw frontmatter text (tolerates YAML list syntax)
+  fm.__hasSubwayBirderTag = /(^|\n)\s*-\s*(?:"|')?subway-birder(?:"|')?\s*(?:\n|$)/m.test(fmRaw);
+  fm.__hasSubwayRoutes = /(^|\n)subwayRoutes:\s*\n\s+-\s+hotspot:/m.test(fmRaw);
   return { fm, body };
 }
 
@@ -92,6 +91,13 @@ async function checkFile(file) {
   }
   if (fm.author && fm.author !== "Shelly Xiong") {
     fail(file, `author is "${fm.author}" (must be "Shelly Xiong")`);
+  }
+
+  if (fm.__hasSubwayBirderTag && !fm.__hasSubwayRoutes) {
+    fail(
+      file,
+      `tagged 'subway-birder' but missing subwayRoutes array (each entry needs hotspot + directions)`,
+    );
   }
 
   if (body.includes("—")) {

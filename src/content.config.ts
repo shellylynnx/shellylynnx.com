@@ -36,6 +36,17 @@ const notes = defineCollection({
         }),
       )
       .default([]),
+    subwayRoutes: z
+      .array(
+        z.object({
+          hotspot: z.string(),
+          lines: z.array(z.string()).default([]),
+          buses: z.array(z.string()).optional(),
+          lirr: z.string().optional(),
+          directions: z.string(),
+        }),
+      )
+      .default([]),
   }),
 });
 

@@ -11,6 +11,22 @@ tags:
   - central park
   - birdcast
   - climate
+  - subway-birder
+subwayRoutes:
+  - hotspot: "Central Park, The Ramble"
+    lines: ["B", "C"]
+    directions: "B or C to 72 St or 81 St-Museum of Natural History, then walk east into the park. The Ramble sits just past Bethesda Terrace. Note the B is weekday-only; weekends take the C."
+  - hotspot: "Prospect Park, Long Meadow and Lookout Hill"
+    lines: ["2", "3", "F", "G"]
+    directions: "2 or 3 to Grand Army Plaza for the Long Meadow north entrance. F or G to 15 St-Prospect Park for the south end and Lookout Hill."
+  - hotspot: "Jamaica Bay Wildlife Refuge"
+    lines: ["A"]
+    buses: ["Q52 SBS", "Q53 SBS"]
+    directions: "A train to Broad Channel, then a 20-minute walk north along Cross Bay Blvd to the visitor center. Q52 SBS or Q53 SBS stops at the Refuge entrance."
+  - hotspot: "Alley Pond Environmental Center"
+    buses: ["Q12"]
+    lirr: "Port Washington branch to Bayside (25-minute walk to the center)"
+    directions: "Q12 on Northern Blvd stops one minute from the center. Or take the LIRR Port Washington branch to Bayside and walk about 25 minutes east on Northern Blvd. Plan on 90 minutes from Midtown."
 ogImage: /images/notes/spring-migration-2026/yerwar-655035195.jpg
 references:
   - number: 1
