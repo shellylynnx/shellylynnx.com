@@ -72,6 +72,7 @@ body.light {
     --color-text-dim: #8a8478;
     --color-border: #d4cfc6;
     --color-card-bg: #EBE6DC;
+    --color-secondary: #8a6b20;
 }
 
 body.light .nav {
