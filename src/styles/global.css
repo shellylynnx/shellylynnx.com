@@ -11,7 +11,7 @@
     --color-accent: #345A40;
     --color-accent-hover: #2a4a34;
     --color-secondary: #C8A54E;
-    --color-highlight: #B5654A;
+    --color-highlight: #E48B47;
     --color-border: #3a352f;
     --color-card-bg: #211e1a;
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
@@ -73,6 +73,7 @@ body.light {
     --color-border: #d4cfc6;
     --color-card-bg: #EBE6DC;
     --color-secondary: #8a6b20;
+    --color-highlight: #B8571F;
 }
 
 body.light .nav {
