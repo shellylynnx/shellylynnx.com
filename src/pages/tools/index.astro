@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+type Tool = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  stack: string[];
+  liveUrl: string;
+  sourceUrl: string;
+  color: string;
+};
+
+const tools: Tool[] = [
+  {
+    slug: "metbird",
+    name: "METBird",
+    tagline: "9,751 Met Museum bird artworks, searchable",
+    description:
+      "A searchable browser for the Metropolitan Museum of Art's open-access bird collection, cross-referenced with eBird taxonomy. Type a bird name and surface every Met artwork of that species — ukiyo-e warblers, Audubon folios, 18th-century cigarette cards, and a lot that doesn't fit a genre.",
+    stack: ["Vanilla JS", "Met Open Access API", "eBird taxonomy"],
+    liveUrl: "https://shellylynnx.github.io/projects/METBird/",
+    sourceUrl: "https://github.com/shellylynnx/projects/tree/main/METBird",
+    color: "#ec012a",
+  },
+  {
+    slug: "nyc-off-leash",
+    name: "NYC Off-Leash",
+    tagline: "A map of NYC dog runs, off-leash hours, and animal incidents",
+    description:
+      "An interactive MapLibre GL map pulling from NYC Open Data. Shows every dog run and off-leash area across the five boroughs alongside 311 animal-related incident reports. Useful for dog owners planning a walk and for anyone curious about the pattern of urban-wildlife interactions in NYC.",
+    stack: ["MapLibre GL", "NYC Open Data", "Vanilla JS"],
+    liveUrl: "https://shellylynnx.github.io/projects/NYCoffleash/",
+    sourceUrl: "https://github.com/shellylynnx/projects/tree/main/NYCoffleash",
+    color: "#3a7d44",
+  },
+  {
+    slug: "riso-preview",
+    name: "Riso Preview",
+    tagline: "Risograph print simulator with 3-layer overprint",
+    description:
+      "Simulate how artwork will print on a risograph before committing ink. Load any image, assign up to three Riso Kagaku inks per layer, and preview how they'll blend in overprint. Saves a lot of test prints when you're working from home without a studio.",
+    stack: ["Canvas API", "Vanilla JS", "Color theory"],
+    liveUrl: "https://shellylynnx.github.io/projects/riso-preview/",
+    sourceUrl: "https://github.com/shellylynnx/projects/tree/main/riso-preview",
+    color:
+      "linear-gradient(135deg, #e8c547, #d4775c, #5a8fbb)",
+  },
+  {
+    slug: "one-page-zine",
+    name: "One-Page Zine",
+    tagline: "Eight-page zine from one sheet, exported to PDF",
+    description:
+      "Arrange an 8-page zine from a single sheet with proper fold orientation baked into the layout. Drop in images and text per page, preview the fold, then export to a print-ready PDF. The output is the standard one-cut-one-fold mini-zine format.",
+    stack: ["jsPDF", "Canvas API", "Print layout"],
+    liveUrl: "https://shellylynnx.github.io/projects/one-page-zine/",
+    sourceUrl: "https://github.com/shellylynnx/projects/tree/main/one-page-zine",
+    color: "#AEB784",
+  },
+];
+---
+
+<BaseLayout
+  title="Tools — Shelly Xiong"
+  description="Small pieces of software for birders and makers. METBird, NYC Off-Leash, Riso Preview, One-Page Zine. Open source, built out of curiosity."
+>
+  <main style="padding-top: var(--nav-height);">
+    <section class="section tools-index" id="tools">
+      <div class="container" style="max-width: 960px;">
+        <h1 class="tools-index-title">Tools</h1>
+        <p class="tools-index-dek">
+          Small pieces of software I've built out of curiosity. All open source,
+          free to use, made to answer a specific question I had.
+        </p>
+
+        <ul class="tools-list">
+          {
+            tools.map((tool) => (
+              <li class="tool-card">
+                <a
+                  class="tool-card-media"
+                  href={tool.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${tool.name}`}
+                  style={`background: ${tool.color};`}
+                >
+                  <img
+                    src={`/images/tools/${tool.slug}.jpg`}
+                    alt=""
+                    loading="lazy"
+                    onerror="this.remove()"
+                  />
+                </a>
+                <div class="tool-card-body">
+                  <h2 class="tool-card-name">{tool.name}</h2>
+                  <p class="tool-card-tagline">{tool.tagline}</p>
+                  <p class="tool-card-desc">{tool.description}</p>
+                  <ul class="tool-card-stack">
+                    {tool.stack.map((t) => (
+                      <li>{t}</li>
+                    ))}
+                  </ul>
+                  <div class="tool-card-actions">
+                    <a
+                      class="btn btn-primary"
+                      href={tool.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open live →
+                    </a>
+                    <a
+                      class="btn btn-outline"
+                      href={tool.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View source ↗
+                    </a>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

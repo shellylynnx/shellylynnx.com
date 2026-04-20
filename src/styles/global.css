@@ -806,6 +806,148 @@ body.light .icon-moon { display: block; }
 }
 
 /* ========================================
+   Tools — Index
+   ======================================== */
+
+.section.tools-index {
+    background: var(--color-bg);
+}
+
+.tools-index-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    line-height: 1.15;
+}
+
+.tools-index-dek {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 620px;
+}
+
+.tools-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.tool-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) 1.4fr;
+    gap: 28px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tool-card:hover {
+    border-color: var(--color-text-dim);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.light .tool-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card-media {
+    display: block;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover .tool-card-media img {
+    transform: scale(1.02);
+}
+
+.tool-card-body {
+    padding: 28px 28px 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tool-card-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.tool-card-tagline {
+    font-size: 0.9375rem;
+    color: var(--color-secondary);
+    margin: 0;
+    font-style: italic;
+}
+
+.tool-card-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 4px 0 0;
+}
+
+.tool-card-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.tool-card-stack li {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    background: var(--color-bg);
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+}
+
+.tool-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+@media (max-width: 720px) {
+    .tool-card {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card-media {
+        min-height: 180px;
+    }
+
+    .tool-card-body {
+        padding: 4px 22px 24px;
+    }
+}
+
+/* ========================================
    Notes — Index
    ======================================== */
 
@@ -838,6 +980,10 @@ body.light .icon-moon { display: block; }
 .section.notes-index,
 .section.about {
     background: var(--color-bg);
+}
+
+.about-social-links {
+    margin-top: 16px;
 }
 
 .section.notes-subscribe-section {
