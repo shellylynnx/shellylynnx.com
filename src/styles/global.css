@@ -543,6 +543,7 @@ body.light .icon-moon { display: block; }
     text-decoration: none;
     color: inherit;
     display: block;
+    height: 100%;
 }
 
 .project-card-link:hover {
@@ -555,6 +556,9 @@ body.light .icon-moon { display: block; }
     border-radius: 6px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card-link:hover .project-card {
@@ -569,6 +573,9 @@ body.light .icon-moon { display: block; }
 
 .project-info {
     padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-info h3 {
@@ -583,6 +590,7 @@ body.light .icon-moon { display: block; }
     color: var(--color-text-secondary);
     margin-bottom: 16px;
     line-height: 1.6;
+    flex: 1;
 }
 
 .project-tags {
