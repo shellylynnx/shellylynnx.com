@@ -432,9 +432,10 @@ body.light .icon-moon { display: block; }
 
 .interest-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
 }
 
