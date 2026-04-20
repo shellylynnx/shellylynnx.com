@@ -144,6 +144,8 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
           <Content />
         </div>
 
+        <AuthorBio topics={data.topics} />
+
         {
           data.birdsMentioned.length > 0 && (
             <section class="note-birds" aria-labelledby="birds-mentioned">
@@ -208,8 +210,6 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
             </section>
           )
         }
-
-        <AuthorBio topics={data.topics} />
 
         {
           data.references.length > 0 && (
