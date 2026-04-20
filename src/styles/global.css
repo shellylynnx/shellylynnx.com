@@ -804,7 +804,9 @@ body.light .btn-green:hover {
 
 @media (max-width: 768px) {
     .nav-inner {
+        display: flex;
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .nav-logo {
@@ -814,11 +816,12 @@ body.light .btn-green:hover {
     .nav-toggle {
         display: flex;
         order: 2;
+        justify-self: auto;
     }
 
     .theme-toggle {
         order: 1;
-        margin-right: auto;
+        justify-self: auto;
     }
 
     .nav-links {
@@ -1153,6 +1156,10 @@ body.light .tool-card:hover {
 .section.subway-explainer,
 .section.subway-covers {
     background: var(--color-bg-alt);
+}
+
+.section.subway-subscribe {
+    background: var(--color-bg);
 }
 
 .subway-hero-figure {
