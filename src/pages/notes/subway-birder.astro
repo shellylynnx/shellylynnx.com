@@ -141,10 +141,10 @@ const collectionSchema = {
       </div>
     </section>
 
-    <section class="section subway-pin-section">
-      <div class="container" style="max-width: 720px;">
-        {
-          manifestoLive ? (
+    {
+      manifestoLive && (
+        <section class="section subway-pin-section">
+          <div class="container" style="max-width: 720px;">
             <a
               class="subway-pin-card"
               href={`/notes/${MANIFESTO_SLUG}/`}
@@ -158,20 +158,10 @@ const collectionSchema = {
                 car.
               </p>
             </a>
-          ) : (
-            <div class="subway-pin-card subway-pin-card--pending" data-pending="true">
-              <span class="subway-pin-label">Coming soon</span>
-              <h3 class="subway-pin-title">What Is a Subway Birder?</h3>
-              <p class="subway-pin-dek">
-                The full argument for why NYC is the best subway-birdable city
-                in North America, and how I work the five boroughs without a
-                car.
-              </p>
-            </div>
-          )
-        }
-      </div>
-    </section>
+          </div>
+        </section>
+      )
+    }
 
     <section class="section subway-archive">
       <div class="container" style="max-width: 880px;">

@@ -47,6 +47,7 @@ const notes = defineCollection({
         }),
       )
       .default([]),
+    photoCredits: z.string().optional(),
   }),
 });
 

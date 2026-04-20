@@ -170,24 +170,30 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
                   <li>
                     <strong>{route.hotspot}</strong>
                     {route.lines.length > 0 && (
-                      <span class="note-subway-mode">
-                        {" "}· {route.lines.join(" / ")} train
-                        {route.lines.length > 1 ? "s" : ""}
-                      </span>
+                      <span class="note-subway-mode">{` · ${route.lines.join(" / ")} train${route.lines.length > 1 ? "s" : ""}`}</span>
                     )}
                     {route.lirr && (
-                      <span class="note-subway-mode"> · LIRR {route.lirr}</span>
+                      <span class="note-subway-mode">{` · LIRR ${route.lirr}`}</span>
                     )}
                     {route.buses && route.buses.length > 0 && (
-                      <span class="note-subway-mode">
-                        {" "}· bus: {route.buses.join(", ")}
-                      </span>
+                      <span class="note-subway-mode">{` · bus: ${route.buses.join(", ")}`}</span>
                     )}
-                    <span class="note-subway-directions">. {route.directions}</span>
+                    <span class="note-subway-directions">{`. ${route.directions}`}</span>
                   </li>
                 ))}
               </ul>
             </details>
+          )
+        }
+
+        {
+          data.photoCredits && (
+            <section class="note-photo-credits" aria-labelledby="photo-credits">
+              <h2 id="photo-credits" class="note-section-heading">
+                Photo Credits
+              </h2>
+              <p set:html={data.photoCredits} />
+            </section>
           )
         }
 

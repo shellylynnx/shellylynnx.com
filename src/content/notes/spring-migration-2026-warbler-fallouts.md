@@ -27,6 +27,7 @@ subwayRoutes:
     buses: ["Q12"]
     lirr: "Port Washington branch to Bayside (25-minute walk to the center)"
     directions: "Q12 on Northern Blvd stops one minute from the center. Or take the LIRR Port Washington branch to Bayside and walk about 25 minutes east on Northern Blvd. Plan on 90 minutes from Midtown."
+photoCredits: "All photographs by Shelly Xiong, archived at the <a href=\"https://macaulaylibrary.org/\">Macaulay Library, Cornell Lab of Ornithology</a>. Asset IDs: 655035195, 655012201, 655035015."
 ogImage: /images/notes/spring-migration-2026/yerwar-655035195.jpg
 references:
   - number: 1
@@ -210,8 +211,3 @@ I'll be there at first light, in the Ramble, looking up.
 
 **Go tomorrow morning. Bring binoculars. Log what you see on [eBird](https://ebird.org/). Migration happens in pulses, not a long continuous peak. The best days might be the next south-wind night followed by a cold front, or the one after. Don't wait for the perfect window. This is it.**
 
----
-
-## Photo Credits
-
-All photographs by Shelly Xiong, archived at the [Macaulay Library, Cornell Lab of Ornithology](https://macaulaylibrary.org/). Asset IDs: 655035195, 655012201, 655035015.
