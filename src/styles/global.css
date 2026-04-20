@@ -834,7 +834,8 @@ body.light .icon-moon { display: block; }
     max-width: 560px;
 }
 
-.section.notes-index {
+.section.notes-index,
+.section.about {
     background: var(--color-bg);
 }
 
