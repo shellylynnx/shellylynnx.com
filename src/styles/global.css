@@ -829,19 +829,31 @@ body.light .btn-green:hover {
         top: var(--nav-height);
         left: 0;
         right: 0;
+        width: auto;
+        justify-self: auto;
         background: rgba(26, 23, 20, 0.98);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         flex-direction: column;
-        align-items: flex-end;
-        padding: 24px;
-        gap: 20px;
+        align-items: stretch;
+        padding: 20px 24px;
+        gap: 4px;
         border-bottom: 1px solid var(--color-border);
         transform: translateY(-100%);
         opacity: 0;
         pointer-events: none;
         transition: transform 0.3s, opacity 0.3s;
         text-align: right;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1rem;
     }
 
     .nav-links.open {
