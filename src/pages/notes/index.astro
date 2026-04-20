@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubscribeForm from "../../components/SubscribeForm.astro";
 import { getCollection } from "astro:content";
 
 const notes = (await getCollection("notes", ({ data }) => !data.draft)).sort(
@@ -88,6 +89,20 @@ const fmt = (d: Date) =>
             </ul>
           )
         }
+      </div>
+    </section>
+
+    <section class="section notes-subscribe-section" aria-label="Subscribe">
+      <div class="container" style="max-width: 720px;">
+        <p class="notes-subscribe-kicker">One dispatch a month</p>
+        <h2 class="notes-subscribe-heading">
+          Get new Field Notes in your inbox
+        </h2>
+        <p class="notes-subscribe-copy">
+          Free, no sponsors. One NYC bird, one field observation, one link worth
+          clicking.
+        </p>
+        <SubscribeForm buttonLabel="Subscribe" placeholder="you@somewhere.net" />
       </div>
     </section>
   </main>
