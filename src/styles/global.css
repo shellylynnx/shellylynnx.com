@@ -363,6 +363,51 @@ body.light .icon-moon { display: block; }
     color: var(--color-text);
 }
 
+/* Fun accent outline variants for the hero button row */
+.btn-gold {
+    background: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+.btn-gold:hover {
+    background: var(--color-secondary);
+    color: var(--color-bg);
+}
+
+.btn-green {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.btn-green:hover {
+    background: var(--color-accent);
+    color: #E8E0D4;
+    border-color: var(--color-accent);
+}
+
+body.light .btn-green {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+body.light .btn-green:hover {
+    background: var(--color-accent);
+    color: #F5F0E8;
+}
+
+.btn-rust {
+    background: transparent;
+    color: var(--color-highlight);
+    border: 1px solid var(--color-highlight);
+}
+
+.btn-rust:hover {
+    background: var(--color-highlight);
+    color: var(--color-bg);
+}
+
 /* ========================================
    Sections
    ======================================== */
