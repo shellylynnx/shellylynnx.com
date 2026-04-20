@@ -1001,6 +1001,10 @@ body.light .tool-card:hover {
     background: var(--color-bg);
 }
 
+.about-connect-title {
+    margin-top: 40px;
+}
+
 .about-social-links {
     margin-top: 16px;
     gap: 8px;
