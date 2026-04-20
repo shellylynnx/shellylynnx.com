@@ -363,6 +363,22 @@ body.light .icon-moon { display: block; }
     color: var(--color-text);
 }
 
+.btn-hero {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-text);
+}
+
+.btn-hero:hover {
+    background: var(--color-secondary);
+    color: var(--color-bg);
+    border-color: var(--color-secondary);
+}
+
+body.light .btn-hero:hover {
+    color: var(--color-bg);
+}
+
 /* Fun accent outline variants for the hero button row */
 .btn-gold {
     background: transparent;
