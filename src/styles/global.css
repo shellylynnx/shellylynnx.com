@@ -431,18 +431,21 @@ body.light .icon-moon { display: block; }
 }
 
 .interest-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    position: relative;
+    padding-left: 32px;
     font-size: 0.9375rem;
     line-height: 1.5;
     color: var(--color-text-secondary);
 }
 
 .interest-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
     font-size: 1.125rem;
-    width: 24px;
+    width: 22px;
     text-align: center;
+    line-height: 1.5;
 }
 
 /* ========================================
