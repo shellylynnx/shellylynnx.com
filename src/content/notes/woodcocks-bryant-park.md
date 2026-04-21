@@ -31,8 +31,8 @@ subwayRoutes:
     lines: ["A"]
     buses: ["Q52 SBS", "Q53 SBS"]
     directions: "A train to Broad Channel, then a 20-minute walk north along Cross Bay Blvd to the visitor center. Q52 SBS or Q53 SBS stops at the Refuge entrance."
-ogImage: /images/notes/woodcocks-bryant-park/woodcock_portrait.jpg
-photoCredits: "Photograph and video by Shelly Xiong, Bryant Park, March 2026."
+ogImage: /images/notes/woodcocks-bryant-park/amewoo-653024535.jpg
+photoCredits: "All photographs by Shelly Xiong, archived at the <a href=\"https://macaulaylibrary.org/\">Macaulay Library, Cornell Lab of Ornithology</a>. Asset IDs: 653024535, 653024543. Video by Shelly Xiong, Bryant Park, March 2026."
 references:
   - number: 1
     title: "Rock it like a woodcock: This Bryant Park bogsucker is NYC's latest 'it bird'"
@@ -126,7 +126,7 @@ Bryant Park's own social team posted a clip of a woodcock set to the Black Eyed 
     loop
     playsinline
     preload="metadata"
-    poster="/images/notes/woodcocks-bryant-park/woodcock_portrait.jpg"
+    poster="/images/notes/woodcocks-bryant-park/amewoo-653024535.jpg"
   >
     <source src="/images/notes/woodcocks-bryant-park/woodcock_bob.mp4" type="video/mp4" />
     <img
@@ -146,6 +146,11 @@ It's a single, buzzy, nasal, 0.2-second note that a male gives at dusk and dawn 
 Bryant Park is not a display ground. It's a stopover. The birds there are migrants stopping to rest, not courting males on their breeding turf, so the full sky dance is not what a lunch crowd is going to see on a Midtown lawn. If you want the real thing, you have to leave Midtown: Floyd Bennett Field in Brooklyn and Jamaica Bay Wildlife Refuge are the spots NYC-area birders typically recommend for the spring display.
 
 Also, while we're here: their eyes sit so far back in the skull that their ear openings have been pushed to *below* the eyes, instead of behind them like in most birds. Their brain is effectively upside down inside their skull to make room (12). This is a bird whose anatomy was rebuilt from the ground up to watch for predators while head-down in leaf litter. The bob is a feature. The dance is a feature. The evolution is wild.
+
+<figure>
+  <img src="/images/notes/woodcocks-bryant-park/amewoo-653024543-1200.jpg" alt="American Woodcock in profile, showing the eye set far back and high on the skull, roughly level with the base of the long bill." />
+  <figcaption>A Bryant Park woodcock in profile. The eye is set far back and high, which is what the whole anatomical story above is about. Photo © Shelly Xiong.</figcaption>
+</figure>
 
 ## Why Bryant Park
 
