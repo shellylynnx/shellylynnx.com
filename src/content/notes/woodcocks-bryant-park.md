@@ -134,7 +134,7 @@ Bryant Park's own social team posted a clip of a woodcock set to the Black Eyed 
       alt="American Woodcock doing the characteristic slow rocking bob while foraging in leaf litter at Bryant Park."
     />
   </video>
-  <figcaption>A Bryant Park woodcock mid-bob, March 17, 2026. The clip is muted and loops, no click required. Video © Shelly Xiong.</figcaption>
+  <figcaption>A Bryant Park woodcock mid-bob, March 17, 2026. Video © Shelly Xiong.</figcaption>
 </figure>
 
 ## The sound most people get wrong
