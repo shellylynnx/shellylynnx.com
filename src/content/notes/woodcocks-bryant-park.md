@@ -32,6 +32,7 @@ subwayRoutes:
     buses: ["Q52 SBS", "Q53 SBS"]
     directions: "A train to Broad Channel, then a 20-minute walk north along Cross Bay Blvd to the visitor center. Q52 SBS or Q53 SBS stops at the Refuge entrance."
 ogImage: /images/notes/woodcocks-bryant-park/amewoo-653024535.jpg
+ogImageAlt: "American Woodcock facing the camera in leaf litter and ivy at Bryant Park, New York City."
 photoCredits: "All photographs by Shelly Xiong, archived at the <a href=\"https://macaulaylibrary.org/\">Macaulay Library, Cornell Lab of Ornithology</a>. Asset IDs: 653024535, 653024543. Video by Shelly Xiong, Bryant Park, March 2026."
 references:
   - number: 1

@@ -33,6 +33,7 @@ subwayRoutes:
     directions: "Q12 on Northern Blvd stops one minute from the center. Or take the LIRR Port Washington branch to Bayside and walk about 25 minutes east on Northern Blvd. Plan on 90 minutes from Midtown."
 photoCredits: "All photographs by Shelly Xiong, archived at the <a href=\"https://macaulaylibrary.org/\">Macaulay Library, Cornell Lab of Ornithology</a>. Asset IDs: 655035195, 655012201, 655035015."
 ogImage: /images/notes/spring-migration-2026/yerwar-655035195.jpg
+ogImageAlt: "A Yellow-rumped Warbler perched on a bare spring branch surrounded by catkins, Central Park, New York City."
 references:
   - number: 1
     title: "BirdCast Migration Dashboard, New York state, night of April 8–9, 2026"
@@ -119,7 +120,6 @@ birdsMentioned:
     ebirdCode: "btnwar"
   - commonName: "Black-and-white Warbler"
     ebirdCode: "bawwar"
-    note: "a personal favorite this time of year"
   - commonName: "Ovenbird"
     ebirdCode: "ovenbi1"
   - commonName: "Yellow-throated Vireo"
