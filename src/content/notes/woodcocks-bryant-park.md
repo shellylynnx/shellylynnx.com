@@ -149,7 +149,7 @@ Also, while we're here: their eyes sit so far back in the skull that their ear o
 
 <figure>
   <img src="/images/notes/woodcocks-bryant-park/amewoo-653024543-1200.jpg" alt="American Woodcock in profile, showing the eye set far back and high on the skull, roughly level with the base of the long bill." />
-  <figcaption>Bryant Park woodcock in profile. Eye placement, up close.</figcaption>
+  <figcaption>Bryant Park woodcock in profile. Eye placement, up close. Photo © Shelly Xiong.</figcaption>
 </figure>
 
 ## Why Bryant Park
