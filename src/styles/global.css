@@ -1469,12 +1469,18 @@ body.light .notes-filter-pill.active {
 
 @media (max-width: 600px) {
     .notes-card-link {
+        flex-direction: column;
         gap: 14px;
     }
 
     .notes-card-thumb {
-        width: 88px;
-        height: 88px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
+    .notes-card-link[href="/notes/woodcocks-bryant-park/"] .notes-card-thumb img {
+        object-position: center 35%;
     }
 }
 
