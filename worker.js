@@ -29,15 +29,30 @@ async function handleSubscribe(request, env) {
       );
     }
 
-    if (env.SUBSCRIBE_RL) {
+    if (env.RATE_LIMIT) {
       const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
-      const { success } = await env.SUBSCRIBE_RL.limit({ key: ip });
-      if (!success) {
+      const key = `rl:subscribe:${ip}`;
+      const now = Math.floor(Date.now() / 1000);
+      const windowSeconds = 3600;
+      const maxHits = 5;
+
+      const existing = await env.RATE_LIMIT.get(key, { type: "json" });
+      const entry =
+        existing && now - existing.windowStart < windowSeconds
+          ? existing
+          : { count: 0, windowStart: now };
+
+      if (entry.count >= maxHits) {
         return Response.json(
           { ok: false, error: "rate_limited" },
           { status: 429 },
         );
       }
+
+      entry.count += 1;
+      await env.RATE_LIMIT.put(key, JSON.stringify(entry), {
+        expirationTtl: windowSeconds,
+      });
     }
 
     const body = await request.json();
