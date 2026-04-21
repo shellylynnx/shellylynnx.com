@@ -29,6 +29,17 @@ async function handleSubscribe(request, env) {
       );
     }
 
+    if (env.SUBSCRIBE_RL) {
+      const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
+      const { success } = await env.SUBSCRIBE_RL.limit({ key: ip });
+      if (!success) {
+        return Response.json(
+          { ok: false, error: "rate_limited" },
+          { status: 429 },
+        );
+      }
+    }
+
     const body = await request.json();
     const email = body?.email?.trim().toLowerCase();
 
