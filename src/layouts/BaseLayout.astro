@@ -6,6 +6,7 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   ogType?: string;
 }
 
@@ -16,6 +17,7 @@ const {
   ogTitle = "Shelly Xiong | NYC birder, artist, and developer",
   ogDescription = "Documenting the birds of New York City's five boroughs.",
   ogImage = "/images/shelly-avatar.jpg",
+  ogImageAlt = "Portrait of Shelly Xiong, NYC birder, artist, and developer.",
   ogType = "website",
 } = Astro.props;
 
@@ -40,6 +42,7 @@ import "../styles/global.css";
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="shellylynnx.com" />
@@ -47,6 +50,7 @@ import "../styles/global.css";
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <link
       rel="alternate"

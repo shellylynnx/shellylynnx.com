@@ -13,6 +13,7 @@ const notes = defineCollection({
     tags: z.array(z.string()).default([]),
     canonicalURL: z.string().url().optional(),
     ogImage: z.string().optional(),
+    ogImageAlt: z.string().optional(),
     draft: z.boolean().default(false),
     references: z
       .array(
