@@ -102,4 +102,4 @@ SVG with the 🐦‍⬛ Black Bird emoji. On older OSs that don't support the co
 
 ## Contact
 
-`helloshellylynnx@gmail.com`
+`subwaybirder@gmail.com`
