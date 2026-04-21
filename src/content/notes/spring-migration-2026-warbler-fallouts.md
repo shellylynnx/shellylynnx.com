@@ -12,6 +12,10 @@ tags:
   - birdcast
   - climate
   - subway-birder
+topics:
+  - spring migration
+  - NYC birding
+  - birding ethics
 subwayRoutes:
   - hotspot: "Central Park, The Ramble"
     lines: ["B", "C"]
