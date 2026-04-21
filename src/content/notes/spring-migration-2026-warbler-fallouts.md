@@ -105,18 +105,21 @@ references:
     publication: "Wilderness Society"
     url: "https://wilderness-society.org/how-climate-change-is-rewriting-the-journeys-of-migratory-birds/"
 birdsMentioned:
+  - commonName: "Yellow-rumped Warbler"
+    ebirdCode: "yerwar"
   - commonName: "Yellow Warbler"
     ebirdCode: "yelwar1"
   - commonName: "Palm Warbler"
     ebirdCode: "palwar"
   - commonName: "Pine Warbler"
     ebirdCode: "pinwar"
-  - commonName: "Yellow-rumped Warbler"
-    ebirdCode: "yerwar"
   - commonName: "Black-throated Blue Warbler"
     ebirdCode: "btbwar"
   - commonName: "Black-throated Green Warbler"
     ebirdCode: "btnwar"
+  - commonName: "Black-and-white Warbler"
+    ebirdCode: "bawwar"
+    note: "a personal favorite this time of year"
   - commonName: "Ovenbird"
     ebirdCode: "ovenbi1"
   - commonName: "Yellow-throated Vireo"
@@ -139,7 +142,7 @@ I checked [BirdCast](https://birdcast.info/) at midnight last night, like I alwa
 
 I'm typing this on a Saturday morning, and I need you to understand what that means: if you've ever wanted to see spring migration in New York City at its peak, the next two weeks are when you walk into the park. The timing is almost poetic. Earth Week starts Monday, and Earth Day itself lands on Wednesday.
 
-I've been out at first light most mornings since the beginning of April, walking the Ramble in Central Park and watching the treeline. Three weeks ago, the early migrants were trickling in: Yellow Warblers, Palm Warblers, Pine Warblers, the vanguard of a wave that typically peaks in the last week of April and the first two weeks of May, with the height of warbler diversity usually landing in the second week of May (2, 3). Here's what's strange about this spring: we had a snowy January and February, then an oddly quiet March. Central Park recorded only a trace of snow from March 1 onward (4). And then the warmth came on fast. On Wednesday, April 15, Central Park hit 90°F, breaking the 87°F daily record for April 15 set in 1941 (4). That's not April weather. That's June weather showing up before the leaves have fully opened.
+I've been out at first light most mornings since the beginning of April, walking the Ramble in Central Park and watching the treeline. Three weeks ago, the early migrants were trickling in: Yellow-rumped Warblers, Palm Warblers, Pine Warblers, the vanguard of a wave that typically peaks in the last week of April and the first two weeks of May, with the height of warbler diversity usually landing in the second week of May (2, 3). Here's what's strange about this spring: we had a snowy January and February, then an oddly quiet March. Central Park recorded only a trace of snow from March 1 onward (4). And then the warmth came on fast. On Wednesday, April 15, Central Park hit 90°F, breaking the 87°F daily record for April 15 set in 1941 (4). That's not April weather. That's June weather showing up before the leaves have fully opened.
 
 <figure>
   <img src="/images/notes/spring-migration-2026/palwar-655012201-1200.jpg" alt="A Palm Warbler pumping its tail on a low branch, an early April arrival in Central Park." />
@@ -165,9 +168,9 @@ This year's jump from hard winter to a sudden heat wave is its own kind of stres
 
 ## What You Actually See (And When)
 
-The warblers are what people come for. Bright, flashy, delicate birds with names like Yellow-rumped Warbler, Black-throated Blue Warbler, and (my personal favorite this time of year) the Black-throated Green. You'll see them hang-feeding, sometimes upside down, gleaning insects off leaves. They're here for maybe 24 to 48 hours unless weather keeps them pinned down, then they push north.
+The warblers are what people come for. Sharp, flashy, delicate birds with names like Yellow-rumped Warbler, Black-throated Blue Warbler, and (my personal favorite this time of year) the Black-and-white Warbler. You'll see most of them hang-feeding, sometimes upside down, gleaning insects off leaves, while the Black-and-white creeps up and down tree trunks like a tiny nuthatch. They're here for maybe 24 to 48 hours unless weather keeps them pinned down, then they push north.
 
-But it's not just warblers. Rose-breasted Grosbeaks are moving through, those stunning birds with white bellies and raspberry-red chests. Indigo Buntings. Scarlet Tanagers that look like someone spilled red paint on a black silhouette. Baltimore Orioles. Wood Thrushes, not strictly migrants but arriving as breeding residents. Ovenbirds walking the forest floor like tiny, loud, single-minded monks. The diversity is what gets to me every year. You can see more species in one good morning in early May than most birdwatchers will see in a month of autumn migration. Spring migration is a bottleneck. All those birds are moving fast and funneling through the same few stopover sites.
+But it's not just warblers. Rose-breasted Grosbeaks are moving through, those stunning birds with white bellies and raspberry-red chests. Indigo Buntings. Scarlet Tanagers that look like someone spilled red paint on a black silhouette. Baltimore Orioles. Wood Thrushes, not just passing through but arriving to breed. Ovenbirds walking the forest floor like tiny, loud, single-minded monks. The diversity is what gets to me every year. You can see more species in one good morning in early May than most birdwatchers will see in a month of autumn migration. Spring migration is a bottleneck. All those birds are moving fast and funneling through the same few stopover sites.
 
 The peak hours are dawn to 10 AM, when birds are most active after a night of flight and rest. If you're new, come at 7 AM. Bring binoculars (even cheap ones) and [download the Merlin Bird ID app](https://merlin.allaboutbirds.org/), which can suggest species from a photo or a sound recording. It's not always right, but it's a starting point. [eBird](https://ebird.org/) is the community database. Log what you see, because those records matter for research. Bring water. Bring patience. Bring humility; a lot of warblers are small and distant and gray-green, and they're hard to see even for experienced birders.
 
