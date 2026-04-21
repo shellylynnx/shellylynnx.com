@@ -1666,6 +1666,13 @@ body.light .notes-filter-pill.active {
     display: block;
 }
 
+.note-body figure video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
 .note-body figcaption {
     font-size: 0.8125rem;
     color: var(--color-text-dim);
