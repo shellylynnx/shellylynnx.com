@@ -1,5 +1,25 @@
 const PUBLICATION_ID = "pub_7a87cacc-76f6-44c2-8194-579a21e85939";
 
+const SECURITY_HEADERS = {
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+};
+
+function withSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+    headers.set(name, value);
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 async function handleSubscribe(request, env) {
   try {
     if (!env.BEEHIIV_API_KEY) {
@@ -55,9 +75,10 @@ async function handleSubscribe(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === "/api/subscribe" && request.method === "POST") {
-      return handleSubscribe(request, env);
-    }
-    return env.ASSETS.fetch(request);
+    const response =
+      url.pathname === "/api/subscribe" && request.method === "POST"
+        ? await handleSubscribe(request, env)
+        : await env.ASSETS.fetch(request);
+    return withSecurityHeaders(response);
   },
 };

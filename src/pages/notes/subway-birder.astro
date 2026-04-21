@@ -90,7 +90,7 @@ const collectionSchema = {
   <script
     type="application/ld+json"
     is:inline
-    set:html={JSON.stringify(collectionSchema)}
+    set:html={JSON.stringify(collectionSchema).replace(/</g, "\\u003c")}
   />
 
   <main style="padding-top: var(--nav-height);">

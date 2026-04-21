@@ -16,6 +16,16 @@ const { note } = Astro.props;
 const { Content } = await render(note);
 const { data } = note;
 
+const escHtml = (s: string) =>
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const escScript = (s: string) => s.replace(/</g, "\\u003c");
+
 const canonical =
   data.canonicalURL ?? new URL(`/notes/${note.id}/`, Astro.site).href;
 
@@ -86,7 +96,7 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
   <script
     type="application/ld+json"
     is:inline
-    set:html={JSON.stringify(articleSchema)}
+    set:html={escScript(JSON.stringify(articleSchema))}
   />
 
   <script is:inline>
@@ -182,21 +192,23 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
                   {data.subwayRoutes.map((route) => {
                     const modeParts = [];
                     if (route.lines.length > 0) {
+                      const linesText = route.lines.map(escHtml).join(" / ");
                       modeParts.push(
-                        `<span class="note-subway-mode"> · ${route.lines.join(" / ")} train${route.lines.length > 1 ? "s" : ""}</span>`,
+                        `<span class="note-subway-mode"> · ${linesText} train${route.lines.length > 1 ? "s" : ""}</span>`,
                       );
                     }
                     if (route.lirr) {
                       modeParts.push(
-                        `<span class="note-subway-mode"> · LIRR ${route.lirr}</span>`,
+                        `<span class="note-subway-mode"> · LIRR ${escHtml(route.lirr)}</span>`,
                       );
                     }
                     if (route.buses && route.buses.length > 0) {
+                      const busesText = route.buses.map(escHtml).join(", ");
                       modeParts.push(
-                        `<span class="note-subway-mode"> · bus: ${route.buses.join(", ")}</span>`,
+                        `<span class="note-subway-mode"> · bus: ${busesText}</span>`,
                       );
                     }
-                    const html = `<strong>${route.hotspot}</strong>${modeParts.join("")}<span class="note-subway-directions">. ${route.directions}</span>`;
+                    const html = `<strong>${escHtml(route.hotspot)}</strong>${modeParts.join("")}<span class="note-subway-directions">. ${escHtml(route.directions)}</span>`;
                     return <li set:html={html} />;
                   })}
                 </ul>
@@ -224,15 +236,15 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
                 {data.references.map((ref, i) => {
                   const refNumber = ref.number ?? i + 1;
                   const parts = [];
-                  if (ref.author) parts.push(`${ref.author}. `);
+                  if (ref.author) parts.push(`${escHtml(ref.author)}. `);
                   parts.push(
                     ref.url
-                      ? `<a href="${ref.url}" target="_blank" rel="noopener noreferrer">${ref.title}</a>`
-                      : `<span>${ref.title}</span>`,
+                      ? `<a href="${escHtml(ref.url)}" target="_blank" rel="noopener noreferrer">${escHtml(ref.title)}</a>`
+                      : `<span>${escHtml(ref.title)}</span>`,
                   );
-                  if (ref.publication) parts.push(`, ${ref.publication}`);
-                  if (ref.date) parts.push(`, ${ref.date}`);
-                  if (ref.note) parts.push(`. ${ref.note}`);
+                  if (ref.publication) parts.push(`, ${escHtml(ref.publication)}`);
+                  if (ref.date) parts.push(`, ${escHtml(ref.date)}`);
+                  if (ref.note) parts.push(`. ${escHtml(ref.note)}`);
                   return (
                     <li id={`ref-${refNumber}`} value={refNumber} set:html={parts.join("")} />
                   );
