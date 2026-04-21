@@ -1478,10 +1478,6 @@ body.light .notes-filter-pill.active {
         height: auto;
         aspect-ratio: 16 / 10;
     }
-
-    .notes-card-link[href="/notes/woodcocks-bryant-park/"] .notes-card-thumb img {
-        object-position: center 40%;
-    }
 }
 
 .notes-card-meta {
