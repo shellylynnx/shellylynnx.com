@@ -3,16 +3,26 @@ interface Props {
   title: string;
   description?: string;
   canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: string;
 }
 
 const {
   title,
   description = "NYC birder, artist, and developer documenting New York's birds across the five boroughs. Field notes, art, and small tools for birders.",
   canonical,
+  ogTitle = "Shelly Xiong | NYC birder, artist, and developer",
+  ogDescription = "Documenting the birds of New York City's five boroughs.",
+  ogImage = "/images/shelly-avatar.jpg",
+  ogType = "website",
 } = Astro.props;
 
 const resolvedCanonical =
   canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+
+const ogImageUrl = new URL(ogImage, Astro.site).href;
 
 import "../styles/global.css";
 ---
@@ -27,16 +37,16 @@ import "../styles/global.css";
     <meta name="description" content={description} />
     <link rel="canonical" href={resolvedCanonical} />
 
-    <meta property="og:title" content="Shelly Xiong | NYC birder, artist, and developer" />
-    <meta property="og:description" content="Documenting the birds of New York City's five boroughs." />
-    <meta property="og:image" content="https://shellylynnx.com/images/shelly-avatar.jpg" />
-    <meta property="og:url" content="https://shellylynnx.com" />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="shellylynnx.com" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shelly Xiong | NYC birder, artist, and developer" />
-    <meta name="twitter:description" content="Documenting the birds of New York City's five boroughs." />
-    <meta name="twitter:image" content="https://shellylynnx.com/images/shelly-avatar.jpg" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <link
       rel="alternate"
