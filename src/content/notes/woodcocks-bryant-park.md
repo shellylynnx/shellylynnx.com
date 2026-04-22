@@ -12,6 +12,7 @@ tags:
   - spring migration
   - window strikes
   - conservation
+  - subway-birder
 topics:
   - NYC birding
   - spring migration
