@@ -319,6 +319,16 @@ body.light .icon-moon { display: block; }
     margin-bottom: 40px;
 }
 
+@media (min-width: 600px) {
+    .hero-tagline { font-size: 1rem; }
+    .hero-description { font-size: 0.875rem; }
+}
+
+@media (min-width: 960px) {
+    .hero-tagline { font-size: 1.125rem; }
+    .hero-description { font-size: 1rem; }
+}
+
 .hero-actions {
     display: flex;
     gap: 16px;
