@@ -265,7 +265,7 @@ body.light .icon-moon { display: block; }
     color: var(--color-text-secondary);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 
 .hero-name {
