@@ -47,10 +47,10 @@ const description =
       />
       <h1 class="links-name">Shelly Xiong</h1>
       <p class="links-handle">@shellylynnx</p>
-      <p class="links-headline">
-        NYC birding, one train line at a time.<br />
-        Field notes, projects, and documenting birds across the five boroughs.
-      </p>
+      <div class="links-headline">
+        <p class="hero-tagline">NYC birding, one train line at a time.</p>
+        <p class="hero-description">Field notes, projects, and documenting birds across the five boroughs.</p>
+      </div>
 
       <section class="link-section">
         <p class="link-section-label">Projects</p>
@@ -176,11 +176,12 @@ const description =
       }
 
       .links-headline {
-        font-size: 0.9375rem;
-        color: var(--color-text-secondary);
-        line-height: 1.55;
         margin: 0 auto 28px;
         max-width: 380px;
+      }
+
+      .links-headline .hero-description {
+        margin-bottom: 0;
       }
 
       .link-section {
