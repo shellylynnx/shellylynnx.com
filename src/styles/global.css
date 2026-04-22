@@ -308,7 +308,7 @@ body.light .icon-moon { display: block; }
     font-size: 1.125rem;
     color: var(--color-text-secondary);
     font-weight: 400;
-    margin-bottom: 12px;
+    margin-bottom: 0;
     letter-spacing: 0.02em;
 }
 
