@@ -10,6 +10,14 @@ if (!entry) {
 const { Content } = await render(entry);
 const { data } = entry;
 
+const escHtml = (s: string) =>
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 const escScript = (s: string) => s.replace(/</g, "\\u003c");
 
 const canonical =
@@ -87,10 +95,36 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
     set:html={escScript(JSON.stringify(articleSchema))}
   />
 
+  <script is:inline>
+    (function () {
+      function openRefsFor(hash) {
+        if (!hash || !hash.startsWith("#ref-")) return;
+        var refs = document.querySelector(".note-refs");
+        if (refs && !refs.open) refs.open = true;
+        requestAnimationFrame(function () {
+          var target = document.querySelector(hash);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a.note-cite-link");
+        if (!a) return;
+        e.preventDefault();
+        var hash = new URL(a.href).hash;
+        if (history.replaceState) history.replaceState(null, "", hash);
+        openRefsFor(hash);
+      });
+      if (window.location.hash) openRefsFor(window.location.hash);
+    })();
+  </script>
+
   <main style="padding-top: var(--nav-height);">
     <article class="note-article">
       <div class="container" style="max-width: 720px;">
         <header class="note-header">
+          <p class="note-byline">
+            <a href="/notes" class="note-back">← Notes</a>
+          </p>
           <h1 class="note-title">{data.title}</h1>
           <p class="note-dek">{data.description}</p>
           <p class="note-meta">
@@ -154,6 +188,32 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
               </h2>
               <p set:html={data.photoCredits} />
             </section>
+          )
+        }
+
+        {
+          data.references.length > 0 && (
+            <details class="note-refs">
+              <summary>References ({data.references.length})</summary>
+              <ol class="note-refs-list">
+                {data.references.map((ref, i) => {
+                  const refNumber = ref.number ?? i + 1;
+                  const parts = [];
+                  if (ref.author) parts.push(`${escHtml(ref.author)}. `);
+                  parts.push(
+                    ref.url
+                      ? `<a href="${escHtml(ref.url)}" target="_blank" rel="noopener noreferrer">${escHtml(ref.title)}</a>`
+                      : `<span>${escHtml(ref.title)}</span>`,
+                  );
+                  if (ref.publication) parts.push(`, ${escHtml(ref.publication)}`);
+                  if (ref.date) parts.push(`, ${escHtml(ref.date)}`);
+                  if (ref.note) parts.push(`. ${escHtml(ref.note)}`);
+                  return (
+                    <li id={`ref-${refNumber}`} value={refNumber} set:html={parts.join("")} />
+                  );
+                })}
+              </ol>
+            </details>
           )
         }
       </div>
