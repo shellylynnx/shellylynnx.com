@@ -13,42 +13,34 @@ photoCredits: "Hero photograph by Shelly Xiong, archived at the <a href=\"https:
 category: "Intro"
 references:
   - number: 1
-    title: "eBird"
-    publication: "Cornell Lab of Ornithology"
-    url: "https://ebird.org/home"
-  - number: 2
-    title: "Merlin Bird ID"
-    publication: "Cornell Lab of Ornithology"
-    url: "https://merlin.allaboutbirds.org/"
-  - number: 3
     title: "The Atlantic Flyway"
     publication: "American Bird Conservancy"
     url: "https://abcbirds.org/program/migratory-birds/flyways/"
-  - number: 4
+  - number: 2
     title: "Birding in New York City"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/new-to-birding/birding-in-new-york-city"
-  - number: 5
+  - number: 3
     title: "Central Park"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/our-work/advocacy/urban-habitat/central-park"
-  - number: 6
+  - number: 4
     title: "Protecting the Ramble"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/our-work/advocacy/urban-habitat/central-park/protecting-the-ramble"
-  - number: 7
+  - number: 5
     title: "Jamaica Bay Wildlife Refuge"
     publication: "National Park Service, Gateway National Recreation Area"
     url: "https://www.nps.gov/gate/learn/nature/jamaica-bay-wildlife-refuge.htm"
-  - number: 8
+  - number: 6
     title: "Javits Center"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/our-work/advocacy/bird-friendly-buildings/javits-center"
-  - number: 9
+  - number: 7
     title: "Lights Out New York"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/our-work/conservation/lights-out-new-york"
-  - number: 10
+  - number: 8
     title: "Green-Wood Cemetery"
     publication: "NYC Bird Alliance"
     url: "https://www.nycbirdalliance.org/our-work/advocacy/urban-habitat/green-wood-cemetery"
@@ -79,15 +71,15 @@ I call myself a Subway Birder. It's a practice, not a title you have to earn. Th
 
 ## What a Subway Birder is
 
-A Subway Birder is a person who finds their birds inside New York City's infrastructure, using the infrastructure. It's a birding practice shaped by actually living here: no car, no weekend drive out to a nature preserve, no expensive guided tours. Just a MetroCard, a pair of bins, a phone with eBird (1) and Merlin (2), and the patience to stand still in a public park on a Saturday morning.
+A Subway Birder is a person who finds their birds inside New York City's infrastructure, using the infrastructure. It's a birding practice shaped by actually living here: no car, no weekend drive out to a nature preserve, no expensive guided tours. Just a MetroCard, a pair of bins, a phone with [eBird](https://ebird.org/home) and [Merlin](https://merlin.allaboutbirds.org/), and the patience to stand still in a public park on a Saturday morning.
 
 Some people think of birding as something you travel to do. A Subway Birder thinks of birding as something you take the train to do, which is not the same thing, and which changes what birding becomes. A Subway Birder takes the train. You see fewer species on purpose. You get to know the same parks across every season. You run into the same people year after year, and the network of NYC birders who know each other's names becomes part of the practice.
 
 ## Why this practice, in this city
 
-New York City sits on the Atlantic Flyway, one of the four major migration corridors in North America (3). Over 400 species of birds have been recorded here (4). Central Park alone has recorded more than 280, which is more than many entire states (5). Olmsted didn't design Central Park for birds, but the Ramble turned out to be one of the great urban migrant traps in North America anyway, and later advocacy formally protected it as a sanctuary (6). Prospect Park was built with similar woodland intent. The city's green spaces are not accidents.
+New York City sits on the Atlantic Flyway, one of the four major migration corridors in North America (1). Over 400 species of birds have been recorded here (2). Central Park alone has recorded more than 280, which is more than many entire states (3). Olmsted didn't design Central Park for birds, but the Ramble turned out to be one of the great urban migrant traps in North America anyway, and later advocacy formally protected it as a sanctuary (4). Prospect Park was built with similar woodland intent. The city's green spaces are not accidents.
 
-The bird life here is not accidentally here either. It is here because habitat, however fragmented, was preserved, rebuilt, and in some cases engineered. Jamaica Bay Wildlife Refuge exists because of a long political fight (7). The Javits Center got bird-friendly glass, and a green roof that became bird habitat, because of bird advocacy (8). Lights Out New York happens because people organized (9). To bird this city is to bird a place that has been fought for, and to recognize the people (mostly women, mostly volunteers, mostly unheralded) who did the fighting.
+The bird life here is not accidentally here either. It is here because habitat, however fragmented, was preserved, rebuilt, and in some cases engineered. Jamaica Bay Wildlife Refuge exists because of a long political fight (5). The Javits Center got bird-friendly glass, and a green roof that became bird habitat, because of bird advocacy (6). Lights Out New York happens because people organized (7). To bird this city is to bird a place that has been fought for, and to recognize the people (mostly women, mostly volunteers, mostly unheralded) who did the fighting.
 
 I write about those people too. The Subway Birder practice is not only about what you see. It's about knowing the conditions that make the seeing possible.
 
@@ -105,7 +97,7 @@ Some of the lines I use most (your map will look different, and that's part of t
 
 - **2, 3** to the Upper West Side → the Ramble, the Reservoir, the Pool in Central Park. The most reliable migrant trap in the city, and the reason NYC birding is NYC birding.
 - **B, Q** to Prospect Park → the Lullwater, the Vale of Cashmere, the Lookout. Less crowded than Central Park and often more productive in fall.
-- **R** to Green-Wood Cemetery → hawks on the obelisks, warblers in the sycamores, and the Monk Parakeet colony at the Gothic gate most Brooklynites walk past without knowing (10).
+- **R** to Green-Wood Cemetery → hawks on the obelisks, warblers in the sycamores, and the Monk Parakeet colony at the Gothic gate most Brooklynites walk past without knowing (8).
 - **A** to Broad Channel → Jamaica Bay Wildlife Refuge. Shorebirds, waterfowl, and one of the best birding places in NYC.
 - **A** further to the Rockaways → beach nesting, Black Skimmers in summer, Fort Tilden for a fall hawkwatch.
 - **4, 5, 6** to the Upper East Side → the less-birded eastern edge of Central Park.
