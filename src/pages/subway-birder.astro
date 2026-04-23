@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AuthorBio from "../components/AuthorBio.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("intro", "subway-birder");
+if (!entry) {
+  throw new Error("Intro entry not found: src/content/intro/subway-birder.md");
+}
+const { Content } = await render(entry);
+const { data } = entry;
+
+const escScript = (s: string) => s.replace(/</g, "\\u003c");
+
+const canonical =
+  data.canonicalURL ?? new URL("/subway-birder/", Astro.site).href;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
+const ogImageUrl = data.ogImage
+  ? new URL(data.ogImage, Astro.site).href
+  : new URL("/images/shelly-avatar.jpg", Astro.site).href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: {
+    "@type": "Person",
+    "@id": "https://shellylynnx.com/#shelly",
+    name: "Shelly Lynn Xiong",
+    alternateName: ["Shelly Lynn", "Shelly Xiong", "NYC Subway Birder", "shellylynnx"],
+    url: "https://shellylynnx.com",
+    worksFor: {
+      "@type": "Organization",
+      name: "The Metropolitan Museum of Art",
+      url: "https://www.metmuseum.org",
+    },
+    sameAs: [
+      "https://shellylynnx.com",
+      "https://www.tiktok.com/@shellylynnx",
+      "https://www.instagram.com/shellylynnx/",
+      "https://github.com/shellylynnx",
+      "https://ebird.org/profile/NDQ0MjU4OA",
+    ],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Shelly Lynn Xiong",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://shellylynnx.com/favicon.svg",
+    },
+  },
+  image: ogImageUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  keywords: data.tags.join(", "),
+  articleSection: data.category,
+};
+
+const wordCount = entry.body?.split(/\s+/).filter(Boolean).length ?? 0;
+const readTime = Math.max(1, Math.round(wordCount / 220));
+---
+
+<BaseLayout
+  title={`${data.title} | NYC Subway Birder`}
+  description={data.description}
+  canonical={canonical}
+  ogTitle={data.title}
+  ogDescription={data.description}
+  ogImage={data.ogImage}
+  ogImageAlt={data.ogImageAlt}
+  ogType="article"
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={escScript(JSON.stringify(articleSchema))}
+  />
+
+  <main style="padding-top: var(--nav-height);">
+    <article class="note-article">
+      <div class="container" style="max-width: 720px;">
+        <header class="note-header">
+          <h1 class="note-title">{data.title}</h1>
+          <p class="note-dek">{data.description}</p>
+          <p class="note-meta">
+            <span>{fmt(data.pubDate)}</span>
+            <span class="note-meta-dot">·</span>
+            <span>{data.author}</span>
+            <span class="note-meta-dot">·</span>
+            <span>{readTime} min read</span>
+            <span class="note-meta-dot">·</span>
+            <span>{data.category}</span>
+          </p>
+        </header>
+
+        {
+          data.ogImage && (
+            <figure class="note-hero-figure">
+              <img
+                class="note-hero-image"
+                src={data.ogImage}
+                alt={data.ogImageAlt ?? data.title}
+                loading="eager"
+              />
+            </figure>
+          )
+        }
+
+        <div class="note-body">
+          <Content />
+        </div>
+
+        <AuthorBio topics={data.topics} />
+
+        {
+          data.birdsMentioned.length > 0 && (
+            <section class="note-birds" aria-labelledby="birds-mentioned">
+              <h2 id="birds-mentioned" class="note-section-heading">
+                Birds Mentioned
+              </h2>
+              <ul class="note-birds-list">
+                {data.birdsMentioned.map((bird) => (
+                  <li>
+                    <a
+                      href={`https://ebird.org/species/${bird.ebirdCode}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {bird.commonName}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {
+          data.photoCredits && (
+            <section class="note-photo-credits" aria-labelledby="credits">
+              <h2 id="credits" class="note-section-heading">
+                Credits
+              </h2>
+              <p set:html={data.photoCredits} />
+            </section>
+          )
+        }
+      </div>
+    </article>
+  </main>
+</BaseLayout>
