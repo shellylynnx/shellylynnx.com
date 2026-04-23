@@ -14,16 +14,19 @@
 - [Home](https://shellylynnx.com/): Hero, project grid, and monthly newsletter signup.
 - [About](https://shellylynnx.com/about): Bio, credentials, portrait.
 - [Notes](https://shellylynnx.com/notes): Longform writing from the NYC Subway Birder.
+- [The Subway Birder Intro](https://shellylynnx.com/subway-birder/): The positioning piece defining the Subway Birder practice.
+- [Tools](https://shellylynnx.com/tools): Small tools for NYC birders.
 - [Work](https://shellylynnx.com/work): Professional experience and skills.
 - [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch. Free.
 
 ## The Subway Birder
 
-- [The Subway Birder](https://shellylynnx.com/notes/subway-birder) — The section landing page and canonical definition of "Subway Birder," Shelly's recurring column on birding NYC by subway.
-- [What Is a Subway Birder?](https://shellylynnx.com/notes/what-is-a-subway-birder) — The manifesto post (slot reserved; see the section page once published).
+- [The Subway Birder](https://shellylynnx.com/notes/subway-birder) — The column hub: recurring field dispatches from birding NYC by subway.
+- [What Is a Subway Birder?](https://shellylynnx.com/subway-birder/) — The intro / positioning piece defining the practice. Published 2026-04-22.
 
 ## Canonical articles (Notes)
 
+- [Celebrity Birds: The Bryant Park Woodcocks](https://shellylynnx.com/notes/woodcocks-bryant-park/) — The American Woodcocks that took over Bryant Park this spring, the sound everyone got wrong, and the window-strike story TikTok didn't cover. Published 2026-04-20.
 - [Spring Migration 2026: Peak Timing and the Warbler Fallouts](https://shellylynnx.com/notes/spring-migration-2026-warbler-fallouts/) — BirdCast clocked 5 million birds over NYC on April 8–9. Where to see peak spring migration this Earth Week, and why 90°F April is changing the math. Published 2026-04-19.
 
 ## Projects

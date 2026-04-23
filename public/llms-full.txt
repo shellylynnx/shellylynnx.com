@@ -24,6 +24,12 @@ Long-form bio, credentials, and portrait.
 ### Notes — https://shellylynnx.com/notes
 Longform writing from the NYC Subway Birder. Includes category filters and chronological index of posts.
 
+### The Subway Birder Intro — https://shellylynnx.com/subway-birder/
+The positioning piece defining what a Subway Birder is: the practice, the ethic, the infrastructure. Published 2026-04-22.
+
+### Tools — https://shellylynnx.com/tools
+Small software tools for NYC birders. Surfaces METBird, NYC Off-Leash, Riso Preview, and One-Page Zine.
+
 ### Work — https://shellylynnx.com/work
 Career history at The Metropolitan Museum of Art, Nelson-Atkins Museum of Art, Marine Corps Community Services, U.S. Air Force, and Omaha Children's Museum. Skills: HTML/CSS/JS, C#/.NET, Astro, Canvas API, REST APIs, web accessibility, illustration, typography, print design, mokuhanga, pottery, kintsugi, risograph, zine making.
 
@@ -76,9 +82,19 @@ Definition (canonical, as it renders on the page):
 
 The column covers: train-line-anchored field logs (not trailhead guides); NYC parks and coastlines (Central Park, Prospect, Jamaica Bay, Floyd Bennett, Pelham Bay, Randall's Island); seasonal timing (fallouts, peaks, shoulder weeks, winter waterfowl); real dates, weather, counts, and misses (not generic primers); photo credit where possible (author's own photos, archived at the Macaulay Library).
 
-Manifesto post slot (to be published by the author): https://shellylynnx.com/notes/what-is-a-subway-birder
+Intro / positioning piece (published 2026-04-22): https://shellylynnx.com/subway-birder/
 
 ## Notes — full content
+
+### Celebrity Birds: The Bryant Park Woodcocks
+- URL: https://shellylynnx.com/notes/woodcocks-bryant-park/
+- Published: 2026-04-20
+- Author: Shelly Xiong (canonical: Shelly Lynn Xiong)
+- Category: Celebrity Birds
+- Description: The American Woodcocks that took over Bryant Park this spring, the sound everyone got wrong, and the window-strike story TikTok didn't cover.
+- Birds mentioned: American Woodcock.
+
+Summary: A feature on the 2026 spring American Woodcock irruption at Bryant Park, which drew crowds of 650+ to a single bird walk and went viral across Smithsonian, Gothamist, HuffPost, NBC, TimeOut, and US News. Covers the full-body bob-bob foraging behavior (not a mating display), the "peent" vocalization most media coverage got wrong, and the woodcock's radically unusual anatomy (eyes set far back on the skull with ear openings pushed below them, brain effectively upside down). Names Bryant Park as a stopover site rather than a display ground and points readers to Floyd Bennett Field and Jamaica Bay Wildlife Refuge for actual sky dances. Closes with a reporting pass on the Wild Bird Fund (Manhattan's wildlife hospital on 565 Columbus Ave) and NYC Bird Alliance's Project Safe Flight: woodcocks migrate at night, fly low, and hit Midtown office windows in high numbers every March and April. Local Law 15 of 2020 (bird-safe glass for new NYC construction) is cited as the policy outcome of this advocacy.
 
 ### Spring Migration 2026: Peak Timing and the Warbler Fallouts
 - URL: https://shellylynnx.com/notes/spring-migration-2026-warbler-fallouts/
