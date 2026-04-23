@@ -1,6 +1,6 @@
 # shellylynnx.com
 
-Personal site for Shelly Xiong — NYC birder, illustrator, and developer.
+Personal site for Shelly Xiong. NYC birder, illustrator, and developer.
 
 Live at [shellylynnx.com](https://shellylynnx.com).
 
@@ -8,17 +8,17 @@ Live at [shellylynnx.com](https://shellylynnx.com).
 
 - **Astro 6** (static output)
 - **Cloudflare Workers + Static Assets** (hosting via Workers Builds, wired to this GitHub repo)
-- **Beehiiv** (newsletter) — native form POSTs to `/api/subscribe`, which proxies to Beehiiv's v2 Subscriptions API
+- **Beehiiv** (newsletter): native form POSTs to `/api/subscribe`, which proxies to Beehiiv's v2 Subscriptions API
 - Custom CSS, no framework (dark/light theme with CSS variables)
 
 ## Pages
 
 | Route | File |
 | --- | --- |
-| `/` | `src/pages/index.astro` — hero, projects grid, newsletter form, socials |
-| `/about` | `src/pages/about.astro` — bio + credentials sidebar + portrait |
-| `/work` | `src/pages/work.astro` — experience timeline + skills |
-| `/newsletter` | `src/pages/newsletter.astro` — dedicated newsletter signup |
+| `/` | `src/pages/index.astro`: hero, projects grid, newsletter form, socials |
+| `/about` | `src/pages/about.astro`: bio + credentials sidebar + portrait |
+| `/work` | `src/pages/work.astro`: experience timeline + skills |
+| `/newsletter` | `src/pages/newsletter.astro`: dedicated newsletter signup |
 
 ## Project structure
 
@@ -41,7 +41,7 @@ Live at [shellylynnx.com](https://shellylynnx.com).
 │   │   └── newsletter.astro
 │   └── styles/
 │       └── global.css
-├── worker.js                  (Cloudflare Worker entry — handles /api/subscribe, falls through to ASSETS)
+├── worker.js                  (Cloudflare Worker entry: handles /api/subscribe, falls through to ASSETS)
 ├── wrangler.jsonc             (Workers config: main + assets binding)
 ├── astro.config.mjs
 └── package.json
