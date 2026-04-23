@@ -10,7 +10,7 @@ topics:
 ogImage: /images/subway-birder/subway-birder-hero.jpg
 ogImageAlt: "Northern Mockingbird perched on a utility wire in front of a weathered wooden pole in New York City, gray-and-white plumage, long tail. Photographed by Shelly Xiong."
 photoCredits: "Hero photograph by Shelly Xiong, archived at the <a href=\"https://macaulaylibrary.org/\">Macaulay Library, Cornell Lab of Ornithology</a>. Asset ID: 654313398."
-category: "Manifesto"
+category: "Intro"
 birdsMentioned:
   - commonName: "House Sparrow"
     ebirdCode: "houspa"

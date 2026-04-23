@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import AuthorBio from "../components/AuthorBio.astro";
 import { getEntry, render } from "astro:content";
 
-const entry = await getEntry("manifesto", "subway-birder");
+const entry = await getEntry("intro", "subway-birder");
 if (!entry) {
-  throw new Error("Manifesto entry not found: src/content/manifesto/subway-birder.md");
+  throw new Error("Intro entry not found: src/content/intro/subway-birder.md");
 }
 const { Content } = await render(entry);
 const { data } = entry;

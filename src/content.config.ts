@@ -55,9 +55,9 @@ const notes = defineCollection({
   schema: articleSchema,
 });
 
-const manifesto = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/manifesto" }),
+const intro = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/intro" }),
   schema: articleSchema,
 });
 
-export const collections = { notes, manifesto };
+export const collections = { notes, intro };
