@@ -4,19 +4,12 @@ import SubscribeForm from "../../components/SubscribeForm.astro";
 import { getCollection } from "astro:content";
 
 const TAG = "subway-birder";
-const MANIFESTO_SLUG = "what-is-a-subway-birder";
 
 const allNotes = await getCollection("notes", ({ data }) => !data.draft);
 
 const columnNotes = allNotes
   .filter((n) => (n.data.tags ?? []).includes(TAG))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const now = new Date();
-const manifesto = allNotes.find(
-  (n) => n.id === MANIFESTO_SLUG && n.data.pubDate.valueOf() <= now.valueOf(),
-);
-const manifestoLive = !!manifesto;
 
 const fmt = (d: Date) =>
   d.toLocaleDateString("en-US", {
@@ -116,52 +109,19 @@ const collectionSchema = {
 
     <section class="section subway-explainer">
       <div class="container" style="max-width: 720px;">
-        <h2 class="section-title">What is a Subway Birder?</h2>
         <div class="subway-explainer-body">
           <p>
-            A Subway Birder is someone who treats the MTA as a field-guide
-            index. Every train line a transect, every stop a potential patch. No
-            car. No 5 a.m. drive to a marsh two hours away. Just a MetroCard,
-            binoculars, and the five boroughs.
+            The Subway Birder is how I bird New York City: by MetroCard, in
+            public parks, at a respectful distance.
+            <a href="/subway-birder/">Read the full manifesto →</a>
           </p>
           <p>
-            New York City sits squarely under the Atlantic Flyway. On peak
-            spring nights, radar tracks millions of birds crossing over
-            Manhattan and Brooklyn. You don't need to leave the city to see
-            serious migration. You need to know which train gets you to the
-            right patch at dawn.
-          </p>
-          <p>
-            The Subway Birder column is my running field log of that practice.
-            Train lines to parks. Weekly hotspots. What's arriving, what's
-            peaking, what just passed through. NYC birding with a subway map
-            instead of a GPS.
+            Below is the running column: field dispatches, profiles, advocacy
+            history, ethics.
           </p>
         </div>
       </div>
     </section>
-
-    {
-      manifestoLive && (
-        <section class="section subway-pin-section">
-          <div class="container" style="max-width: 720px;">
-            <a
-              class="subway-pin-card"
-              href={`/notes/${MANIFESTO_SLUG}/`}
-              data-pending="false"
-            >
-              <span class="subway-pin-label">Start here</span>
-              <h3 class="subway-pin-title">What Is a Subway Birder?</h3>
-              <p class="subway-pin-dek">
-                The full argument for why NYC is the best subway-birdable city
-                in North America, and how I work the five boroughs without a
-                car.
-              </p>
-            </a>
-          </div>
-        </section>
-      )
-    }
 
     <section class="section subway-archive">
       <div class="container" style="max-width: 880px;">
