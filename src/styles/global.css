@@ -1146,6 +1146,17 @@ body.light .tool-card:hover {
     margin-top: 40px;
 }
 
+.about-social-links .social-link {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    gap: 6px;
+}
+
+.about-social-links .social-link svg {
+    width: 16px;
+    height: 16px;
+}
+
 .section.notes-subscribe-section {
     text-align: center;
     background: var(--color-bg-alt);
