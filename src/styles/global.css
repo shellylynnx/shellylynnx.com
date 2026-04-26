@@ -503,6 +503,7 @@ body.light .btn-green:hover {
     grid-template-columns: 2fr 1fr;
     gap: 64px;
     align-items: start;
+    margin-top: -24px;
 }
 
 .about-text p {
