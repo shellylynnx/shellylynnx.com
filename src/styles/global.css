@@ -630,6 +630,7 @@ body.light .btn-green:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    margin-top: -24px;
 }
 
 @media (max-width: 640px) {
@@ -1143,22 +1144,6 @@ body.light .tool-card:hover {
 
 .about-connect-title {
     margin-top: 40px;
-}
-
-.about-social-links {
-    margin-top: 16px;
-    gap: 8px;
-}
-
-.about-social-links .social-link {
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    gap: 6px;
-}
-
-.about-social-links .social-link svg {
-    width: 16px;
-    height: 16px;
 }
 
 .section.notes-subscribe-section {
