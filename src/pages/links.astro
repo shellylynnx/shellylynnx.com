@@ -248,42 +248,10 @@ const description =
         color: var(--color-secondary);
       }
 
+      /* .link-socials and .link-social live in global.css; the only
+         per-page tweak is the top margin under the Connect cards. */
       .link-socials {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
         margin-top: 16px;
-        flex-wrap: wrap;
-      }
-
-      .link-social {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border: 1px solid var(--color-border);
-        border-radius: 50%;
-        color: var(--color-text);
-        background: var(--color-card-bg);
-        transition:
-          border-color 0.2s,
-          color 0.2s,
-          background 0.2s;
-      }
-
-      .link-social svg {
-        opacity: 0.85;
-        transition: opacity 0.2s;
-      }
-
-      .link-social:hover {
-        border-color: var(--color-secondary);
-        color: var(--color-secondary);
-      }
-
-      .link-social:hover svg {
-        opacity: 1;
       }
 
       .links-footer {
