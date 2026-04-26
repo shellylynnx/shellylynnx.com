@@ -10,14 +10,35 @@ const title = "The Public Domain Bird Library";
 const description =
   "A curated index of canonical public-domain American bird books with verified download links. NYC-rooted. Updated continuously.";
 
-const lastUpdated = "April 25, 2026";
+const lastUpdated = "April 26, 2026";
+const dateModifiedISO = "2026-04-26";
+
+// Wikipedia sameAs links per author, used to enrich the JSON-LD nested
+// Person object on each Book entry. Optional: undefined values are
+// dropped from the JSON output by JSON.stringify.
+const authorSameAs: Record<string, string> = {
+  "Frank M. Chapman":
+    "https://en.wikipedia.org/wiki/Frank_Chapman_(ornithologist)",
+  "C. Hart Merriam": "https://en.wikipedia.org/wiki/C._Hart_Merriam",
+  "John Burroughs": "https://en.wikipedia.org/wiki/John_Burroughs",
+  "Mabel Osgood Wright":
+    "https://en.wikipedia.org/wiki/Mabel_Osgood_Wright",
+  "Florence Merriam Bailey":
+    "https://en.wikipedia.org/wiki/Florence_Merriam_Bailey",
+  "Olive Thorne Miller":
+    "https://en.wikipedia.org/wiki/Olive_Thorne_Miller",
+  "Neltje Blanchan": "https://en.wikipedia.org/wiki/Neltje_Blanchan",
+  "Cordelia Stanwood": "https://en.wikipedia.org/wiki/Cordelia_Stanwood",
+  "Althea Sherman": "https://en.wikipedia.org/wiki/Althea_Sherman",
+};
 
 // Books with verified year + canonical URL, used for the JSON-LD ItemList.
 // Ordered by appearance on the page. Mirrors every distinctly-titled book
 // entry rendered on the page. The Bird-Lore magazine entry is excluded
-// (Periodical, not Book). "Several others" / "many other titles" Burroughs
-// mentions are excluded only when their publication years are not solidly
-// documented; named titles with confident years are included.
+// (Periodical, not Book). Named titles with confident years are included
+// even when they appear in a grouped "other titles" / "several others"
+// bullet on the page; uncertain dates are intentionally omitted from the
+// individual Book entries (JSON.stringify drops the property cleanly).
 const books = [
   {
     name: "Handbook of Birds of Eastern North America",
@@ -54,7 +75,34 @@ const books = [
     name: "Wake-Robin",
     author: "John Burroughs",
     datePublished: "1871",
-    url: "https://archive.org/details/wakerobi00burr",
+    url: "https://www.gutenberg.org/ebooks/4203",
+  },
+  {
+    name: "Locusts and Wild Honey",
+    author: "John Burroughs",
+    datePublished: "1879",
+    url: "https://www.gutenberg.org/ebooks/author/1127",
+  },
+  {
+    name: "Signs and Seasons",
+    author: "John Burroughs",
+    datePublished: "1886",
+    url: "https://www.gutenberg.org/ebooks/author/1127",
+  },
+  {
+    name: "Birds and Bees",
+    author: "John Burroughs",
+    datePublished: "1887",
+    url: "https://www.gutenberg.org/ebooks/author/1127",
+  },
+  {
+    // Year intentionally omitted: the title appears in multiple editions
+    // (originally as a chapter in Locusts and Wild Honey, 1879; later as
+    // a stand-alone D.C. Heath school edition). JSON.stringify drops
+    // the undefined datePublished property from the output.
+    name: "Sharp Eyes",
+    author: "John Burroughs",
+    url: "https://www.gutenberg.org/ebooks/author/1127",
   },
   {
     name: "Birdcraft: A Field Book of Two Hundred Song, Game, and Water Birds",
@@ -189,6 +237,7 @@ const collectionSchema = {
   description,
   url: canonical,
   inLanguage: "en-US",
+  dateModified: dateModifiedISO,
   isPartOf: {
     "@type": "WebSite",
     name: "shellylynnx.com",
@@ -197,7 +246,7 @@ const collectionSchema = {
   creator: author,
   about: {
     "@type": "Thing",
-    name: "Public-domain American bird books",
+    name: "Public domain American ornithological literature, NYC-rooted curation",
   },
   mainEntity: {
     "@type": "ItemList",
@@ -208,12 +257,18 @@ const collectionSchema = {
       item: {
         "@type": "Book",
         name: b.name,
-        author: { "@type": "Person", name: b.author },
+        author: {
+          "@type": "Person",
+          name: b.author,
+          sameAs: authorSameAs[b.author],
+        },
         datePublished: b.datePublished,
         inLanguage: "en",
         url: b.url,
         bookFormat: "https://schema.org/EBook",
         accessMode: "textual",
+        isAccessibleForFree: true,
+        license: "https://creativecommons.org/publicdomain/mark/1.0/",
       },
     })),
   },
@@ -249,13 +304,41 @@ const collectionSchema = {
           <p>
             Most canonical American bird books from the 1870s through the late
             1920s are in the public domain. They are downloadable, quotable,
-            screenshottable, embeddable, and reissuable without permission. This
-            is a working catalog of the books I keep coming back to as a New
-            York City birder, with verified scans across the Internet Archive,
-            Project Gutenberg, HathiTrust, the Biodiversity Heritage Library,
-            and the Library of Congress. NYC and women in birdwatching first.
-            More to come.
+            screenshottable, embeddable, and reissuable without permission.
+            This is a working catalog of the books I keep coming back to as a
+            <a href="/subway-birder/">NYC birder</a>, with verified scans
+            across the Internet Archive, Project Gutenberg, HathiTrust, the
+            Biodiversity Heritage Library, and the Library of Congress. I
+            read these to understand how the people who came before us
+            thought about the birds we still see in Central Park. NYC and
+            women in birdwatching first. More to come.
           </p>
+
+          <p>
+            Books are grouped by author, then chronologically within author.
+            Each entry: title, year, one-line note on why it matters, primary
+            download links, and any NYC connection.
+          </p>
+
+          <nav class="library-toc" aria-label="Authors on this page">
+            <h3>On this page</h3>
+            <ul>
+              <li><a href="#frank-m-chapman">Frank M. Chapman</a></li>
+              <li><a href="#c-hart-merriam">C. Hart Merriam</a></li>
+              <li><a href="#john-burroughs">John Burroughs</a></li>
+              <li><a href="#mabel-osgood-wright">Mabel Osgood Wright</a></li>
+              <li>
+                <a href="#florence-merriam-bailey">Florence Merriam Bailey</a>
+              </li>
+              <li><a href="#olive-thorne-miller">Olive Thorne Miller</a></li>
+              <li><a href="#neltje-blanchan">Neltje Blanchan</a></li>
+              <li><a href="#cordelia-stanwood">Cordelia Stanwood</a></li>
+              <li><a href="#althea-sherman">Althea Sherman</a></li>
+              <li>
+                <a href="#margaret-morse-nice">Margaret Morse Nice</a>
+              </li>
+            </ul>
+          </nav>
 
           <p>
             <strong>What public domain means here.</strong> Any U.S. work
@@ -271,7 +354,7 @@ const collectionSchema = {
 
           <h3 id="nyc-and-ny-adjacent">NYC and NY-adjacent</h3>
 
-          <h4>Frank M. Chapman (1864&ndash;1945)</h4>
+          <h4 id="frank-m-chapman">Frank M. Chapman (1864&ndash;1945)</h4>
           <p>
             Joined the American Museum of Natural History in 1888, Curator of
             Birds in 1908. Founded and edited <em>Bird-Lore</em> magazine
@@ -288,7 +371,31 @@ const collectionSchema = {
                   <a
                     href="https://archive.org/details/handbookofbirdso00chapuoft"
                     target="_blank"
-                    rel="noopener noreferrer">Internet Archive</a>
+                    rel="noopener noreferrer">Internet Archive (Toronto scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/handbookbirdseas00chaprich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (Cornell scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/handbookofbi00chap"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (alt)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.biodiversitylibrary.org/bibliography/14165"
+                    target="_blank"
+                    rel="noopener noreferrer">Biodiversity Heritage Library</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.loc.gov/item/12014730/"
+                    target="_blank"
+                    rel="noopener noreferrer">Library of Congress</a>
                 </li>
               </ul>
             </li>
@@ -302,24 +409,44 @@ const collectionSchema = {
                     target="_blank"
                     rel="noopener noreferrer">Internet Archive</a>
                 </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdlifeguidetos00chaprich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (alt)</a>
+                </li>
               </ul>
             </li>
             <li>
-              <em>Bird-Lore</em> magazine (1899 onward). Founded by Chapman,
-              edited from NYC. The forerunner to <em>Audubon</em> magazine.
+              <em>Bird-Lore</em> magazine (1899&ndash;1946). Founded by
+              Chapman, edited from NYC. The forerunner to <em>Audubon</em>
+              magazine.
               <ul>
                 <li>
                   <a
-                    href="https://www.biodiversitylibrary.org/"
+                    href="https://www.biodiversitylibrary.org/bibliography/8259"
                     target="_blank"
-                    rel="noopener noreferrer">Biodiversity Heritage Library</a>
-                  (search "Bird-Lore" for individual volumes)
+                    rel="noopener noreferrer">BHL master bibliography</a>
+                  (links to every volume)
+                </li>
+                <li>
+                  <a
+                    href="https://www.biodiversitylibrary.org/item/101389"
+                    target="_blank"
+                    rel="noopener noreferrer">BHL Vol. 1 (1899)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://digitalcommons.usf.edu/sora/"
+                    target="_blank"
+                    rel="noopener noreferrer">SORA full-text search</a>
+                  across the run.
                 </li>
               </ul>
             </li>
           </ul>
 
-          <h4>C. Hart Merriam (1855&ndash;1942)</h4>
+          <h4 id="c-hart-merriam">C. Hart Merriam (1855&ndash;1942)</h4>
           <p>
             Clinton Hart Merriam. Born Lewis County, NY. Co-founder of the
             <a
@@ -406,12 +533,11 @@ const collectionSchema = {
               <em>The Mammals of the Adirondack Region</em>, 1884, and
               the Biological Survey monographs on North American mammals)
               is fully public domain and accessible via the BHL creator
-              page and the Library of Congress collection above. This
-              Library catalog stays bird-focused.
+              page and the Library of Congress collection above.
             </li>
           </ul>
 
-          <h4>John Burroughs (1837&ndash;1921)</h4>
+          <h4 id="john-burroughs">John Burroughs (1837&ndash;1921)</h4>
           <p>
             Hudson Valley nature writer, Catskills. Florence Merriam Bailey
             invited him to Smith College in 1886. Co-founder of the
@@ -425,32 +551,66 @@ const collectionSchema = {
           <ul class="library-titles">
             <li>
               <em>Wake-Robin</em> (1871). The book that arguably invented
-              popular American nature writing.
+              popular American nature writing as a genre.
               <ul>
+                <li>
+                  <a
+                    href="https://www.gutenberg.org/ebooks/4203"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg eBook</a>
+                  (cleanest plain-text and EPUB)
+                </li>
+                <li>
+                  <a
+                    href="https://www.gutenberg.org/files/4203/4203-h/4203-h.htm"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg HTML edition</a>
+                </li>
                 <li>
                   <a
                     href="https://archive.org/details/wakerobi00burr"
                     target="_blank"
                     rel="noopener noreferrer">Internet Archive</a>
                 </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Record/005239480"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.loc.gov/item/16000036/"
+                    target="_blank"
+                    rel="noopener noreferrer">Library of Congress</a>
+                </li>
               </ul>
             </li>
             <li>
-              Other titles, all public domain (<em>Birds and Bees</em>,
-              <em>Sharp Eyes</em>, <em>Locusts and Wild Honey</em>, and more).
+              Other Burroughs titles (<em>Birds and Bees</em>,
+              <em>Sharp Eyes</em>, <em>Locusts and Wild Honey</em>,
+              <em>Signs and Seasons</em>, etc.), all public domain.
               <ul>
                 <li>
                   <a
-                    href="https://archive.org/search.php?query=creator%3A%22John+Burroughs%22"
+                    href="https://www.gutenberg.org/ebooks/author/1127"
                     target="_blank"
-                    rel="noopener noreferrer">Internet Archive: John Burroughs
-                    bibliography</a>
+                    rel="noopener noreferrer">Burroughs author page on
+                    Project Gutenberg</a>
+                  (full bibliography)
+                </li>
+                <li>
+                  <a
+                    href="https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Burroughs%2C+John%2C+1837-1921"
+                    target="_blank"
+                    rel="noopener noreferrer">Online Books Page (UPenn) author
+                    index</a>
                 </li>
               </ul>
             </li>
           </ul>
 
-          <h4>Mabel Osgood Wright (1859&ndash;1934)</h4>
+          <h4 id="mabel-osgood-wright">Mabel Osgood Wright (1859&ndash;1934)</h4>
           <p>
             Connecticut-based but New York-published. Beginning in 1884, wrote
             nature essays anonymously for the <em>New York Times</em> and the
@@ -514,7 +674,7 @@ const collectionSchema = {
 
           <h3>Women in birdwatching</h3>
 
-          <h4>Florence Merriam Bailey (1863&ndash;1948)</h4>
+          <h4 id="florence-merriam-bailey">Florence Merriam Bailey (1863&ndash;1948)</h4>
           <p>
             Inventor of modern birdwatching. Wrote <em>Birds Through an Opera
             Glass</em> (1889), the first illustrated American field guide for
@@ -643,7 +803,7 @@ const collectionSchema = {
             and NY-adjacent</a> for her full entry and download links.
           </p>
 
-          <h4>Olive Thorne Miller (1831&ndash;1918)</h4>
+          <h4 id="olive-thorne-miller">Olive Thorne Miller (1831&ndash;1918)</h4>
           <p>
             Pen name of Harriet Mann Miller. Adopted "Olive Thorne" early for
             letters and articles, then added her married name as the
@@ -705,7 +865,7 @@ const collectionSchema = {
             </li>
           </ul>
 
-          <h4>Neltje Blanchan (1865&ndash;1918)</h4>
+          <h4 id="neltje-blanchan">Neltje Blanchan (1865&ndash;1918)</h4>
           <p>
             Real name Nellie Blanchan De Graff Doubleday, married to publisher
             Frank Doubleday, which gave her unusual access to publication.
@@ -810,7 +970,7 @@ const collectionSchema = {
             </li>
           </ul>
 
-          <h4>Cordelia Stanwood (1865&ndash;1958)</h4>
+          <h4 id="cordelia-stanwood">Cordelia Stanwood (1865&ndash;1958)</h4>
           <p>
             Maine field naturalist (Ellsworth). Began ornithological work in
             her early 40s after a teaching career and a nervous breakdown.
@@ -822,18 +982,18 @@ const collectionSchema = {
             <em>Bird-Lore</em>, <em>Blue Bird</em>, <em>Nature and
             Culture</em>, and <em>House Beautiful</em>, plus 20 scholarly
             articles in ornithological journals. Most of her substantive
-            work was in articles, not books, but the <em>Bird-Lore</em>
-            archive at the
+            work was in articles, not books, but the
             <a
-              href="https://www.biodiversitylibrary.org/"
+              href="https://www.biodiversitylibrary.org/bibliography/8259"
               target="_blank"
-              rel="noopener noreferrer">Biodiversity Heritage Library</a>
+              rel="noopener noreferrer"><em>Bird-Lore</em> archive at the
+              Biodiversity Heritage Library</a>
             contains her writing. Her home and woodland became Birdsacre
             Sanctuary, opened to the public in 1960, two years after her
             death.
           </p>
 
-          <h4>Althea Sherman (1853&ndash;1943)</h4>
+          <h4 id="althea-sherman">Althea Sherman (1853&ndash;1943)</h4>
           <p>
             Iowa naturalist (Farmersburg Township, Clayton County).
             Self-taught ornithologist after a teaching career. In 1915 she
@@ -845,11 +1005,16 @@ const collectionSchema = {
             journals. Elected to AOU membership in 1912 (when the AOU had
             only 100 members). Posthumous book <em>Birds of an Iowa
             Dooryard</em> (1952), edited by Fred J. Pierce, limited to
-            1,500 copies. Her articles in <em>Bird-Lore</em> and other
-            pre-1929 journals are public domain.
+            1,500 copies. Her articles in the
+            <a
+              href="https://www.biodiversitylibrary.org/bibliography/8259"
+              target="_blank"
+              rel="noopener noreferrer"><em>Bird-Lore</em> archive at the
+              Biodiversity Heritage Library</a>
+            and other pre-1929 journals are public domain.
           </p>
 
-          <h4>Margaret Morse Nice (1883&ndash;1974)</h4>
+          <h4 id="margaret-morse-nice">Margaret Morse Nice (1883&ndash;1974)</h4>
           <p>
             Mount Holyoke College (1901&ndash;1906). Conducted foundational
             long-term study of Song Sparrows in Columbus, Ohio, beginning in
@@ -923,6 +1088,15 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <h3 id="suggest-a-book">Suggest a book</h3>
+          <p>
+            Missing a canonical text? Email
+            <a href="mailto:subwaybirder@gmail.com">subwaybirder@gmail.com</a>
+            and I'll consider it for the next update. Especially interested
+            in pre-1931 American bird literature, NYC-relevant material, and
+            women whose work has been under-cited.
+          </p>
+
           <hr />
 
           <p class="library-meta">
@@ -960,6 +1134,53 @@ const collectionSchema = {
     margin-top: 28px;
     margin-bottom: 8px;
     color: var(--color-text);
+  }
+
+  /* Offset anchor jumps so the heading lands below the fixed nav. */
+  .library-body h3[id],
+  .library-body h4[id] {
+    scroll-margin-top: calc(var(--nav-height) + 16px);
+  }
+
+  .library-toc {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 24px 0 32px;
+    background: var(--color-card-bg);
+  }
+
+  .library-toc h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--color-text);
+    text-transform: none;
+  }
+
+  .library-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .library-toc li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .library-toc a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .library-toc a:hover {
+    text-decoration: underline;
+    color: var(--color-highlight);
   }
 
   .library-body a {
