@@ -1146,6 +1146,10 @@ body.light .tool-card:hover {
     margin-top: 40px;
 }
 
+.about-text .contact-intro {
+    margin-bottom: 32px;
+}
+
 .about-social-links .social-link {
     padding: 8px 12px;
     font-size: 0.75rem;
