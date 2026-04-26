@@ -13,7 +13,10 @@ const description =
 const lastUpdated = "April 25, 2026";
 
 // Books with verified year + canonical URL, used for the JSON-LD ItemList.
-// Ordered by appearance on the page.
+// Ordered by appearance on the page. Mirrors every titled book entry on
+// the page; "The Making of Birdcraft Sanctuary" (no verified publication
+// year on the page) and the Bird-Lore magazine entry are intentionally
+// excluded from the structured Book list.
 const books = [
   {
     name: "Handbook of Birds of Eastern North America",
@@ -52,10 +55,40 @@ const books = [
     url: "https://www.gutenberg.org/files/33410/33410-h/33410-h.htm",
   },
   {
+    name: "Birds of Village and Field: A Bird Book for Beginners",
+    author: "Florence Merriam Bailey",
+    datePublished: "1898",
+    url: "https://archive.org/search.php?query=birds+of+village+and+field+bailey",
+  },
+  {
+    name: "Handbook of Birds of the Western United States",
+    author: "Florence Merriam Bailey",
+    datePublished: "1902",
+    url: "https://archive.org/search.php?query=handbook+birds+western+united+states+bailey",
+  },
+  {
     name: "Birds of New Mexico",
     author: "Florence Merriam Bailey",
     datePublished: "1928",
-    url: "https://archive.org/",
+    url: "https://archive.org/search.php?query=birds+of+new+mexico+bailey",
+  },
+  {
+    name: "Bird-Ways",
+    author: "Olive Thorne Miller",
+    datePublished: "1885",
+    url: "https://archive.org/search.php?query=bird-ways+olive+thorne+miller",
+  },
+  {
+    name: "In Nesting Time",
+    author: "Olive Thorne Miller",
+    datePublished: "1888",
+    url: "https://archive.org/search.php?query=in+nesting+time+olive+thorne+miller",
+  },
+  {
+    name: "A Bird-Lover in the West",
+    author: "Olive Thorne Miller",
+    datePublished: "1894",
+    url: "https://archive.org/search.php?query=bird-lover+in+the+west+olive+thorne+miller",
   },
   {
     name: "Bird Neighbors",
@@ -74,6 +107,12 @@ const books = [
     author: "Neltje Blanchan",
     datePublished: "1902",
     url: "https://archive.org/details/howtoattractbird00bla",
+  },
+  {
+    name: "Birds Every Child Should Know",
+    author: "Neltje Blanchan",
+    datePublished: "1907",
+    url: "https://gutenberg.org/files/38233/38233-h/38233-h.htm",
   },
 ];
 
@@ -626,27 +665,22 @@ const collectionSchema = {
 
           <h4>Cordelia Stanwood (1865&ndash;1958)</h4>
           <p>
-            Maine field naturalist, glass-plate photographer. Largely
-            self-taught. Most of her substantive work was in articles, not
-            books, published in <em>Bird-Lore</em> and similar journals. The
+            Maine field naturalist. Largely self-taught, photographed birds
+            with a glass-plate camera. Published in <em>Bird-Lore</em>. Most
+            of her substantive work was in articles, not books, but the
             <em>Bird-Lore</em> archive at the
             <a
               href="https://www.biodiversitylibrary.org/"
               target="_blank"
-              rel="noopener noreferrer">Biodiversity Heritage Library</a> is
-            the place to find her work.
+              rel="noopener noreferrer">Biodiversity Heritage Library</a>
+            contains her writing.
           </p>
 
           <h4>Althea Sherman (1853&ndash;1943)</h4>
           <p>
-            Iowa naturalist, built the famous Chimney Swift tower for direct
-            observation of nesting behavior. Like Stanwood, her substantive
-            work lives in journal articles. Same archive caveat: search the
-            <em>Bird-Lore</em> back issues at the
-            <a
-              href="https://www.biodiversitylibrary.org/"
-              target="_blank"
-              rel="noopener noreferrer">Biodiversity Heritage Library</a>.
+            Iowa naturalist, built a famous Chimney Swift tower for direct
+            observation of nesting behavior. Published in <em>Bird-Lore</em>.
+            Same archive caveat as Stanwood.
           </p>
 
           <h4>Margaret Morse Nice (1883&ndash;1974)</h4>
