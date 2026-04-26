@@ -795,6 +795,44 @@ body.light .btn-green:hover {
     opacity: 1;
 }
 
+/* Circular icon-only social row. Used on /links/ and /about/. */
+.link-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.link-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-text);
+    background: var(--color-card-bg);
+    transition:
+        border-color 0.2s,
+        color 0.2s,
+        background 0.2s;
+}
+
+.link-social svg {
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.link-social:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.link-social:hover svg {
+    opacity: 1;
+}
+
 /* ========================================
    Footer
    ======================================== */
@@ -1150,15 +1188,10 @@ body.light .tool-card:hover {
     margin-bottom: 32px;
 }
 
-.about-social-links .social-link {
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    gap: 6px;
-}
-
-.about-social-links .social-link svg {
-    width: 16px;
-    height: 16px;
+/* About uses the same circular icon row as /links/, but left-aligned to
+   match the surrounding prose (Links is centered globally; About isn't). */
+.about-icon-socials {
+    justify-content: flex-start;
 }
 
 .section.notes-subscribe-section {
