@@ -158,6 +158,14 @@ import "../styles/global.css";
           });
         });
 
+        // threshold: 0 fires whenever any pixel of the section is in view.
+        // The previous 0.1 threshold needed 10% of the section visible to
+        // fire, which is unreachable on initial load for sections taller
+        // than ~10x the viewport (e.g. /library/), leaving them stuck at
+        // opacity 0 until the user scrolled. The negative bottom rootMargin
+        // preserves the cascade-on-scroll feel for stacked sections by
+        // requiring each one to penetrate the viewport by ~80px before
+        // animating in.
         const observer = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -165,7 +173,7 @@ import "../styles/global.css";
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0, rootMargin: '0px 0px -80px 0px' });
 
         document.querySelectorAll('.section').forEach(function (section) {
           section.style.opacity = '0';
@@ -177,6 +185,18 @@ import "../styles/global.css";
         const style = document.createElement('style');
         style.textContent = '.section.visible { opacity: 1 !important; transform: translateY(0) !important; }';
         document.head.appendChild(style);
+
+        // Defensive fallback: if the IntersectionObserver hasn't fired
+        // within ~800ms (e.g. a hidden tab pauses callbacks, or any
+        // future regression in the threshold/rootMargin math), force
+        // every section visible so the user is never stuck on a blank
+        // page. Sections already animated in by the observer just
+        // re-apply the same class as a no-op.
+        setTimeout(function () {
+          document.querySelectorAll('.section').forEach(function (section) {
+            section.classList.add('visible');
+          });
+        }, 800);
       })();
     </script>
   </body>
