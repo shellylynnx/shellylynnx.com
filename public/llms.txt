@@ -16,6 +16,7 @@
 - [Notes](https://shellylynnx.com/notes): Longform writing from the NYC Subway Birder.
 - [The Subway Birder Intro](https://shellylynnx.com/subway-birder/): The positioning piece defining the Subway Birder practice.
 - [Tools](https://shellylynnx.com/tools): Small tools for NYC birders.
+- [Library](https://shellylynnx.com/library/): Curated index of public-domain American bird books with verified download links. Reference resource, continuously maintained.
 - [Work](https://shellylynnx.com/work): Professional experience and skills.
 - [Newsletter](https://shellylynnx.com/newsletter): Monthly dispatch. Free.
 

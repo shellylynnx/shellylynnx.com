@@ -1,0 +1,813 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const escScript = (s: string) => s.replace(/</g, "\\u003c");
+
+const canonical = new URL("/library/", Astro.site).href;
+const ogImage = "/images/shelly-avatar.jpg";
+
+const title = "The Public Domain Bird Library";
+const description =
+  "A curated index of canonical public-domain American bird books with verified download links. NYC-rooted. Updated continuously.";
+
+const lastUpdated = "April 25, 2026";
+
+// Books with verified year + canonical URL, used for the JSON-LD ItemList.
+// Ordered by appearance on the page.
+const books = [
+  {
+    name: "Handbook of Birds of Eastern North America",
+    author: "Frank M. Chapman",
+    datePublished: "1895",
+    url: "https://archive.org/details/handbookofbirdso00chapuoft",
+  },
+  {
+    name: "Bird-Life: A Guide to the Study of Our Common Birds",
+    author: "Frank M. Chapman",
+    datePublished: "1897",
+    url: "https://archive.org/details/birdlifeguidecha00chap",
+  },
+  {
+    name: "Wake-Robin",
+    author: "John Burroughs",
+    datePublished: "1871",
+    url: "https://archive.org/details/wakerobi00burr",
+  },
+  {
+    name: "Birdcraft: A Field Book of Two Hundred Song, Game, and Water Birds",
+    author: "Mabel Osgood Wright",
+    datePublished: "1895",
+    url: "https://archive.org/details/birdcraftfieldbo01wrig",
+  },
+  {
+    name: "Birds Through an Opera Glass",
+    author: "Florence Merriam Bailey",
+    datePublished: "1889",
+    url: "https://archive.org/details/birdsthroughopera00bailrich",
+  },
+  {
+    name: "A-Birding on a Bronco",
+    author: "Florence Merriam Bailey",
+    datePublished: "1896",
+    url: "https://www.gutenberg.org/files/33410/33410-h/33410-h.htm",
+  },
+  {
+    name: "Birds of New Mexico",
+    author: "Florence Merriam Bailey",
+    datePublished: "1928",
+    url: "https://archive.org/",
+  },
+  {
+    name: "Bird Neighbors",
+    author: "Neltje Blanchan",
+    datePublished: "1897",
+    url: "https://www.gutenberg.org/ebooks/37735",
+  },
+  {
+    name: "Birds That Hunt and Are Hunted",
+    author: "Neltje Blanchan",
+    datePublished: "1898",
+    url: "https://archive.org/details/birdsthathuntare00bla",
+  },
+  {
+    name: "How to Attract the Birds",
+    author: "Neltje Blanchan",
+    datePublished: "1902",
+    url: "https://archive.org/details/howtoattractbird00bla",
+  },
+];
+
+const author = {
+  "@type": "Person",
+  "@id": "https://shellylynnx.com/#shelly",
+  name: "Shelly Lynn Xiong",
+  alternateName: ["Shelly Lynn", "Shelly Xiong", "NYC Subway Birder", "shellylynnx"],
+  url: "https://shellylynnx.com",
+  sameAs: [
+    "https://shellylynnx.com",
+    "https://www.tiktok.com/@shellylynnx",
+    "https://www.instagram.com/shellylynnx/",
+    "https://github.com/shellylynnx",
+    "https://ebird.org/profile/NDQ0MjU4OA",
+  ],
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: title,
+  headline: title,
+  description,
+  url: canonical,
+  inLanguage: "en-US",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "shellylynnx.com",
+    url: "https://shellylynnx.com",
+  },
+  creator: author,
+  about: {
+    "@type": "Thing",
+    name: "Public-domain American bird books",
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: books.length,
+    itemListElement: books.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Book",
+        name: b.name,
+        author: { "@type": "Person", name: b.author },
+        datePublished: b.datePublished,
+        inLanguage: "en",
+        url: b.url,
+        bookFormat: "https://schema.org/EBook",
+        accessMode: "textual",
+      },
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={ogImage}
+  ogImageAlt="Portrait of Shelly Xiong, NYC birder, artist, and developer."
+  ogType="website"
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={escScript(JSON.stringify(collectionSchema))}
+  />
+
+  <main style="padding-top: var(--nav-height);">
+    <section class="section library-page" id="library">
+      <div class="container" style="max-width: 720px;">
+        <h2 class="section-title">The Public Domain Bird Library</h2>
+        <p class="section-dek">
+          A curated index of canonical public-domain American bird books, with
+          verified download links. NYC-rooted. Continuously maintained.
+        </p>
+
+        <div class="library-body">
+          <p>
+            Most canonical American bird books from the 1870s through the late
+            1920s are in the public domain. They are downloadable, quotable,
+            screenshottable, embeddable, and reissuable without permission. This
+            is a working catalog of the books I keep coming back to as a New
+            York City birder, with verified scans across the Internet Archive,
+            Project Gutenberg, HathiTrust, the Biodiversity Heritage Library,
+            and the Library of Congress. NYC and women in birdwatching first.
+            More to come.
+          </p>
+
+          <p>
+            <strong>What public domain means here.</strong> Any U.S. work
+            published before 1931 is in the public domain in 2026 (95-year
+            rolling rule). That covers everything on this page. For the legal
+            background, see the
+            <a
+              href="https://copyright.cornell.edu/publicdomain"
+              target="_blank"
+              rel="noopener noreferrer">Cornell Copyright Term and Public
+              Domain chart</a>.
+          </p>
+
+          <h3 id="nyc-and-ny-adjacent">NYC and NY-adjacent</h3>
+
+          <h4>Frank M. Chapman (1864&ndash;1945)</h4>
+          <p>
+            Joined the American Museum of Natural History in 1888, Curator of
+            Birds in 1908. Founded and edited <em>Bird-Lore</em> magazine
+            starting in 1899. Originated the Audubon Christmas Bird Count. The
+            NYC institutional voice of American ornithology for decades.
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Handbook of Birds of Eastern North America</em> (1895). The
+              NYC-area birder's bible. The most-used field reference in the
+              Northeast before Peterson.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/handbookofbirdso00chapuoft"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Bird-Life: A Guide to the Study of Our Common Birds</em>
+              (1897). Beginner-friendly companion.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdlifeguidecha00chap"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Bird-Lore</em> magazine (1899 onward). Founded by Chapman,
+              edited from NYC. The forerunner to <em>Audubon</em> magazine.
+              <ul>
+                <li>
+                  <a
+                    href="https://www.biodiversitylibrary.org/"
+                    target="_blank"
+                    rel="noopener noreferrer">Biodiversity Heritage Library</a>
+                  (search "Bird-Lore" for individual volumes)
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4>John Burroughs (1837&ndash;1921)</h4>
+          <p>
+            Hudson Valley nature writer, Catskills. Florence Merriam Bailey
+            invited him to Smith College in 1886. The patron saint of American
+            nature writing.
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Wake-Robin</em> (1871). The book that arguably invented
+              popular American nature writing.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/wakerobi00burr"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Other titles, all public domain (<em>Birds and Bees</em>,
+              <em>Sharp Eyes</em>, <em>Locusts and Wild Honey</em>, and more).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=creator%3A%22John+Burroughs%22"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive: John Burroughs
+                    bibliography</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4>Mabel Osgood Wright (1859&ndash;1934)</h4>
+          <p>
+            Connecticut-based but New York-published. Beginning in 1884, wrote
+            nature essays anonymously for the <em>New York Times</em> and the
+            <em>Evening Post</em>. Co-founded the Connecticut Audubon Society
+            in 1898. Opened Birdcraft Sanctuary in Fairfield, Connecticut, on
+            October 16, 1914: the first private songbird sanctuary in the
+            United States. Birdcraft was later listed on the National Register
+            of Historic Places (1982) and designated a National Historic
+            Landmark (1993).
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Birdcraft: A Field Book of Two Hundred Song, Game, and Water
+              Birds</em> (1895, Macmillan). A prototype of the modern popular
+              field guide. Featured color plates from Audubon and others;
+              later editions added illustrations by Louis Agassiz Fuertes.
+              Reprinted nine times between 1895 and 1936; the most popular
+              American bird guide before Roger Tory Peterson's <em>Field Guide
+              to the Birds</em> (1934).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdcraftfieldbo01wrig"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (1st edition)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdcraft00wrig"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (alt scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdcraftafield04wriggoog"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive
+                    (Google/Smithsonian scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.biodiversitylibrary.org/bibliography/13260"
+                    target="_blank"
+                    rel="noopener noreferrer">Biodiversity Heritage Library</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>The Making of Birdcraft Sanctuary</em>. Memoir of building
+              the sanctuary.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/cu31924090201306"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Women in birdwatching</h3>
+
+          <h4>Florence Merriam Bailey (1863&ndash;1948)</h4>
+          <p>
+            Inventor of modern birdwatching. Wrote <em>Birds Through an Opera
+            Glass</em> (1889), the first illustrated American field guide for
+            non-scientists. Founded the Smith College Audubon chapter in 1886.
+            First female associate member of the AOU (1885), first woman
+            elected Fellow (1929), first woman to receive the Brewster Medal
+            (1931, for <em>Birds of New Mexico</em>).
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Birds Through an Opera Glass</em> (1889). The first
+              illustrated American field guide for non-scientists. The founding
+              text.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsthroughopera00bailrich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (first
+                    edition)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsthroughano00bailgoog"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (Harvard scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Record/001501418"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust catalog</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Record/009262054"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust (alt edition)</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>A-Birding on a Bronco</em> (1896). Field memoir of
+              birdwatching in California in the late 1880s, riding her white
+              horse Canello. Illustrated by Louis Agassiz Fuertes, then a
+              student at Cornell; this was Fuertes's first published work.
+              <ul>
+                <li>
+                  <a
+                    href="https://www.gutenberg.org/files/33410/33410-h/33410-h.htm"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg HTML</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Search/Home?lookfor=A-Birding+on+a+Bronco"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust catalog search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Birds of Village and Field: A Bird Book for Beginners</em>
+              (1898). Reprinted articles, with simple field color-keys for
+              identification. Over 200 drawings by Ernest Thompson Seton,
+              Louis Agassiz Fuertes, and John L. Ridgway.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=birds+of+village+and+field+bailey"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Search/Home?lookfor=Birds+of+Village+and+Field+Bailey"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Handbook of Birds of the Western United States</em> (1902).
+              Companion volume to Frank M. Chapman's <em>Handbook of Birds of
+              Eastern North America</em> (1895). Standard regional reference
+              for decades.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=handbook+birds+western+united+states+bailey"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Search/Home?lookfor=Handbook+Birds+Western+United+States+Bailey"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Birds of New Mexico</em> (1928). The monograph that won her
+              the Brewster Medal in 1931.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=birds+of+new+mexico+bailey"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Author master index:
+              <a
+                href="https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Bailey,+Florence+Merriam,+1863-1948"
+                target="_blank"
+                rel="noopener noreferrer">Online Books Page (UPenn)</a>.
+            </li>
+          </ul>
+
+          <h4>Mabel Osgood Wright (1859&ndash;1934)</h4>
+          <p>
+            See Mabel Osgood Wright above under <a href="#nyc-and-ny-adjacent">NYC
+            and NY-adjacent</a> for her full entry and download links.
+          </p>
+
+          <h4>Olive Thorne Miller (1831&ndash;1918)</h4>
+          <p>
+            Pen name of Harriet Mann Miller. Adopted "Olive Thorne" early for
+            letters and articles, then added her married name as the
+            pseudonym became established. Took up serious bird study in 1880
+            at age 49, introduced to it by Sara A. Hubbard, director of the
+            Illinois Audubon Society. Wrote 11 bird-related books and
+            approximately 780 articles across her career. One of the first
+            three women elected to membership in the American Ornithologists'
+            Union.
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Bird-Ways</em> (1885).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=bird-ways+olive+thorne+miller"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>In Nesting Time</em> (1888).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=in+nesting+time+olive+thorne+miller"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>A Bird-Lover in the West</em> (1894).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=bird-lover+in+the+west+olive+thorne+miller"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive search</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Several others (<em>True Bird Stories from My Note-Books</em>,
+              <em>Little Brothers of the Air</em>, <em>The Children's Book of
+              Birds</em>, <em>The Second Book of Birds: Bird Families</em>),
+              all public domain.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/search.php?query=creator%3A%22Olive+Thorne+Miller%22"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive: Olive Thorne
+                    Miller bibliography</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4>Neltje Blanchan (1865&ndash;1918)</h4>
+          <p>
+            Real name Nellie Blanchan De Graff Doubleday, married to publisher
+            Frank Doubleday, which gave her unusual access to publication.
+            Plain prose, vivid observation. Widely read in the early 20th
+            century.
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>Bird Neighbors</em> (1897).
+              <ul>
+                <li>
+                  <a
+                    href="https://www.gutenberg.org/ebooks/37735"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg eBook</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.gutenberg.org/files/37735/37735-h/37735-h.htm"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg HTML</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdneighbor00blan"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (1st edition)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdneighborsint00blanrich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (Riverside
+                    scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Record/009206050"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Birds That Hunt and Are Hunted</em> (1898).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsthathuntare00bla"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (1st edition)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsthathuntar00blan"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (alt)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsthathuntare00doubrich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive (Doubleday
+                    scan)</a>
+                </li>
+                <li>
+                  <a
+                    href="https://catalog.hathitrust.org/Record/001501431"
+                    target="_blank"
+                    rel="noopener noreferrer">HathiTrust</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>How to Attract the Birds</em> (1902).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/howtoattractbird00bla"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Birds Every Child Should Know</em>.
+              <ul>
+                <li>
+                  <a
+                    href="https://gutenberg.org/files/38233/38233-h/38233-h.htm"
+                    target="_blank"
+                    rel="noopener noreferrer">Project Gutenberg HTML</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Author master index:
+              <a
+                href="https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Blanchan,+Neltje,+1865-1918"
+                target="_blank"
+                rel="noopener noreferrer">Online Books Page (UPenn)</a>.
+            </li>
+          </ul>
+
+          <h4>Cordelia Stanwood (1865&ndash;1958)</h4>
+          <p>
+            Maine field naturalist, glass-plate photographer. Largely
+            self-taught. Most of her substantive work was in articles, not
+            books, published in <em>Bird-Lore</em> and similar journals. The
+            <em>Bird-Lore</em> archive at the
+            <a
+              href="https://www.biodiversitylibrary.org/"
+              target="_blank"
+              rel="noopener noreferrer">Biodiversity Heritage Library</a> is
+            the place to find her work.
+          </p>
+
+          <h4>Althea Sherman (1853&ndash;1943)</h4>
+          <p>
+            Iowa naturalist, built the famous Chimney Swift tower for direct
+            observation of nesting behavior. Like Stanwood, her substantive
+            work lives in journal articles. Same archive caveat: search the
+            <em>Bird-Lore</em> back issues at the
+            <a
+              href="https://www.biodiversitylibrary.org/"
+              target="_blank"
+              rel="noopener noreferrer">Biodiversity Heritage Library</a>.
+          </p>
+
+          <h4>Margaret Morse Nice (1883&ndash;1974)</h4>
+          <p>
+            Mount Holyoke College (1901&ndash;1906). Conducted foundational
+            long-term study of Song Sparrows in Columbus, Ohio, beginning in
+            1929 and running approximately eight years. The work focused on
+            individual banded birds and recorded territoriality, breeding,
+            learning, and song behavior. Published over 250 papers, 7 books,
+            and 3,313 reviews across her career. Her major books, <em>Studies
+            in the Life History of the Song Sparrow</em> (1937) and <em>The
+            Watcher at the Nest</em> (1939), are not yet public domain under
+            the 95-year rule (enter PD on January 1, 2033 and January 1, 2035
+            respectively). Her pre-1930 articles in <em>Bird-Lore</em> and
+            <em>The Auk</em> are public domain and worth pulling for the
+            series, available through
+            <a
+              href="https://sora.unm.edu/"
+              target="_blank"
+              rel="noopener noreferrer">SORA</a> and the
+            <a
+              href="https://www.biodiversitylibrary.org/"
+              target="_blank"
+              rel="noopener noreferrer">Biodiversity Heritage Library</a>.
+          </p>
+
+          <h3>Where to look for clean scans</h3>
+          <ul>
+            <li>
+              <a
+                href="https://archive.org/"
+                target="_blank"
+                rel="noopener noreferrer">Internet Archive</a>. The workhorse.
+              PDF, EPUB, and plain text. Ad-free, login optional.
+            </li>
+            <li>
+              <a
+                href="https://www.biodiversitylibrary.org/"
+                target="_blank"
+                rel="noopener noreferrer">Biodiversity Heritage Library</a>.
+              Best for scientific journals and serious ornithological texts.
+              Higher-quality scans for science books.
+            </li>
+            <li>
+              <a
+                href="https://www.hathitrust.org/"
+                target="_blank"
+                rel="noopener noreferrer">HathiTrust</a>. Academic-grade scans;
+              full download is sometimes restricted to authenticated users at
+              member institutions.
+            </li>
+            <li>
+              <a
+                href="https://www.gutenberg.org/"
+                target="_blank"
+                rel="noopener noreferrer">Project Gutenberg</a>. Cleaner
+              plain-text and HTML editions of the most-read titles,
+              volunteer-proofread.
+            </li>
+            <li>
+              <a
+                href="https://sora.unm.edu/"
+                target="_blank"
+                rel="noopener noreferrer">SORA</a>. Searchable Ornithological
+              Research Archive of major North American ornithology journals.
+            </li>
+            <li>
+              <a
+                href="https://www.loc.gov/"
+                target="_blank"
+                rel="noopener noreferrer">Library of Congress</a>. Hosts
+              high-quality scans of many titles, including Burroughs's
+              <em>Wake-Robin</em> and Chapman's <em>Handbook</em>.
+            </li>
+          </ul>
+
+          <hr />
+
+          <p class="library-meta">
+            Last updated {lastUpdated}.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .library-body {
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .library-body p {
+    margin-bottom: 16px;
+  }
+
+  .library-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .library-body h4 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+
+  .library-body a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .library-body a:hover {
+    color: var(--color-highlight);
+  }
+
+  .library-titles {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 24px;
+  }
+
+  .library-titles > li {
+    margin-bottom: 14px;
+  }
+
+  .library-titles > li > ul {
+    list-style: circle;
+    padding-left: 1.25rem;
+    margin: 6px 0 0;
+  }
+
+  .library-titles > li > ul > li {
+    margin-bottom: 4px;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .library-titles > li > ul a {
+    color: var(--color-secondary);
+  }
+
+  .library-body hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 40px 0 16px;
+  }
+
+  .library-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    font-style: italic;
+    margin-top: 24px;
+  }
+</style>
