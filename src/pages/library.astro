@@ -13,24 +13,63 @@ const description =
 const lastUpdated = "April 26, 2026";
 const dateModifiedISO = "2026-04-26";
 
-// Wikipedia sameAs links per author, used to enrich the JSON-LD nested
-// Person object on each Book entry. Optional: undefined values are
-// dropped from the JSON output by JSON.stringify.
-const authorSameAs: Record<string, string> = {
-  "Frank M. Chapman":
-    "https://en.wikipedia.org/wiki/Frank_Chapman_(ornithologist)",
-  "C. Hart Merriam": "https://en.wikipedia.org/wiki/C._Hart_Merriam",
-  "John Burroughs": "https://en.wikipedia.org/wiki/John_Burroughs",
-  "Mabel Osgood Wright":
-    "https://en.wikipedia.org/wiki/Mabel_Osgood_Wright",
-  "Florence Merriam Bailey":
-    "https://en.wikipedia.org/wiki/Florence_Merriam_Bailey",
-  "Olive Thorne Miller":
-    "https://en.wikipedia.org/wiki/Olive_Thorne_Miller",
-  "Neltje Blanchan": "https://en.wikipedia.org/wiki/Neltje_Blanchan",
-  "Cordelia Stanwood": "https://en.wikipedia.org/wiki/Cordelia_Stanwood",
-  "Althea Sherman": "https://en.wikipedia.org/wiki/Althea_Sherman",
+// Per-author metadata used to enrich the JSON-LD nested Person object on
+// each Book entry. `sameAs` points at Wikipedia (most authoritative
+// general-purpose page); `iconSlug` resolves to the 64x64 portrait JPEG
+// at /images/library/authors/<slug>-icon.jpg. Both fields are optional;
+// JSON.stringify drops undefined properties cleanly.
+const authorMeta: Record<string, { sameAs?: string; iconSlug?: string }> = {
+  "Frank M. Chapman": {
+    sameAs: "https://en.wikipedia.org/wiki/Frank_Chapman_(ornithologist)",
+    iconSlug: "frank-m-chapman",
+  },
+  "C. Hart Merriam": {
+    sameAs: "https://en.wikipedia.org/wiki/C._Hart_Merriam",
+    iconSlug: "c-hart-merriam",
+  },
+  "John Burroughs": {
+    sameAs: "https://en.wikipedia.org/wiki/John_Burroughs",
+    iconSlug: "john-burroughs",
+  },
+  "Mabel Osgood Wright": {
+    sameAs: "https://en.wikipedia.org/wiki/Mabel_Osgood_Wright",
+    iconSlug: "mabel-osgood-wright",
+  },
+  "Witmer Stone": {
+    sameAs: "https://en.wikipedia.org/wiki/Witmer_Stone",
+    iconSlug: "witmer-stone",
+  },
+  "Florence Merriam Bailey": {
+    sameAs: "https://en.wikipedia.org/wiki/Florence_Merriam_Bailey",
+    iconSlug: "florence-merriam-bailey",
+  },
+  "Olive Thorne Miller": {
+    sameAs: "https://en.wikipedia.org/wiki/Olive_Thorne_Miller",
+    iconSlug: "olive-thorne-miller",
+  },
+  "Neltje Blanchan": {
+    sameAs: "https://en.wikipedia.org/wiki/Neltje_Blanchan",
+    iconSlug: "neltje-blanchan",
+  },
+  "Cordelia Stanwood": {
+    sameAs: "https://en.wikipedia.org/wiki/Cordelia_Stanwood",
+    iconSlug: "cordelia-stanwood",
+  },
+  "Althea Sherman": {
+    sameAs: "https://en.wikipedia.org/wiki/Althea_Sherman",
+    iconSlug: "althea-sherman",
+  },
+  "Margaret Morse Nice": {
+    iconSlug: "margaret-morse-nice",
+    // Nice is intentionally not given a Wikipedia sameAs here. No
+    // Wikipedia article exists at the canonical English slug at the
+    // time of writing; add when one ships.
+  },
 };
+
+const ORIGIN = "https://shellylynnx.com";
+const iconUrl = (slug: string) =>
+  `${ORIGIN}/images/library/authors/${slug}-icon.jpg`;
 
 // Books with verified year + canonical URL, used for the JSON-LD ItemList.
 // Ordered by appearance on the page. Mirrors every distinctly-titled book
@@ -115,6 +154,18 @@ const books = [
     author: "Mabel Osgood Wright",
     datePublished: "1921",
     url: "https://archive.org/details/cu31924090201306",
+  },
+  {
+    name: "The Birds of New Jersey",
+    author: "Witmer Stone",
+    datePublished: "1908",
+    url: "https://archive.org/details/birdsofnewjersey00stonrich",
+  },
+  {
+    name: "Annual Report of the New Jersey State Museum, 1901-1912, 1914",
+    author: "Witmer Stone",
+    // Year intentionally omitted: this is a multi-year compilation.
+    url: "https://archive.org/details/annualreportofne00newj",
   },
   {
     name: "Birds Through an Opera Glass",
@@ -260,7 +311,10 @@ const collectionSchema = {
         author: {
           "@type": "Person",
           name: b.author,
-          sameAs: authorSameAs[b.author],
+          sameAs: authorMeta[b.author]?.sameAs,
+          image: authorMeta[b.author]?.iconSlug
+            ? iconUrl(authorMeta[b.author].iconSlug!)
+            : undefined,
         },
         datePublished: b.datePublished,
         inLanguage: "en",
@@ -327,6 +381,7 @@ const collectionSchema = {
               <li><a href="#c-hart-merriam">C. Hart Merriam</a></li>
               <li><a href="#john-burroughs">John Burroughs</a></li>
               <li><a href="#mabel-osgood-wright">Mabel Osgood Wright</a></li>
+              <li><a href="#witmer-stone">Witmer Stone</a></li>
               <li>
                 <a href="#florence-merriam-bailey">Florence Merriam Bailey</a>
               </li>
@@ -352,8 +407,16 @@ const collectionSchema = {
               Domain chart</a>.
           </p>
 
-          <h3 id="nyc-and-ny-adjacent">NYC and NY-adjacent</h3>
+          <h3 id="nyc-and-the-metro-region">NYC and the metro region</h3>
+          <p class="library-section-dek">
+            <em>The tri-state birding culture extends well past Manhattan:
+            NJ Transit to Sandy Hook, Cape May, and the Great Swamp;
+            Metro-North to the Hudson Highlands; LIRR to Jamaica Bay and
+            Montauk. Authors below cover NYC institutions, the Hudson
+            Valley, Connecticut, and the New Jersey coast.</em>
+          </p>
 
+          <img class="author-icon" src="/images/library/authors/frank-m-chapman-icon.jpg" alt="Frank M. Chapman portrait" width="64" height="64" loading="lazy" />
           <h4 id="frank-m-chapman">Frank M. Chapman (1864&ndash;1945)</h4>
           <p>
             Joined the American Museum of Natural History in 1888, Curator of
@@ -446,6 +509,7 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/c-hart-merriam-icon.jpg" alt="C. Hart Merriam portrait" width="64" height="64" loading="lazy" />
           <h4 id="c-hart-merriam">C. Hart Merriam (1855&ndash;1942)</h4>
           <p>
             Clinton Hart Merriam. Born Lewis County, NY. Co-founder of the
@@ -537,6 +601,7 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/john-burroughs-icon.jpg" alt="John Burroughs portrait" width="64" height="64" loading="lazy" />
           <h4 id="john-burroughs">John Burroughs (1837&ndash;1921)</h4>
           <p>
             Hudson Valley nature writer, Catskills. Florence Merriam Bailey
@@ -610,6 +675,7 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/mabel-osgood-wright-icon.jpg" alt="Mabel Osgood Wright portrait" width="64" height="64" loading="lazy" />
           <h4 id="mabel-osgood-wright">Mabel Osgood Wright (1859&ndash;1934)</h4>
           <p>
             Connecticut-based but New York-published. Beginning in 1884, wrote
@@ -672,8 +738,81 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/witmer-stone-icon.jpg" alt="Witmer Stone portrait" width="64" height="64" loading="lazy" />
+          <h4 id="witmer-stone">Witmer Stone (1866&ndash;1939)</h4>
+          <p>
+            Philadelphia-based naturalist at the Academy of Natural
+            Sciences. His fieldwork on the New Jersey coast made him the
+            definitive ornithological voice on Cape May and broader NJ.
+            Editor of <em>The Auk</em> for roughly 25 years (approximately
+            1912&ndash;1936). Pre-1929 work is public domain; his
+            masterwork <em>Bird Studies at Old Cape May</em> (1937) is
+            <strong>not yet PD</strong> under the 95-year rule (enters PD
+            Jan 1, 2033).
+          </p>
+          <ul class="library-titles">
+            <li>
+              <em>The Birds of New Jersey</em> (1908). Comprehensive state
+              survey, published as part of the New Jersey State Museum
+              Annual Report. The most important pre-1929 reference on NJ
+              ornithology.
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/birdsofnewjersey00stonrich"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.biodiversitylibrary.org/bibliography/29952"
+                    target="_blank"
+                    rel="noopener noreferrer">Biodiversity Heritage Library</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Annual Report of the New Jersey State Museum,
+              1901&ndash;1912, 1914</em> (containing his bird and mammal
+              surveys).
+              <ul>
+                <li>
+                  <a
+                    href="https://archive.org/details/annualreportofne00newj"
+                    target="_blank"
+                    rel="noopener noreferrer">Internet Archive</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Bird Studies at Old Cape May</em> (1937). His masterwork,
+              the definitive treatment of Cape May ornithology.
+              <strong>Not yet public domain</strong> (enters PD Jan 1,
+              2033).
+            </li>
+            <li>
+              His pre-1929 articles in <em>The Auk</em> (where he was
+              editor), <em>Bird-Lore</em>, and <em>Cassinia</em> (journal
+              of the Delaware Valley Ornithological Club) are public
+              domain. Available via SORA and BHL.
+            </li>
+            <li>
+              Author master indexes:
+              <a
+                href="https://www.biodiversitylibrary.org/creator/1413"
+                target="_blank"
+                rel="noopener noreferrer">Biodiversity Heritage Library
+                creator page</a>,
+              <a
+                href="https://en.wikipedia.org/wiki/Witmer_Stone"
+                target="_blank"
+                rel="noopener noreferrer">Wikipedia article</a>.
+            </li>
+          </ul>
+
           <h3>Women in birdwatching</h3>
 
+          <img class="author-icon" src="/images/library/authors/florence-merriam-bailey-icon.jpg" alt="Florence Merriam Bailey portrait" width="64" height="64" loading="lazy" />
           <h4 id="florence-merriam-bailey">Florence Merriam Bailey (1863&ndash;1948)</h4>
           <p>
             Inventor of modern birdwatching. Wrote <em>Birds Through an Opera
@@ -799,10 +938,11 @@ const collectionSchema = {
 
           <h4>Mabel Osgood Wright (1859&ndash;1934)</h4>
           <p>
-            See Mabel Osgood Wright above under <a href="#nyc-and-ny-adjacent">NYC
-            and NY-adjacent</a> for her full entry and download links.
+            See Mabel Osgood Wright above under <a href="#nyc-and-the-metro-region">NYC
+            and the metro region</a> for her full entry and download links.
           </p>
 
+          <img class="author-icon" src="/images/library/authors/olive-thorne-miller-icon.jpg" alt="Olive Thorne Miller portrait" width="64" height="64" loading="lazy" />
           <h4 id="olive-thorne-miller">Olive Thorne Miller (1831&ndash;1918)</h4>
           <p>
             Pen name of Harriet Mann Miller. Adopted "Olive Thorne" early for
@@ -865,6 +1005,7 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/neltje-blanchan-icon.jpg" alt="Neltje Blanchan portrait" width="64" height="64" loading="lazy" />
           <h4 id="neltje-blanchan">Neltje Blanchan (1865&ndash;1918)</h4>
           <p>
             Real name Nellie Blanchan De Graff Doubleday, married to publisher
@@ -970,6 +1111,7 @@ const collectionSchema = {
             </li>
           </ul>
 
+          <img class="author-icon" src="/images/library/authors/cordelia-stanwood-icon.jpg" alt="Cordelia Stanwood portrait" width="64" height="64" loading="lazy" />
           <h4 id="cordelia-stanwood">Cordelia Stanwood (1865&ndash;1958)</h4>
           <p>
             Maine field naturalist (Ellsworth). Began ornithological work in
@@ -993,6 +1135,7 @@ const collectionSchema = {
             death.
           </p>
 
+          <img class="author-icon" src="/images/library/authors/althea-sherman-icon.jpg" alt="Althea Sherman portrait" width="64" height="64" loading="lazy" />
           <h4 id="althea-sherman">Althea Sherman (1853&ndash;1943)</h4>
           <p>
             Iowa naturalist (Farmersburg Township, Clayton County).
@@ -1014,6 +1157,7 @@ const collectionSchema = {
             and other pre-1929 journals are public domain.
           </p>
 
+          <img class="author-icon" src="/images/library/authors/margaret-morse-nice-icon.jpg" alt="Margaret Morse Nice portrait" width="64" height="64" loading="lazy" />
           <h4 id="margaret-morse-nice">Margaret Morse Nice (1883&ndash;1974)</h4>
           <p>
             Mount Holyoke College (1901&ndash;1906). Conducted foundational
@@ -1101,6 +1245,7 @@ const collectionSchema = {
 
           <p class="library-meta">
             Last updated {lastUpdated}.
+            <a href="/library/image-credits/">Image credits</a>.
           </p>
         </div>
       </div>
@@ -1134,6 +1279,40 @@ const collectionSchema = {
     margin-top: 28px;
     margin-bottom: 8px;
     color: var(--color-text);
+  }
+
+  /* Author portrait icon next to each <h4>. Floats so the bio paragraph
+     wraps around it. The next .library-titles <ul> clears the float so
+     long lists don't ride up next to the next icon. */
+  .author-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 4px;
+    float: left;
+    margin: 28px 14px 8px 0;
+    border: 1px solid var(--color-border);
+    background: var(--color-card-bg);
+  }
+
+  /* When an icon precedes the heading, the heading's own top margin would
+     create extra space above the bio. Reset it so the heading aligns with
+     the top of the icon. */
+  .author-icon + h4 {
+    margin-top: 30px;
+    clear: none;
+  }
+
+  .library-titles {
+    clear: left;
+  }
+
+  /* Italic dek under section headings (e.g., the metro-region intro). */
+  .library-section-dek {
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-top: -4px;
+    margin-bottom: 24px;
   }
 
   /* Offset anchor jumps so the heading lands below the fixed nav. */
