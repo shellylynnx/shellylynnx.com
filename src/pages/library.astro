@@ -13,10 +13,11 @@ const description =
 const lastUpdated = "April 25, 2026";
 
 // Books with verified year + canonical URL, used for the JSON-LD ItemList.
-// Ordered by appearance on the page. Mirrors every titled book entry on
-// the page; "The Making of Birdcraft Sanctuary" (no verified publication
-// year on the page) and the Bird-Lore magazine entry are intentionally
-// excluded from the structured Book list.
+// Ordered by appearance on the page. Mirrors every distinctly-titled book
+// entry rendered on the page. The Bird-Lore magazine entry is excluded
+// (Periodical, not Book). "Several others" / "many other titles" Burroughs
+// mentions are excluded only when their publication years are not solidly
+// documented; named titles with confident years are included.
 const books = [
   {
     name: "Handbook of Birds of Eastern North America",
@@ -41,6 +42,12 @@ const books = [
     author: "Mabel Osgood Wright",
     datePublished: "1895",
     url: "https://archive.org/details/birdcraftfieldbo01wrig",
+  },
+  {
+    name: "The Making of Birdcraft Sanctuary",
+    author: "Mabel Osgood Wright",
+    datePublished: "1921",
+    url: "https://archive.org/details/cu31924090201306",
   },
   {
     name: "Birds Through an Opera Glass",
@@ -89,6 +96,30 @@ const books = [
     author: "Olive Thorne Miller",
     datePublished: "1894",
     url: "https://archive.org/search.php?query=bird-lover+in+the+west+olive+thorne+miller",
+  },
+  {
+    name: "Little Brothers of the Air",
+    author: "Olive Thorne Miller",
+    datePublished: "1892",
+    url: "https://archive.org/search.php?query=creator%3A%22Olive+Thorne+Miller%22",
+  },
+  {
+    name: "The Children's Book of Birds",
+    author: "Olive Thorne Miller",
+    datePublished: "1901",
+    url: "https://archive.org/search.php?query=creator%3A%22Olive+Thorne+Miller%22",
+  },
+  {
+    name: "The Second Book of Birds: Bird Families",
+    author: "Olive Thorne Miller",
+    datePublished: "1901",
+    url: "https://archive.org/search.php?query=creator%3A%22Olive+Thorne+Miller%22",
+  },
+  {
+    name: "True Bird Stories from My Note-Books",
+    author: "Olive Thorne Miller",
+    datePublished: "1903",
+    url: "https://archive.org/search.php?query=creator%3A%22Olive+Thorne+Miller%22",
   },
   {
     name: "Bird Neighbors",
@@ -665,22 +696,41 @@ const collectionSchema = {
 
           <h4>Cordelia Stanwood (1865&ndash;1958)</h4>
           <p>
-            Maine field naturalist. Largely self-taught, photographed birds
-            with a glass-plate camera. Published in <em>Bird-Lore</em>. Most
-            of her substantive work was in articles, not books, but the
-            <em>Bird-Lore</em> archive at the
+            Maine field naturalist (Ellsworth). Began ornithological work in
+            her early 40s after a teaching career and a nervous breakdown.
+            Largely self-taught, photographed birds with a glass-plate
+            camera. Reported as the first female professional bird
+            photographer; 38 of her photographs appeared in Edward Howe
+            Forbush's <em>Birds of Massachusetts</em>. Made scientific
+            observations on roughly 100 species. Published in
+            <em>Bird-Lore</em>, <em>Blue Bird</em>, <em>Nature and
+            Culture</em>, and <em>House Beautiful</em>, plus 20 scholarly
+            articles in ornithological journals. Most of her substantive
+            work was in articles, not books, but the <em>Bird-Lore</em>
+            archive at the
             <a
               href="https://www.biodiversitylibrary.org/"
               target="_blank"
               rel="noopener noreferrer">Biodiversity Heritage Library</a>
-            contains her writing.
+            contains her writing. Her home and woodland became Birdsacre
+            Sanctuary, opened to the public in 1960, two years after her
+            death.
           </p>
 
           <h4>Althea Sherman (1853&ndash;1943)</h4>
           <p>
-            Iowa naturalist, built a famous Chimney Swift tower for direct
-            observation of nesting behavior. Published in <em>Bird-Lore</em>.
-            Same archive caveat as Stanwood.
+            Iowa naturalist (Farmersburg Township, Clayton County).
+            Self-taught ornithologist after a teaching career. In 1915 she
+            commissioned a 28-foot wooden tower (9 feet square, with an
+            internal staircase, doors, and peepholes) specifically for
+            observing Chimney Swifts; she collected 18 years of data using
+            it, the first complete life-cycle study of the species.
+            Published more than 70 articles in scientific and ornithological
+            journals. Elected to AOU membership in 1912 (when the AOU had
+            only 100 members). Posthumous book <em>Birds of an Iowa
+            Dooryard</em> (1952), edited by Fred J. Pierce, limited to
+            1,500 copies. Her articles in <em>Bird-Lore</em> and other
+            pre-1929 journals are public domain.
           </p>
 
           <h4>Margaret Morse Nice (1883&ndash;1974)</h4>
