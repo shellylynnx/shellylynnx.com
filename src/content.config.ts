@@ -48,6 +48,12 @@ const articleSchema = z.object({
     .default([]),
   photoCredits: z.string().optional(),
   topics: z.array(z.string()).optional(),
+  // Optional override for the small chip displayed on the notes index
+  // card (third item after date and category). Defaults to the first
+  // bird in birdsMentioned. Set this when the first bird isn't the most
+  // useful framing for the card (e.g. an article whose subject is a
+  // person, theme, or movement rather than a single species).
+  cardTag: z.string().optional(),
 });
 
 const notes = defineCollection({
