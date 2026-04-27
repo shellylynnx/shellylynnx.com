@@ -2,6 +2,7 @@
 title: "The 22-Year-Old Who Helped Invent Modern Birdwatching"
 description: "Florence Merriam Bailey was 22 when she became the AOU's first female associate member. She helped invent modern birdwatching from inside a movement, not its edges."
 pubDate: 2026-04-26
+updatedDate: 2026-04-26
 author: "Shelly Xiong"
 category: "Birdwatching History"
 tags:
