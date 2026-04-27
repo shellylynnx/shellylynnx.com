@@ -8,8 +8,12 @@ import { visit } from "unist-util-visit";
  * - Runs on rehype AST (after Markdown -> HTML conversion).
  * - Skips text inside <sup>, <a>, <code>, <pre>, and headings so existing
  *   links and anchors aren't touched.
+ * - Citation numbers are capped at 3 digits to avoid false-positive matches
+ *   on 4-digit years like "(1896)" or "(2026)" that show up in body prose
+ *   (publication dates, history references, etc.). Articles with 1000+ refs
+ *   would need this raised, but that's not a real constraint right now.
  */
-const CITATION_RE = /\((\d+(?:\s*,\s*\d+)*)\)/g;
+const CITATION_RE = /\((\d{1,3}(?:\s*,\s*\d{1,3})*)\)/g;
 const SKIP_TAGS = new Set(["sup", "a", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6"]);
 
 export function rehypeCitations() {
