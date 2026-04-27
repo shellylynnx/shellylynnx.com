@@ -99,11 +99,15 @@ const readTime = Math.max(1, Math.round(wordCount / 220));
     (function () {
       function openRefsFor(hash) {
         if (!hash || !hash.startsWith("#ref-")) return;
-        var refs = document.querySelector(".note-refs");
-        if (refs && !refs.open) refs.open = true;
+        var target = document.querySelector(hash);
+        if (!target) return;
+        // Open the specific <details> that contains this ref. Articles
+        // with subway routes have two .note-refs accordions, so always
+        // open the one wrapping the target rather than the first one.
+        var details = target.closest("details");
+        if (details && !details.open) details.open = true;
         requestAnimationFrame(function () {
-          var target = document.querySelector(hash);
-          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       }
       document.addEventListener("click", function (e) {
