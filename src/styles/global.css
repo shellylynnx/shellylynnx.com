@@ -1714,11 +1714,10 @@ body.light .notes-filter-pill.active {
 }
 
 .note-body figure video {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 6px;
     display: block;
-    margin: 0 auto;
 }
 
 /* Markdown's ![](src) renders the image inside a <p>, with the
