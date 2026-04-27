@@ -1706,17 +1706,32 @@ body.light .notes-filter-pill.active {
 }
 
 .note-body figure img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 6px;
     display: block;
+    margin: 0 auto;
 }
 
 .note-body figure video {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 6px;
     display: block;
+    margin: 0 auto;
+}
+
+/* Markdown's ![](src) renders the image inside a <p>, with the
+   following italic line as a caption in the same paragraph. Center
+   the paragraph (which centers both the image and the caption text)
+   and the inline image as a block. */
+.note-body p:has(> img) {
+    text-align: center;
+}
+
+.note-body p > img {
+    margin: 0 auto;
+    border-radius: 6px;
 }
 
 .note-body figcaption {
