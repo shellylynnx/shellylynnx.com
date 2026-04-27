@@ -75,8 +75,8 @@ const fmt = (d: Date) =>
                             {fmt(note.data.pubDate)}
                           </span>
                           <span class="notes-card-cat">{note.data.category}</span>
-                          {firstBird && (
-                            <span class="notes-card-bird">{firstBird.commonName}</span>
+                          {(note.data.cardTag ?? firstBird?.commonName) && (
+                            <span class="notes-card-bird">{note.data.cardTag ?? firstBird.commonName}</span>
                           )}
                         </div>
                         <h2 class="notes-card-title">{note.data.title}</h2>

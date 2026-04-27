@@ -15,6 +15,7 @@ topics:
   - NYC birding
   - birdwatching history
   - conservation
+cardTag: "Women"
 ogImage: /images/articles/florence-merriam-bailey/florence-bailey-portrait.jpg
 ogImageAlt: "Portrait of Florence Merriam Bailey, undated. Smithsonian Institution Archives, RU007417 Florence Merriam Bailey Papers."
 photoCredits: "Hero portrait: Smithsonian Institution Archives, RU007417 Florence Merriam Bailey Papers (public domain). 1886 Smith College photograph by Notman Photographic Company. 1916 portrait from <em>Bird-Lore</em> magazine. American Robin, Wood Pewee song notation, and American Goldfinch illustrations from <em>Birds Through an Opera Glass</em> (1889), scans courtesy of <a href=\"https://archive.org/details/birdsthroughopera00bailrich\" target=\"_blank\" rel=\"noopener noreferrer\">Internet Archive</a>. All images public domain."
