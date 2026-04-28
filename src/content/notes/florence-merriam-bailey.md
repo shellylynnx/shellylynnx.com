@@ -161,4 +161,6 @@ The opera glasses have been upgraded. The argument hasn't.
 
 ---
 
+**Read the full book →** [Birds Through an Opera Glass: the interactive 1889 field guide](https://shellylynnx.github.io/projects/opera-glass/). Bailey's complete text, all 70 chapters, with her original illustrations and song notations placed inline where she set them on the page. Public domain, free to read.
+
 **Browse the full gallery →** [Birds Through an Opera Glass: An Illustrated Gallery](/library/birds-through-an-opera-glass/). All 16 of Bailey's bird drawings and 11 of her song transcriptions, with one of her sentences about each species.

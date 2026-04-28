@@ -828,6 +828,14 @@ const collectionSchema = {
               illustrated American field guide for non-scientists. The founding
               text.
               <p class="library-gallery-cta-wrap">
+                <a
+                  class="library-reader-cta"
+                  href="https://shellylynnx.github.io/projects/opera-glass/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Read the full book &rarr;
+                </a>
                 <a class="library-gallery-cta" href="/library/birds-through-an-opera-glass/">
                   Browse our illustrated gallery &rarr;
                 </a>
@@ -1436,5 +1444,39 @@ const collectionSchema = {
   .library-body .library-gallery-cta:hover {
     background: var(--color-accent-hover);
     color: #E8E0D4;
+  }
+
+  /* Leather-brown sibling to the green gallery CTA. The reader button is
+     primary (the book itself) so it sits first; the gallery button second.
+     The gallery button picks up the spacing margin so the order can flip
+     freely without orphan margins. */
+  .library-body .library-reader-cta {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #7A4E2A;
+    color: #E8E0D4;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .library-body .library-reader-cta:hover {
+    background: #5E3A1F;
+    color: #E8E0D4;
+  }
+
+  /* When the gallery CTA follows the reader CTA on the same row, give it
+     left margin for separation. On mobile, stack vertically. */
+  .library-body .library-reader-cta + .library-gallery-cta {
+    margin-left: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .library-body .library-reader-cta + .library-gallery-cta {
+      margin-left: 0;
+      margin-top: 8px;
+    }
   }
 </style>

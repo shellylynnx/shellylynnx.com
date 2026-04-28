@@ -16,6 +16,20 @@ type Tool = {
 
 const tools: Tool[] = [
   {
+    slug: "opera-glass",
+    name: "Opera Glass",
+    tagline: "Birds Through an Opera Glass (1889), interactive",
+    description:
+      "An online reader for Florence Merriam Bailey's Birds Through an Opera Glass, the 1889 field guide written for someone who might see a bird on a walk and want to know what it was. All 70 chapters navigable, all 16 inline illustrations, all 11 of Bailey's transcribed bird songs. Public-domain text, modern reading experience.",
+    whyItExists:
+      "Brings one of the first popular American bird books online as a navigable web edition, keeping the original illustrations and song notations Bailey set inline.",
+    alt: "Screenshot of the Opera Glass interactive reader showing the title page of Florence Merriam Bailey's 1889 Birds Through an Opera Glass at the top, with the chapter table of contents listing 'I. The Robin,' 'II. The Crow,' 'III. The Bluebird' and onward.",
+    stack: ["Vanilla JS", "Public domain", "Internet Archive"],
+    liveUrl: "https://shellylynnx.github.io/projects/opera-glass/",
+    sourceUrl: "https://github.com/shellylynnx/projects/tree/main/opera-glass",
+    color: "#7A4E2A",
+  },
+  {
     slug: "metbird",
     name: "METBird",
     tagline: "9,751 Met Museum bird artworks, searchable",
@@ -92,10 +106,12 @@ const tools: Tool[] = [
           Met's open-access collection, and small visual or print tools that
           don't have a polished commercial alternative. All open source, all
           free, all written in mostly-vanilla JavaScript so they keep working
-          without me having to maintain a build pipeline. The first one
-          (METBird) is the most directly bird-aligned: it cross-references
-          the Met's 9,751 open-access bird artworks with eBird taxonomy. The
-          others sit adjacent: NYC tooling, print art, zine layout.
+          without me having to maintain a build pipeline. The first two are
+          the most directly bird-aligned: Opera Glass is an interactive web
+          edition of Florence Merriam Bailey's 1889 field guide, and METBird
+          cross-references the Met's 9,751 open-access bird artworks with
+          eBird taxonomy. The others sit adjacent: NYC tooling, print art,
+          zine layout.
         </p>
 
         <ul class="tools-list">
@@ -149,6 +165,14 @@ const tools: Tool[] = [
                     <p class="tool-card-see-also">
                       See also:{" "}
                       <a href="/library/">Public Domain Bird Library</a>
+                      {" · "}
+                      <a
+                        href="https://shellylynnx.github.io/projects/opera-glass/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Opera Glass reader
+                      </a>
                     </p>
                   )}
                 </div>
