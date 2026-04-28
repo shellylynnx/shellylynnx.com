@@ -10,7 +10,7 @@ const canonical = new URL(
 
 const title = "Birds Through an Opera Glass: An Illustrated Gallery";
 const description =
-  "Florence Merriam Bailey's 1889 field guide, fully illustrated. 17 bird drawings and 11 song-notation transcriptions, paired with the modern eBird species accounts.";
+  "Florence Merriam Bailey's 1889 field guide, fully illustrated. 16 bird drawings and 11 song-notation transcriptions, paired with the modern eBird species accounts.";
 const ogImage = "/images/library/opera-glass/title-page.png";
 
 const slugify = (name: string) =>
@@ -24,6 +24,7 @@ const slugify = (name: string) =>
 const species = [
   {
     name: "American Robin",
+    article: "an",
     file: "robin.png",
     page: "p. 5",
     quote:
@@ -42,6 +43,7 @@ const species = [
   },
   {
     name: "Eastern Meadowlark",
+    article: "an",
     file: "meadow-lark.png",
     page: "p. 41",
     quote:
@@ -64,7 +66,7 @@ const species = [
     file: "flicker.png",
     page: "p. 50",
     quote:
-      "The song of the yellow hammer is like the German th, he hasn't any.",
+      "The song of the yellow hammer is like the German th—he hasn't any.",
     ebird: [{ code: "norfli", label: "Modern account on eBird" }],
   },
   {
@@ -72,7 +74,7 @@ const species = [
     file: "barn-swallow.png",
     page: "p. 56",
     quote:
-      "It is funny enough to see them light on a wire, fluttering over it for a moment before settling down, they sway back and forth till you are sure they must fall off.",
+      "It is funny enough to see them light on a wire. Fluttering over it for a moment before settling down, they sway back and forth till you are sure they must fall off.",
     ebird: [{ code: "barswa", label: "Modern account on eBird" }],
   },
   {
@@ -93,11 +95,12 @@ const species = [
   },
   {
     name: "American Goldfinch",
+    article: "an",
     periodName: "Yellow-Bird in Bailey's text",
     file: "american-goldfinch.png",
     page: "p. 77",
     quote:
-      "And what dainty light blue shells they had, just as if bits of blue sky had fallen into the nest!",
+      "And what dainty light blue shells they had. Just as if bits of blue sky had fallen into the nest!",
     ebird: [{ code: "amegfi", label: "Modern account on eBird" }],
   },
   {
@@ -113,11 +116,12 @@ const species = [
     file: "white-breasted-nuthatch.png",
     page: "p. 102",
     quote:
-      "There in their tops are the nuthatches, for they have deserted the tree trunks for a frolic, they are beechnutting!",
+      "There in their tops are the nuthatches, for they have deserted the tree trunks for a frolic. They are beechnutting!",
     ebird: [{ code: "whbnut", label: "Modern account on eBird" }],
   },
   {
     name: "Eastern Towhee",
+    article: "an",
     periodName: "Chewink in Bailey's text",
     file: "eastern-towhee.png",
     page: "p. 116",
@@ -127,6 +131,7 @@ const species = [
   },
   {
     name: "Ovenbird",
+    article: "an",
     file: "ovenbird.png",
     page: "p. 135",
     quote:
@@ -143,6 +148,7 @@ const species = [
   },
   {
     name: "American Redstart",
+    article: "an",
     file: "american-redstart.png",
     page: "p. 182",
     quote:
@@ -358,7 +364,7 @@ const collectionSchema = {
       <div class="container" style="max-width: 1080px;">
         <h2 class="section-title">{title}</h2>
         <p class="section-dek">
-          Florence Merriam Bailey's 1889 field guide, fully illustrated. 17
+          Florence Merriam Bailey's 1889 field guide, fully illustrated. 16
           bird drawings and 11 song-notation transcriptions, paired with the
           modern eBird species accounts.
         </p>
@@ -378,14 +384,14 @@ const collectionSchema = {
             (1889) was the first American field guide written for someone
             who might see a bird on a walk and want to know what it was,
             without owning a shotgun or a study skin. It described 70
-            species across short, observational chapters. Below are the 16
-            species Bailey chose to illustrate, with one of her sentences
+            species across short, observational chapters. Below are her 16
+            bird drawings (the Bobolink got two), with one of her sentences
             about each, and the 11 species whose songs she transcribed as
             inline music.
           </p>
         </div>
 
-        <h3 class="opera-glass-section-heading">The 16 illustrated species</h3>
+        <h3 class="opera-glass-section-heading">The 15 illustrated species</h3>
         <p class="opera-glass-section-dek">
           Each illustration is the inline drawing from Bailey's chapter on
           that species, paired with one of her sentences about the bird.
@@ -402,19 +408,19 @@ const collectionSchema = {
                     <div class="opera-glass-card-pair">
                       <img
                         src={`/images/library/opera-glass/${s.file}`}
-                        alt={`First inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
+                        alt={`First inline illustration of ${s.article ?? "a"} ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
                         loading="lazy"
                       />
                       <img
                         src={`/images/library/opera-glass/${s.fileSecondary}`}
-                        alt={`Second inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
+                        alt={`Second inline illustration of ${s.article ?? "a"} ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
                         loading="lazy"
                       />
                     </div>
                   ) : (
                     <img
                       src={`/images/library/opera-glass/${s.file}`}
-                      alt={`Inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page}.`}
+                      alt={`Inline illustration of ${s.article ?? "a"} ${s.name} from Bailey's chapter on the species, book ${s.page}.`}
                       loading="lazy"
                     />
                   )}
