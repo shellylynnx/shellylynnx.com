@@ -1090,6 +1090,60 @@ body.light .tool-card:hover {
     margin: 4px 0 0;
 }
 
+.tools-intro {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    max-width: 760px;
+    margin: -32px 0 40px;
+}
+
+.tool-card-why {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    margin: 4px 0 0;
+}
+
+.tool-card-why em {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.tool-card-see-also {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    margin: 8px 0 0;
+}
+
+.tool-card-see-also a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.tool-card-see-also a:hover {
+    color: var(--color-highlight);
+}
+
+.rss-fallback {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    text-align: center;
+}
+
+.rss-fallback a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.rss-fallback a:hover {
+    color: var(--color-highlight);
+}
+
 .tool-card-stack {
     list-style: none;
     display: flex;
