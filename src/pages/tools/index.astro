@@ -6,6 +6,8 @@ type Tool = {
   name: string;
   tagline: string;
   description: string;
+  whyItExists: string;
+  alt: string;
   stack: string[];
   liveUrl: string;
   sourceUrl: string;
@@ -19,6 +21,9 @@ const tools: Tool[] = [
     tagline: "9,751 Met Museum bird artworks, searchable",
     description:
       "A searchable browser for the Metropolitan Museum of Art's open-access bird collection, cross-referenced with eBird taxonomy. Type a bird name and surface every Met artwork of that species: ukiyo-e warblers, Audubon folios, 18th-century cigarette cards, and a lot that doesn't fit a genre.",
+    whyItExists:
+      "Maps the Met's 9,751 open-access bird artworks to modern eBird taxonomy, so a search for any species surfaces every depiction in the collection.",
+    alt: "Screenshot of METBird with 'warbler' typed in the search box, showing Met Museum results: Kitagawa Utamaro's 1798 woodblock 'Preparing Food for the Warbler,' an 18th-century writing box with warbler-and-plum-tree decoration, Hiroshige's 1835 'Warbler on a Plum Branch,' two more Japanese warbler prints, and Audubon warbler plates. 9,751 bird objects indexed, top right.",
     stack: ["Vanilla JS", "Met Open Access API", "eBird taxonomy"],
     liveUrl: "https://shellylynnx.github.io/projects/METBird/",
     sourceUrl: "https://github.com/shellylynnx/projects/tree/main/METBird",
@@ -30,6 +35,9 @@ const tools: Tool[] = [
     tagline: "A map of NYC dog runs, off-leash hours, and animal incidents",
     description:
       "An interactive MapLibre GL map pulling from NYC Open Data. Shows every dog run and off-leash area across the five boroughs alongside 311 animal-related incident reports. Useful for dog owners planning a walk and for anyone curious about the pattern of urban-wildlife interactions in NYC.",
+    whyItExists:
+      "Combines NYC's dog runs, off-leash hours, and 311 animal-incident reports on a single MapLibre map, so dog owners and the curious can see the whole picture in one place.",
+    alt: "Screenshot of NYC Off-Leash with a five-borough MapLibre map dotted with 91 dog-run pins. The right sidebar lists individual dog runs by name with borough, ZIP, surface, and seating: Frank Decolvenaere (Brooklyn), Frank S. Hackett Park (Bronx), Kensington (Brooklyn), Triborough Bridge Playground C (Queens), Sirius (Manhattan), and others. Filter row at top by borough, ZIP, surface, and seating; orange 'Report a Dog' button at the map's bottom edge.",
     stack: ["MapLibre GL", "NYC Open Data", "Vanilla JS"],
     liveUrl: "https://shellylynnx.github.io/projects/NYCoffleash/",
     sourceUrl: "https://github.com/shellylynnx/projects/tree/main/NYCoffleash",
@@ -41,6 +49,9 @@ const tools: Tool[] = [
     tagline: "Risograph print simulator with 3-layer overprint",
     description:
       "Simulate how artwork will print on a risograph before committing ink. Load any image, assign up to three Riso Kagaku inks per layer, and preview how they'll blend in overprint. Saves a lot of test prints when you're working from home without a studio.",
+    whyItExists:
+      "Previews how Riso Kagaku inks will composite in 1-, 2-, or 3-layer overprint, so you can commit color decisions before you commit ink and paper.",
+    alt: "Screenshot of Riso Preview showing a photograph of tangled bare tree branches with green foliage and a partial bright orange flower loaded into the simulator. Three Layer toggles (Layer 1, Layer 2, Layer 3) sit unchecked above the image. Header reads 'Preview artwork in risograph ink colors and simulate overprint.'",
     stack: ["Canvas API", "Vanilla JS", "Color theory"],
     liveUrl: "https://shellylynnx.github.io/projects/riso-preview/",
     sourceUrl: "https://github.com/shellylynnx/projects/tree/main/riso-preview",
@@ -53,6 +64,9 @@ const tools: Tool[] = [
     tagline: "Eight-page zine from one sheet, exported to PDF",
     description:
       "Arrange an 8-page zine from a single sheet with proper fold orientation baked into the layout. Drop in images and text per page, preview the fold, then export to a print-ready PDF. The output is the standard one-cut-one-fold mini-zine format.",
+    whyItExists:
+      "Drops 8 page images into a single-sheet layout with the fold orientations baked in, then exports a print-ready PDF for the standard one-cut-one-fold mini-zine.",
+    alt: "Screenshot of One-Page Zine with all 8 panels populated with warbler photographs in the correct one-cut-one-fold orientation: Page 6, Page 5, Page 4, Page 3 across the top row; Back Cover, Front Cover, Page 1, Page 2 across the bottom. Each panel has a labeled drop zone with a small close button. Tagline: 'Upload 8 pages to generate your zine.'",
     stack: ["jsPDF", "Canvas API", "Print layout"],
     liveUrl: "https://shellylynnx.github.io/projects/one-page-zine/",
     sourceUrl: "https://github.com/shellylynnx/projects/tree/main/one-page-zine",
@@ -73,6 +87,16 @@ const tools: Tool[] = [
           Small pieces of software I've built out of curiosity. All open source,
           free to use, made to answer a specific question I had.
         </p>
+        <p class="tools-intro">
+          These are the things I build at the intersection of birding, the
+          Met's open-access collection, and small visual or print tools that
+          don't have a polished commercial alternative. All open source, all
+          free, all written in mostly-vanilla JavaScript so they keep working
+          without me having to maintain a build pipeline. The first one
+          (METBird) is the most directly bird-aligned: it cross-references
+          the Met's 9,751 open-access bird artworks with eBird taxonomy. The
+          others sit adjacent: NYC tooling, print art, zine layout.
+        </p>
 
         <ul class="tools-list">
           {
@@ -88,7 +112,7 @@ const tools: Tool[] = [
                 >
                   <img
                     src={`/images/tools/${tool.slug}.jpg`}
-                    alt=""
+                    alt={tool.alt}
                     loading="lazy"
                     onerror="this.remove()"
                   />
@@ -97,6 +121,7 @@ const tools: Tool[] = [
                   <h3 class="tool-card-name">{tool.name}</h3>
                   <p class="tool-card-tagline">{tool.tagline}</p>
                   <p class="tool-card-desc">{tool.description}</p>
+                  <p class="tool-card-why"><em>Why it exists:</em> {tool.whyItExists}</p>
                   <ul class="tool-card-stack">
                     {tool.stack.map((t) => (
                       <li>{t}</li>
@@ -120,6 +145,12 @@ const tools: Tool[] = [
                       View source ↗
                     </a>
                   </div>
+                  {tool.slug === "metbird" && (
+                    <p class="tool-card-see-also">
+                      See also:{" "}
+                      <a href="/library/">Public Domain Bird Library</a>
+                    </p>
+                  )}
                 </div>
               </li>
             ))
