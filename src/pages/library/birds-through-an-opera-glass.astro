@@ -391,6 +391,28 @@ const collectionSchema = {
           </p>
         </div>
 
+        <aside class="reader-cta">
+          <div class="reader-cta-inner">
+            <h2>Read the full book</h2>
+            <p>
+              You can read the full text of all 70 chapters of Bailey's 1889
+              <em>Birds Through an Opera Glass</em> in our standalone reader,
+              open-source and free. Below are 16 illustrations and 11
+              song-notation crops sampled from the book.
+            </p>
+            <p>
+              <a
+                class="reader-cta-button"
+                href="https://shellylynnx.github.io/projects/opera-glass/"
+                target="_blank"
+                rel="noopener"
+              >
+                Open the Opera Glass reader &rarr;
+              </a>
+            </p>
+          </div>
+        </aside>
+
         <h3 class="opera-glass-section-heading">The 15 illustrated species</h3>
         <p class="opera-glass-section-dek">
           Each illustration is the inline drawing from Bailey's chapter on
@@ -792,6 +814,80 @@ const collectionSchema = {
 
   .song-notation-card figcaption strong {
     color: var(--color-text);
+  }
+
+  /* Reader CTA — true full-bleed band. Breaks out of both the
+     .container's 24px padding AND the container's max-width=1100px
+     using a 100vw width centered against the parent. Background fills
+     edge-to-edge of the viewport at every screen size, the same way
+     the homepage section bands span the full window. The inner
+     content stays constrained to a centered reading column. The
+     heading uses the same display font / size / underline as
+     `.section-title` on the homepage. */
+  .opera-glass-page .reader-cta {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 56px 24px;
+    background: var(--color-bg);
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .opera-glass-page .reader-cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .opera-glass-page .reader-cta h2 {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 32px;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: center;
+    position: relative;
+  }
+  .opera-glass-page .reader-cta h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--color-secondary);
+    margin: 12px auto 0;
+  }
+
+  .opera-glass-page .reader-cta p {
+    margin: 0 0 16px;
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  .opera-glass-page .reader-cta p:last-child {
+    margin-bottom: 0;
+    margin-top: 24px;
+  }
+
+  .opera-glass-page .reader-cta-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #7A4E2A;
+    color: #E8E0D4;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .opera-glass-page .reader-cta-button:hover {
+    background: #5E3A1F;
+    color: #E8E0D4;
   }
 
   /* Footer */
