@@ -1,0 +1,813 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const escScript = (s: string) => s.replace(/</g, "\\u003c");
+
+const canonical = new URL(
+  "/library/birds-through-an-opera-glass/",
+  Astro.site,
+).href;
+
+const title = "Birds Through an Opera Glass: An Illustrated Gallery";
+const description =
+  "Florence Merriam Bailey's 1889 field guide, fully illustrated. 17 bird drawings and 11 song-notation transcriptions, paired with the modern eBird species accounts.";
+const ogImage = "/images/library/opera-glass/title-page.png";
+
+const slugify = (name: string) =>
+  name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+
+// Species cards. The Bobolink card carries both illustrations.
+const species = [
+  {
+    name: "American Robin",
+    file: "robin.png",
+    page: "p. 5",
+    quote:
+      "He may always be heard piping up above the rest of the daybreak chorus, and I have seen him sit on top of a stub in a storm when it seemed as if the harder it rained the louder and more jubilantly he sang.",
+    ebird: [{ code: "amerob", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Bobolink",
+    file: "bobolink-a.png",
+    fileSecondary: "bobolink-b.png",
+    page: "pp. 26, 28",
+    quote:
+      "Robert o' Lincoln, the light-hearted laughter of June, brings him the spirit of the long bright days when the sun streams full upon meadows glistening with buttercups and daisies.",
+    quoteSecondary: "He looks as if his clothes were turned around.",
+    ebird: [{ code: "boboli", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Eastern Meadowlark",
+    file: "meadow-lark.png",
+    page: "p. 41",
+    quote:
+      "He is the hermit thrush of the meadows, and where the light-hearted bobolink's song jostles the sunbeams, he is as solitary and pensive as the lonely hermit.",
+    ebird: [{ code: "easmea", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Yellow-billed or Black-billed Cuckoo",
+    file: "cuckoo.png",
+    page: "p. 46",
+    quote: "Unless you follow the cuckoo to his haunts, you rarely see him.",
+    ebird: [
+      { code: "yebcuc", label: "Yellow-billed Cuckoo on eBird" },
+      { code: "bkbcuc", label: "Black-billed Cuckoo on eBird" },
+    ],
+  },
+  {
+    name: "Northern Flicker",
+    periodName: "Yellow Hammer in Bailey's text",
+    file: "flicker.png",
+    page: "p. 50",
+    quote:
+      "The song of the yellow hammer is like the German th, he hasn't any.",
+    ebird: [{ code: "norfli", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Barn Swallow",
+    file: "barn-swallow.png",
+    page: "p. 56",
+    quote:
+      "It is funny enough to see them light on a wire, fluttering over it for a moment before settling down, they sway back and forth till you are sure they must fall off.",
+    ebird: [{ code: "barswa", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Belted Kingfisher",
+    file: "belted-kingfisher.png",
+    page: "p. 58",
+    quote:
+      "The kingfisher cares nothing for us or our habitations. He goes off by himself into the heart of the wilderness, to fly high and far over river and lake, calling loudly to the echoes as he goes.",
+    ebird: [{ code: "belkin1", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Blue Jay",
+    file: "blue-jay.png",
+    page: "p. 70",
+    quote:
+      "What a good business man the blue jay would make! All his motions are time-saving, decided, direct.",
+    ebird: [{ code: "blujay", label: "Modern account on eBird" }],
+  },
+  {
+    name: "American Goldfinch",
+    periodName: "Yellow-Bird in Bailey's text",
+    file: "american-goldfinch.png",
+    page: "p. 77",
+    quote:
+      "And what dainty light blue shells they had, just as if bits of blue sky had fallen into the nest!",
+    ebird: [{ code: "amegfi", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Hairy Woodpecker",
+    file: "hairy-woodpecker.png",
+    page: "p. 93",
+    quote:
+      "Its rhythmical rat tap, tap, tap, tap, not only beats time for the chickadees and nuthatches, but is a reveille that sets all the brave winter blood tingling in our veins.",
+    ebird: [{ code: "haiwoo", label: "Modern account on eBird" }],
+  },
+  {
+    name: "White-breasted Nuthatch",
+    file: "white-breasted-nuthatch.png",
+    page: "p. 102",
+    quote:
+      "There in their tops are the nuthatches, for they have deserted the tree trunks for a frolic, they are beechnutting!",
+    ebird: [{ code: "whbnut", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Eastern Towhee",
+    periodName: "Chewink in Bailey's text",
+    file: "eastern-towhee.png",
+    page: "p. 116",
+    quote:
+      "His back is black and his sides match the crisp curled beech leaves that color the wood paths in fall.",
+    ebird: [{ code: "eastow", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Ovenbird",
+    file: "ovenbird.png",
+    page: "p. 135",
+    quote:
+      "She spread out her wings and tail, dragging them along the earth as if helpless. On finding that we would not accept that decoy, she tried another plan.",
+    ebird: [{ code: "ovenbi1", label: "Modern account on eBird" }],
+  },
+  {
+    name: "Common Nighthawk",
+    file: "common-nighthawk.png",
+    page: "p. 170",
+    quote:
+      "Just at twilight, above the chippering of the chimney swifts, you will often hear sharp cries that startle you into looking overhead.",
+    ebird: [{ code: "comnig", label: "Modern account on eBird" }],
+  },
+  {
+    name: "American Redstart",
+    file: "american-redstart.png",
+    page: "p. 182",
+    quote:
+      "A little housewife will sometimes fly to her nest with strips of bark four inches long streaming from her bill.",
+    ebird: [{ code: "amered", label: "Modern account on eBird" }],
+  },
+];
+
+// Song notation crops, in book order.
+const songs = [
+  {
+    file: "american-goldfinch_dee-ree.png",
+    species: "American Goldfinch",
+    transcription: "“dee-ree, dee-ee-ree”, flight call",
+    alt: "Florence Merriam Bailey's transcription of the American Goldfinch flight call as 'dee-ree, dee-ee-ree' beneath the inline music notation.",
+  },
+  {
+    file: "wood-pewee_come-to-me.png",
+    species: "Wood Pewee",
+    transcription: "“come to me” phrase",
+    alt: "Florence Merriam Bailey's transcription of the Wood Pewee 'come to me' song variant beneath the inline music notation.",
+  },
+  {
+    file: "wood-pewee_u-of-sound.png",
+    species: "Wood Pewee",
+    transcription: "descending “U of sound” pattern",
+    alt: "Florence Merriam Bailey's transcription of the Wood Pewee descending 'U of sound' song variant beneath the inline music notation.",
+  },
+  {
+    file: "wood-pewee_dear-ie.png",
+    species: "Wood Pewee",
+    transcription: "“dear-ie dear-ie dear”, three pairs",
+    alt: "Florence Merriam Bailey's transcription of the Wood Pewee 'dear-ie dear-ie dear' song variant, three pairs of inline music notes.",
+  },
+  {
+    file: "white-throated-sparrow_pea-bod-dy.png",
+    species: "White-throated Sparrow",
+    transcription: "two variations of “I-I-pea-bod-dy”",
+    alt: "Florence Merriam Bailey's transcription of the White-throated Sparrow song with two variations of 'I-I-pea-bod-dy' beneath the inline music notation.",
+  },
+  {
+    file: "ovenbird_teach-er-crescendo.png",
+    species: "Ovenbird",
+    transcription:
+      "“teach-er teach-er teach-er teach-er teacher” with crescendo",
+    alt: "Florence Merriam Bailey's transcription of the Ovenbird crescendo song as 'teach-er teach-er teach-er teach-er teacher' beneath the inline music notation.",
+  },
+  {
+    file: "white-crowned-sparrow_whe-he-hee.png",
+    species: "White-crowned Sparrow",
+    transcription: "“whe-he-he-he-hee-hö”",
+    alt: "Florence Merriam Bailey's transcription of the White-crowned Sparrow song as 'whe-he-he-he-hee-ho' beneath the inline music notation.",
+  },
+  {
+    file: "american-redstart_te-ka-teek.png",
+    species: "American Redstart",
+    transcription: "“Te-ka-te-ka-te-ka-te-ka-teek'”",
+    alt: "Florence Merriam Bailey's transcription of the American Redstart song as 'Te-ka-te-ka-te-ka-te-ka-teek' beneath the inline music notation.",
+  },
+  {
+    file: "black-throated-blue-warbler_z-ie.png",
+    species: "Black-throated Blue Warbler",
+    transcription: "“z-ie” guttural",
+    alt: "Florence Merriam Bailey's transcription of the Black-throated Blue Warbler 'z-ie' guttural call beneath the inline music notation.",
+  },
+  {
+    file: "hermit-thrush_main-song.png",
+    species: "Hermit Thrush",
+    transcription: "three-part main song with mid-phrase trills",
+    alt: "Florence Merriam Bailey's transcription of the Hermit Thrush three-part main song with mid-phrase trills beneath the inline music notation.",
+  },
+  {
+    file: "hermit-thrush_variation.png",
+    species: "Hermit Thrush",
+    transcription: "variation “ah re oo-oo”, broken-song form",
+    alt: "Florence Merriam Bailey's transcription of a Hermit Thrush song variation 'ah re oo-oo' in broken-song form beneath the inline music notation.",
+  },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: title,
+  headline: title,
+  description,
+  url: canonical,
+  inLanguage: "en-US",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "shellylynnx.com",
+    url: "https://shellylynnx.com",
+  },
+  isBasedOn: {
+    "@type": "Book",
+    name: "Birds Through an Opera Glass",
+    author: {
+      "@type": "Person",
+      name: "Florence Merriam Bailey",
+      birthDate: "1863-08-08",
+      deathDate: "1948-09-22",
+      sameAs: "https://en.wikipedia.org/wiki/Florence_Merriam_Bailey",
+    },
+    datePublished: "1889",
+    publisher: { "@type": "Organization", name: "Houghton Mifflin" },
+    url: "https://archive.org/details/birdsthroughano00bailgoog",
+    inLanguage: "en",
+    bookFormat: "https://schema.org/EBook",
+    isAccessibleForFree: true,
+    license: "https://creativecommons.org/publicdomain/mark/1.0/",
+  },
+  creator: {
+    "@type": "Person",
+    "@id": "https://shellylynnx.com/#shelly",
+    name: "Shelly Lynn Xiong",
+    url: "https://shellylynnx.com",
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: species.length,
+    itemListElement: species.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.name,
+      url: `https://ebird.org/species/${s.ebird[0].code}`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={ogImage}
+  ogImageAlt="Title page of Florence Merriam Bailey's Birds Through an Opera Glass, 1893 Riverside Press reprint of the 1889 first edition."
+  ogType="website"
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={escScript(JSON.stringify(collectionSchema))}
+  />
+
+  <dialog id="opera-glass-lightbox" class="opera-glass-lightbox">
+    <button
+      type="button"
+      class="opera-glass-lightbox-close"
+      aria-label="Close image preview"
+    >&times;</button>
+    <img alt="" />
+    <p class="opera-glass-lightbox-caption"></p>
+  </dialog>
+
+  <script is:inline>
+    (function () {
+      var dialog = document.getElementById("opera-glass-lightbox");
+      if (!dialog) return;
+      var img = dialog.querySelector("img");
+      var caption = dialog.querySelector(".opera-glass-lightbox-caption");
+      var closeBtn = dialog.querySelector(".opera-glass-lightbox-close");
+
+      function open(src, alt) {
+        img.src = src;
+        img.alt = alt || "";
+        caption.textContent = alt || "";
+        if (typeof dialog.showModal === "function") {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute("open", "");
+        }
+      }
+      function close() {
+        if (typeof dialog.close === "function" && dialog.open) {
+          dialog.close();
+        } else {
+          dialog.removeAttribute("open");
+        }
+        img.src = "";
+        img.alt = "";
+        caption.textContent = "";
+      }
+
+      // Click on any gallery card image opens the lightbox.
+      document.addEventListener("click", function (e) {
+        var target = e.target;
+        if (!target || target.tagName !== "IMG") return;
+        if (
+          !target.closest(".opera-glass-card-figure") &&
+          !target.closest(".song-notation-card figure")
+        )
+          return;
+        e.preventDefault();
+        open(target.getAttribute("src"), target.getAttribute("alt"));
+      });
+
+      // Click anywhere on the dialog backdrop (or the close button) closes.
+      dialog.addEventListener("click", function (e) {
+        if (e.target === dialog || e.target === closeBtn) close();
+      });
+
+      // Esc handled natively by <dialog>; also handle the cancel event.
+      dialog.addEventListener("cancel", function (e) {
+        e.preventDefault();
+        close();
+      });
+    })();
+  </script>
+
+  <main style="padding-top: var(--nav-height);">
+    <section class="section opera-glass-page" id="opera-glass">
+      <div class="container" style="max-width: 1080px;">
+        <h2 class="section-title">{title}</h2>
+        <p class="section-dek">
+          Florence Merriam Bailey's 1889 field guide, fully illustrated. 17
+          bird drawings and 11 song-notation transcriptions, paired with the
+          modern eBird species accounts.
+        </p>
+
+        <div class="opera-glass-hero">
+          <figure class="opera-glass-hero-figure">
+            <img
+              src="/images/library/opera-glass/title-page.png"
+              alt="Title page of Florence Merriam Bailey's Birds Through an Opera Glass, 1893 Riverside Press reprint of the 1889 first edition."
+              loading="eager"
+              width="666"
+              height="1028"
+            />
+          </figure>
+          <p class="opera-glass-hero-text">
+            Florence Merriam Bailey's <em>Birds Through an Opera Glass</em>
+            (1889) was the first American field guide written for someone
+            who might see a bird on a walk and want to know what it was,
+            without owning a shotgun or a study skin. It described 70
+            species across short, observational chapters. Below are the 16
+            species Bailey chose to illustrate, with one of her sentences
+            about each, and the 11 species whose songs she transcribed as
+            inline music.
+          </p>
+        </div>
+
+        <h3 class="opera-glass-section-heading">The 16 illustrated species</h3>
+        <p class="opera-glass-section-dek">
+          Each illustration is the inline drawing from Bailey's chapter on
+          that species, paired with one of her sentences about the bird.
+          Click through to the modern eBird account to compare what Bailey
+          saw in 1889 with what's known now.
+        </p>
+
+        <div class="opera-glass-grid">
+          {
+            species.map((s) => (
+              <article class="opera-glass-card" id={slugify(s.name)}>
+                <figure class="opera-glass-card-figure">
+                  {s.fileSecondary ? (
+                    <div class="opera-glass-card-pair">
+                      <img
+                        src={`/images/library/opera-glass/${s.file}`}
+                        alt={`First inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
+                        loading="lazy"
+                      />
+                      <img
+                        src={`/images/library/opera-glass/${s.fileSecondary}`}
+                        alt={`Second inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page.replace("pp.", "p.")}.`}
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={`/images/library/opera-glass/${s.file}`}
+                      alt={`Inline illustration of a ${s.name} from Bailey's chapter on the species, book ${s.page}.`}
+                      loading="lazy"
+                    />
+                  )}
+                </figure>
+                <h4>
+                  {s.name}
+                  {s.periodName && (
+                    <span class="period-name"> ({s.periodName})</span>
+                  )}
+                </h4>
+                <blockquote>{s.quote}</blockquote>
+                {s.quoteSecondary && (
+                  <blockquote class="opera-glass-card-pull">
+                    {s.quoteSecondary}
+                  </blockquote>
+                )}
+                <p class="opera-glass-card-meta">
+                  <span class="page-ref">Book {s.page}</span>
+                  {s.ebird.map((e, i) => (
+                    <>
+                      <span class="opera-glass-meta-dot">·</span>
+                      <a
+                        href={`https://ebird.org/species/${e.code}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {e.label} &rarr;
+                      </a>
+                    </>
+                  ))}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+        <h3 class="opera-glass-section-heading">Bailey's bird songs</h3>
+        <p class="opera-glass-section-dek">
+          Bailey transcribed bird songs as syllabic mnemonics with inline
+          music glyphs underneath, not as full five-line staves. The
+          transcriptions below are exactly as they appear in the 1889 text.
+          Some, like the Wood Pewee's three song variants, predate later
+          academic accounts (Wallace Craig's <em>The Auk</em> paper on the
+          same songs came out 37 years later, in 1926).
+        </p>
+
+        <div class="opera-glass-songs-grid">
+          {
+            songs.map((song) => (
+              <article class="song-notation-card" id={song.file.replace(/\.png$/, "").replace(/_/g, "-")}>
+                <figure>
+                  <img
+                    src={`/images/library/opera-glass/songs/${song.file}`}
+                    alt={song.alt}
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <strong>{song.species}</strong>
+                    <span class="opera-glass-meta-dot">·</span>
+                    <em>{song.transcription}</em>
+                  </figcaption>
+                </figure>
+              </article>
+            ))
+          }
+        </div>
+
+        <hr />
+
+        <p class="opera-glass-footer">
+          All images extracted from the Harvard scan of <em>Birds Through an
+          Opera Glass</em> (Riverside Press, 1893 reprint of the 1889 first
+          edition) hosted at the
+          <a
+            href="https://archive.org/details/birdsthroughano00bailgoog"
+            target="_blank"
+            rel="noopener noreferrer">Internet Archive</a>. Unambiguously
+          public domain in the United States.
+        </p>
+        <p class="opera-glass-footer">
+          Read <a href="/notes/florence-merriam-bailey/">our article on
+          Bailey</a> or browse the <a href="/library/">full Library</a> for
+          more public-domain bird literature.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .opera-glass-page {
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  /* Hero */
+  .opera-glass-hero {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+
+  .opera-glass-hero-figure {
+    margin: 0;
+  }
+
+  .opera-glass-hero-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    background: var(--color-card-bg);
+    display: block;
+  }
+
+  .opera-glass-hero-text {
+    font-size: 1.0625rem;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .opera-glass-hero {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .opera-glass-hero-figure {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Section headings within the gallery */
+  .opera-glass-section-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 56px;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .opera-glass-section-dek {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+  }
+
+  /* Anchor jumps land below the fixed nav. */
+  .opera-glass-card[id],
+  .song-notation-card[id] {
+    scroll-margin-top: calc(var(--nav-height) + 16px);
+  }
+
+  /* Species grid */
+  .opera-glass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .opera-glass-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--color-card-bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .opera-glass-card-figure {
+    margin: 0 0 16px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .opera-glass-card-figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+
+  .opera-glass-card-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .opera-glass-card-pair img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .opera-glass-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: var(--color-text);
+  }
+
+  .opera-glass-card .period-name {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+
+  .opera-glass-card blockquote {
+    margin: 0 0 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--color-border);
+    font-style: italic;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .opera-glass-card-pull {
+    font-size: 0.875rem !important;
+    color: var(--color-text-secondary) !important;
+  }
+
+  .opera-glass-card-meta {
+    margin: auto 0 0;
+    padding-top: 12px;
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .opera-glass-meta-dot {
+    color: var(--color-text-dim);
+  }
+
+  .opera-glass-card-meta a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .opera-glass-card-meta a:hover {
+    color: var(--color-highlight);
+    text-decoration: underline;
+  }
+
+  .page-ref {
+    color: var(--color-text-dim);
+  }
+
+  /* Song notation grid */
+  .opera-glass-songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .song-notation-card {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 16px;
+    background: var(--color-card-bg);
+  }
+
+  .song-notation-card figure {
+    margin: 0;
+  }
+
+  .song-notation-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 8px;
+    cursor: zoom-in;
+  }
+
+  /* Lightbox dialog */
+  .opera-glass-lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .opera-glass-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .opera-glass-lightbox[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .opera-glass-lightbox img {
+    max-width: 92vw;
+    max-height: 80vh;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    cursor: zoom-out;
+  }
+
+  .opera-glass-lightbox-caption {
+    color: #fff;
+    font-size: 0.875rem;
+    max-width: 720px;
+    text-align: center;
+    margin: 0 16px;
+    line-height: 1.5;
+  }
+
+  .opera-glass-lightbox-close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .opera-glass-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .song-notation-card figcaption {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .song-notation-card figcaption strong {
+    color: var(--color-text);
+  }
+
+  /* Footer */
+  .opera-glass-page hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 48px 0 16px;
+  }
+
+  .opera-glass-footer {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .opera-glass-footer a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .opera-glass-footer a:hover {
+    color: var(--color-highlight);
+  }
+</style>

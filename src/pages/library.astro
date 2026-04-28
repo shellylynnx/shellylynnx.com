@@ -827,6 +827,11 @@ const collectionSchema = {
               <em>Birds Through an Opera Glass</em> (1889). The first
               illustrated American field guide for non-scientists. The founding
               text.
+              <p class="library-gallery-cta-wrap">
+                <a class="library-gallery-cta" href="/library/birds-through-an-opera-glass/">
+                  Browse our illustrated gallery &rarr;
+                </a>
+              </p>
               <ul>
                 <li>
                   <a
@@ -1408,5 +1413,28 @@ const collectionSchema = {
     color: var(--color-text-dim);
     font-style: italic;
     margin-top: 24px;
+  }
+
+  /* Lifted out of the source-link list so the gallery (an editorial piece)
+     reads visually distinct from the source-scan mirrors. */
+  .library-gallery-cta-wrap {
+    margin: 10px 0 12px;
+  }
+
+  .library-body .library-gallery-cta {
+    display: inline-block;
+    padding: 8px 14px;
+    background: var(--color-accent);
+    color: #E8E0D4;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .library-body .library-gallery-cta:hover {
+    background: var(--color-accent-hover);
+    color: #E8E0D4;
   }
 </style>

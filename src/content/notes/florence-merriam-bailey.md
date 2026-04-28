@@ -87,7 +87,7 @@ One of the women inside that movement was 22 years old in 1885 when she became t
 In 1889, Bailey published *Birds Through an Opera Glass*. The premise is in the title: identify the bird with an opera glass, the portable field instrument of the era, a small pair of magnifying lenses that a young woman could fit in her pocket and use on a walk.
 
 ![Inline illustration of an American Robin from Florence Merriam Bailey's *Birds Through an Opera Glass*, page 5.](/images/articles/florence-merriam-bailey/robin-illustration.png)
-*American Robin, the first species in* Birds Through an Opera Glass*. Inline illustration from Bailey's chapter on the species (book p. 5).*
+*American Robin, the first species in* Birds Through an Opera Glass*. Inline illustration from Bailey's chapter on the species (book p. 5).* [View in the gallery →](/library/birds-through-an-opera-glass/#american-robin)
 
 Through the late nineteenth century, American ornithology was largely a specimen science, and many ornithological texts of the period still assumed a collector's point of view.
 
@@ -96,7 +96,7 @@ Through the late nineteenth century, American ornithology was largely a specimen
 Her ear was unusually careful. The book gives the Wood Pewee three distinct song transcriptions, not one, including a phrase she heard at dawn and dusk that differed in pace and phrasing from the standard daytime call. The behavioral psychologist Wallace Craig formally described the Wood Pewee's twilight song in his 1926 paper *The Twilight Song of the Wood Pewee*, which became the foundational scientific account of the species' multi-form vocal repertoire (2). Bailey had three of those forms on the page in 1889, 37 years earlier, with no theory attached and no claim made about it. She just transcribed what she heard.
 
 ![Florence Merriam Bailey's transcription of one Wood Pewee song variation, with the syllables "dear-ie dear-ie dear" written below three pairs of inline music notes.](/images/articles/florence-merriam-bailey/wood-pewee-dear-ie.png)
-*One of Bailey's three Wood Pewee transcriptions from* Birds Through an Opera Glass*, page 87. The syllables "dear-ie dear-ie dear" sit beneath the inline music notation.*
+*One of Bailey's three Wood Pewee transcriptions from* Birds Through an Opera Glass*, page 87. The syllables "dear-ie dear-ie dear" sit beneath the inline music notation.* [View in the gallery →](/library/birds-through-an-opera-glass/#wood-pewee-dear-ie)
 
 ## Smith College, 1886: an early chapter
 
@@ -128,7 +128,7 @@ She joined that center on her own terms. In 1885, at age 22, she became the firs
 ## From the West, on a horse
 
 ![American Goldfinch illustration from *Birds Through an Opera Glass*, page 77.](/images/articles/florence-merriam-bailey/american-goldfinch-illustration.png)
-*American Goldfinch (Yellow-Bird) inline illustration from Bailey's chapter on the species,* Birds Through an Opera Glass*, page 77.*
+*American Goldfinch (Yellow-Bird) inline illustration from Bailey's chapter on the species,* Birds Through an Opera Glass*, page 77.* [View in the gallery →](/library/birds-through-an-opera-glass/#american-goldfinch)
 
 In 1893, Bailey contracted tuberculosis. Like many TB patients of her era, she was sent west for the climate. She convalesced at her uncle's ranch in Twin Oaks Valley, California, then spent six months at Stanford University, which was being run by her brother's friend David Starr Jordan (7). She birded.
 
@@ -158,3 +158,7 @@ The opera glasses have been upgraded. The argument hasn't.
 ---
 
 *A note on her name. Bailey published under several variations during her lifetime: Florence A. Merriam, Florence Merriam, Florence Merriam Bailey, Mrs. Vernon Bailey. She married Vernon Bailey, a field naturalist, in 1899; her bibliographic record straddles the name change. I have used Florence Merriam Bailey throughout for clarity.*
+
+---
+
+**Browse the full gallery →** [Birds Through an Opera Glass: An Illustrated Gallery](/library/birds-through-an-opera-glass/). All 16 of Bailey's bird drawings and 11 of her song transcriptions, with one of her sentences about each species.
