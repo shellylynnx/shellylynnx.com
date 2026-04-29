@@ -17,7 +17,11 @@ const description =
 // "back-pattern reversed" plumage that reads well at thumbnail size,
 // and Bailey's "Robert o' Lincoln" period-name framing ties to the
 // gallery's vernacular-gloss feature.
-const ogImage = "/images/social/opera-glass-og-bobolink.png";
+// `?v=2` cache-busts Bluesky's CardyB preview cache after the
+// 1200x630 letterbox re-render. CardyB keys on the URL string, so a
+// new query string forces a fresh fetch on every new share. Bump on
+// future image revisions.
+const ogImage = "/images/social/opera-glass-og-bobolink.png?v=2";
 
 const slugify = (name: string) =>
   name

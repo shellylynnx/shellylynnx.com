@@ -11,7 +11,11 @@ const canonical = new URL("/library/", Astro.site).href;
 // built-in white padding so it reads cleanly on Bluesky / Instagram /
 // Twitter previews even though the aspect is closer to square than
 // the standard 1.91:1 OG ratio.
-const ogImage = "/images/social/library-og-robin.png";
+// `?v=2` cache-busts Bluesky's CardyB preview cache after the
+// 1200x630 letterbox re-render. CardyB keys on the URL string, so a
+// new query string forces a fresh fetch on every new share. Bump on
+// future image revisions.
+const ogImage = "/images/social/library-og-robin.png?v=2";
 
 const title = "The Public Domain Bird Library";
 const description =
