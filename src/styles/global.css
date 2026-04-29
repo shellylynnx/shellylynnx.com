@@ -1238,6 +1238,26 @@ body.light .tool-card:hover {
     margin-top: 40px;
 }
 
+/* Sub-section heading "What I'm building" — same visual treatment as
+   the Connect heading (reuses .section-title) plus a top-margin so it
+   reads as a peer to Connect inside the about body. */
+.about-building-title {
+    margin-top: 40px;
+}
+
+/* Bullet list under "What I'm building". Inherits body type, simple
+   indented bullets, comfortable line-height. */
+.about-building-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
 .about-text .contact-intro {
     margin-bottom: 32px;
 }

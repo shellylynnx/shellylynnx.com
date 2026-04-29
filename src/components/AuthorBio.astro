@@ -1,41 +1,31 @@
 ---
+// The bio is a fixed copy block (mission-first, leading with the column).
+// The previous version templated a per-article `topics` clause, but the new
+// copy is intentionally not topic-specific — same bio at the bottom of every
+// article. The `topics` prop is kept on the interface for backwards-compat
+// with existing call sites but is no longer rendered.
 interface Props {
   topics?: string[];
 }
-
-const { topics = [] } = Astro.props;
-
-const topicsClause =
-  topics.length === 3
-    ? `${topics[0]}, ${topics[1]}, and ${topics[2]}`
-    : topics.length === 2
-      ? `${topics[0]} and ${topics[1]}`
-      : topics.length === 1
-        ? topics[0]
-        : "urban birding, New York City wildlife, and the city's birding culture";
 ---
 
 <aside class="author-bio" aria-label="About the author">
   <p>
     Shelly Lynn Xiong (also published as Shelly Xiong, online as
     <span class="author-bio-handle">@shellylynnx</span>) writes the NYC Subway
-    Birder column at <a href="https://shellylynnx.com">shellylynnx.com</a>,
-    covering {topicsClause}. She's an artist and the Website Administrator at
+    Birder column at <a href="https://shellylynnx.com">shellylynnx.com</a>.
+    She curates the <a href="/library/">Public Domain Bird Library</a>, a
+    catalog of pre-1929 American bird literature, and built
+    <a
+      href="https://shellylynnx.github.io/projects/opera-glass/"
+      target="_blank"
+      rel="noopener noreferrer">Birds Through an Opera Glass</a>, an online
+    edition of Florence Merriam Bailey's 1889 field guide with modern bird audio.
+    She's an artist and the Website Administrator at
     <a
       href="https://www.metmuseum.org"
       target="_blank"
-      rel="noopener noreferrer">The Metropolitan Museum of Art</a>. She builds
-    tools for NYC birders, including
-    <a
-      href="https://shellylynnx.github.io/projects/METBird/"
-      target="_blank"
-      rel="noopener noreferrer">METBird</a>, a browser for the Met's 9,751
-    open-access bird artworks cross-referenced with eBird taxonomy, and
-    <a
-      href="https://shellylynnx.github.io/projects/NYCoffleash/"
-      target="_blank"
-      rel="noopener noreferrer">NYC Off-Leash</a>, a map of the city's dog runs
-    and wildlife incident reports.
+      rel="noopener noreferrer">The Metropolitan Museum of Art</a>.
   </p>
 </aside>
 
