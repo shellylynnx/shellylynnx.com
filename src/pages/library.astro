@@ -4,7 +4,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const escScript = (s: string) => s.replace(/</g, "\\u003c");
 
 const canonical = new URL("/library/", Astro.site).href;
-const ogImage = "/images/shelly-avatar.jpg";
+// Social-share image: the American Robin illustration from Bailey's
+// 1889 Birds Through an Opera Glass — Chapter I of the book, the
+// most universally-recognized NYC bird, and the most thumbnail-legible
+// of the 16 illustrations. Black-and-white period engraving with
+// built-in white padding so it reads cleanly on Bluesky / Instagram /
+// Twitter previews even though the aspect is closer to square than
+// the standard 1.91:1 OG ratio.
+const ogImage = "/images/social/library-og-robin.png";
 
 const title = "The Public Domain Bird Library";
 const description =
@@ -336,7 +343,7 @@ const collectionSchema = {
   ogTitle={title}
   ogDescription={description}
   ogImage={ogImage}
-  ogImageAlt="Portrait of Shelly Xiong, NYC birder, artist, and developer."
+  ogImageAlt="Black-and-white period engraving of an American Robin from Florence Merriam Bailey's 1889 Birds Through an Opera Glass, the first species in the book."
   ogType="website"
 >
   <script

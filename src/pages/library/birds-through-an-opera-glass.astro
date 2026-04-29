@@ -11,7 +11,13 @@ const canonical = new URL(
 const title = "Birds Through an Opera Glass: An Illustrated Gallery";
 const description =
   "Florence Merriam Bailey's 1889 field guide, fully illustrated. 16 bird drawings and 11 song-notation transcriptions, paired with the modern eBird species accounts.";
-const ogImage = "/images/library/opera-glass/title-page.png";
+// Social-share image: the Bobolink illustration from the same 1889
+// book. Distinct silhouette from the Robin used on /library/ (so the
+// two pages preview as different images), distinctive black-and-white
+// "back-pattern reversed" plumage that reads well at thumbnail size,
+// and Bailey's "Robert o' Lincoln" period-name framing ties to the
+// gallery's vernacular-gloss feature.
+const ogImage = "/images/social/opera-glass-og-bobolink.png";
 
 const slugify = (name: string) =>
   name
@@ -285,7 +291,7 @@ const collectionSchema = {
   ogTitle={title}
   ogDescription={description}
   ogImage={ogImage}
-  ogImageAlt="Title page of Florence Merriam Bailey's Birds Through an Opera Glass, 1893 Riverside Press reprint of the 1889 first edition."
+  ogImageAlt="Black-and-white period engraving of a Bobolink from Florence Merriam Bailey's 1889 Birds Through an Opera Glass, with the distinctive 'back-pattern reversed' breeding-male plumage Bailey describes."
   ogType="website"
 >
   <script
