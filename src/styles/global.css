@@ -1111,6 +1111,25 @@ body.light .tool-card:hover {
     font-weight: 500;
 }
 
+/* Optional collaborator credit on a tool card (e.g., Migration's
+   soundtrack credit). Sits between description and "Why it exists",
+   matches description's body text size + secondary color so it reads
+   as part of the same editorial unit rather than a callout. */
+.tool-card-credit {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 4px 0 0;
+}
+.tool-card-credit a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.tool-card-credit a:hover {
+    color: var(--color-highlight);
+}
+
 .tool-card-see-also {
     font-size: 0.8125rem;
     color: var(--color-text-dim);

@@ -47,7 +47,7 @@ const description =
       />
       <h1 class="links-name">Shelly Xiong</h1>
       <p class="hero-persona"><a href="/notes/subway-birder">Subway Birder</a></p>
-      <p class="links-handle">@shellylynnx</p>
+      <p class="links-handle"><a href="/about/">@shellylynnx</a></p>
       <div class="links-headline">
         <p class="hero-tagline">NYC birding, one train line at a time.</p>
         <p class="hero-description">Documenting birds across the five boroughs.</p>
@@ -86,6 +86,15 @@ const description =
             rel="noopener noreferrer"
           >
             <span>METBird</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a
+            class="link-card"
+            href="https://shellylynnx.itch.io/migration"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Migration Game</span>
             <span class="link-arrow">↗</span>
           </a>
           <a class="link-card" href="/tools">
@@ -196,6 +205,19 @@ const description =
         color: var(--color-secondary);
         letter-spacing: 0.04em;
         margin-bottom: 12px;
+      }
+      /* @shellylynnx links to /about/ — keep the same muted handle tone
+         and skip the default underline so it reads as part of the
+         identity block, not as a primary action. Subtle hover cue. */
+      .links-handle a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dotted transparent;
+        transition: border-color 0.15s ease, color 0.15s ease;
+      }
+      .links-handle a:hover {
+        color: var(--color-highlight);
+        border-bottom-color: currentColor;
       }
 
       .links-headline {
