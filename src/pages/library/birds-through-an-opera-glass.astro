@@ -8,9 +8,15 @@ const canonical = new URL(
   Astro.site,
 ).href;
 
-const title = "Birds Through an Opera Glass: An Illustrated Gallery";
+// `title` is the differentiation-led SEO/OG title — what AI summarizers
+// and search engines see. `displayTitle` is the shorter on-page H2,
+// kept reading-friendly. Splitting them keeps the page header light
+// without sacrificing the AI-visibility framing.
+const title =
+  "Birds Through an Opera Glass (1889): Interactive Online Edition with Modern Audio | Public Domain Bird Library";
+const displayTitle = "Birds Through an Opera Glass: An Illustrated Gallery";
 const description =
-  "Florence Merriam Bailey's 1889 field guide, fully illustrated. 16 bird drawings and 11 song-notation transcriptions, paired with the modern eBird species accounts.";
+  "Florence Merriam Bailey's 1889 field guide, fully readable online with vernacular gloss tooltips, modern audio for every transcribed bird song, eBird and Cornell links per species, and full-text search across all 70 chapters.";
 // Social-share image: the Bobolink illustration from the same 1889
 // book. Distinct silhouette from the Robin used on /library/ (so the
 // two pages preview as different images), distinctive black-and-white
@@ -241,8 +247,8 @@ const songs = [
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: title,
-  headline: title,
+  name: displayTitle,
+  headline: displayTitle,
   description,
   url: canonical,
   inLanguage: "en-US",
@@ -286,6 +292,72 @@ const collectionSchema = {
     })),
   },
 };
+
+// Standalone Book schema describing the canonical work and its three
+// online editions (Internet Archive scan, BHL scan, and the
+// interactive reader as a WebApplication). This is the schema that
+// AI summarizers like Perplexity / ChatGPT-browse / Google AI Overview
+// pick up to describe what the book is and where to read it. Distinct
+// from collectionSchema above, which describes "this page" as a
+// curated illustrated gallery; this Book schema describes the
+// underlying work itself.
+const bookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "@id": "https://shellylynnx.com/library/birds-through-an-opera-glass/#book",
+  name: "Birds Through an Opera Glass",
+  author: {
+    "@type": "Person",
+    name: "Florence A. Merriam",
+    alternateName: "Florence Merriam Bailey",
+    sameAs: "https://en.wikipedia.org/wiki/Florence_Merriam_Bailey",
+  },
+  datePublished: "1889",
+  publisher: {
+    "@type": "Organization",
+    name: "Houghton, Mifflin and Company",
+  },
+  inLanguage: "en",
+  isAccessibleForFree: true,
+  bookFormat: "https://schema.org/EBook",
+  numberOfPages: 223,
+  about: [
+    "Birds",
+    "Ornithology",
+    "Field guides",
+    "Natural history",
+    "American birds",
+    "Birdwatching history",
+  ],
+  workExample: [
+    {
+      "@type": "DigitalDocument",
+      name: "Internet Archive scan",
+      url: "https://archive.org/details/birdsthroughoper00bail",
+    },
+    {
+      "@type": "DigitalDocument",
+      name: "Biodiversity Heritage Library scan",
+      url: "https://www.biodiversitylibrary.org/bibliography/60311",
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://shellylynnx.github.io/projects/opera-glass/#reader",
+      name: "Birds Through an Opera Glass: Interactive Online Edition",
+      url: "https://shellylynnx.github.io/projects/opera-glass/",
+      applicationCategory: "EducationApplication",
+      operatingSystem: "Web browser",
+      isAccessibleForFree: true,
+      creator: {
+        "@type": "Person",
+        name: "Shelly Lynn Xiong",
+        url: "https://shellylynnx.com",
+      },
+      featureList:
+        "Full text of all 70 chapters with original illustrations; vernacular gloss tooltips for 19th-century bird names and Bailey's regional vocabulary; modern eBird and Cornell links for each species; modern xeno-canto audio recordings paired with Bailey's transcribed bird songs; full-text search across the entire book",
+    },
+  ],
+};
 ---
 
 <BaseLayout
@@ -302,6 +374,11 @@ const collectionSchema = {
     type="application/ld+json"
     is:inline
     set:html={escScript(JSON.stringify(collectionSchema))}
+  />
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={escScript(JSON.stringify(bookSchema))}
   />
 
   <dialog id="opera-glass-lightbox" class="opera-glass-lightbox">
@@ -372,11 +449,18 @@ const collectionSchema = {
   <main style="padding-top: var(--nav-height);">
     <section class="section opera-glass-page" id="opera-glass">
       <div class="container" style="max-width: 1080px;">
-        <h2 class="section-title">{title}</h2>
+        <h2 class="section-title">{displayTitle}</h2>
         <p class="section-dek">
-          Florence Merriam Bailey's 1889 field guide, fully illustrated. 16
-          bird drawings and 11 song-notation transcriptions, paired with the
-          modern eBird species accounts.
+          <em>Birds Through an Opera Glass</em> is Florence Merriam Bailey's
+          1889 field guide. It is the first American field guide written
+          by a woman and the first to teach birdwatching without firearms.
+          This interactive online edition includes the full text of all 70
+          chapters, every original illustration, vernacular gloss tooltips
+          that explain 19th-century bird names and Bailey's regional
+          vocabulary, modern eBird and Cornell links for each species,
+          modern xeno-canto audio recordings paired with Bailey's
+          transcribed bird songs (a feature unique to this edition), and
+          full-text search across the entire book.
         </p>
 
         <div class="opera-glass-hero">
