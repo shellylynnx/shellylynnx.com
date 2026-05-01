@@ -6,44 +6,77 @@ Live at [shellylynnx.com](https://shellylynnx.com).
 
 ## Stack
 
-- **Astro 6** (static output)
+- **Astro 6** (static output, content collections for articles, sitemap integration)
 - **Cloudflare Workers + Static Assets** (hosting via Workers Builds, wired to this GitHub repo)
 - **Beehiiv** (newsletter): native form POSTs to `/api/subscribe`, which proxies to Beehiiv's v2 Subscriptions API
 - Custom CSS, no framework (dark/light theme with CSS variables)
+- Custom rehype plugin for numbered inline citations with scroll-to-reference
+- RSS feed at `/rss.xml` via `@astrojs/rss`
 
 ## Pages
 
-| Route | File |
-| --- | --- |
-| `/` | `src/pages/index.astro`: hero, projects grid, newsletter form, socials |
-| `/about` | `src/pages/about.astro`: bio + credentials sidebar + portrait |
-| `/work` | `src/pages/work.astro`: experience timeline + skills |
-| `/newsletter` | `src/pages/newsletter.astro`: dedicated newsletter signup |
+| Route | File | Purpose |
+| --- | --- | --- |
+| `/` | `src/pages/index.astro` | Hero, projects grid, newsletter form, socials |
+| `/about` | `src/pages/about.astro` | Bio, credentials sidebar, portrait |
+| `/work` | `src/pages/work.astro` | Experience timeline, skills |
+| `/newsletter` | `src/pages/newsletter.astro` | Dedicated newsletter signup |
+| `/notes` | `src/pages/notes/index.astro` | NYC Subway Birder column index (longform articles) |
+| `/notes/:slug` | `src/pages/notes/[...slug].astro` | Individual article pages (Astro content collection) |
+| `/notes/subway-birder` | `src/pages/notes/subway-birder.astro` | Column landing page / intro |
+| `/subway-birder` | `src/pages/subway-birder.astro` | Standalone brand page for the column |
+| `/tools` | `src/pages/tools/index.astro` | Showcase of all browser-based tools |
+| `/library` | `src/pages/library.astro` | Public domain bird book index |
+| `/library/birds-through-an-opera-glass` | `src/pages/library/birds-through-an-opera-glass.astro` | Illustrated gallery for Bailey's 1889 field guide |
+| `/library/image-credits` | `src/pages/library/image-credits.astro` | Image credits for library assets |
+| `/links` | `src/pages/links.astro` | Linktree-style link page (noindexed) |
+| `/rss.xml` | `src/pages/rss.xml.ts` | RSS feed for /notes articles |
 
 ## Project structure
 
 ```
 .
 ├── public/
-│   ├── favicon.svg            (black bird emoji)
+│   ├── favicon.svg                (black bird emoji)
 │   └── images/
-│       ├── shelly.jpg         (360×640 portrait, used on /about)
-│       └── shelly-avatar.jpg  (360×360 face-centered crop, hero + OG)
+│       ├── shelly.jpg             (360x640 portrait, used on /about)
+│       ├── shelly-avatar.jpg      (360x360 face-centered crop, hero + OG)
+│       ├── articles/              (inline images for /notes articles)
+│       ├── library/               (book covers, author portraits)
+│       ├── notes/                 (note card images)
+│       ├── social/                (OG / social-share images)
+│       ├── subway-birder/         (column brand assets)
+│       └── tools/                 (tool card thumbnails)
 ├── src/
 │   ├── layouts/
-│   │   └── BaseLayout.astro   (HTML shell, nav, footer, JSON-LD, OG/Twitter meta, theme toggle)
+│   │   └── BaseLayout.astro       (HTML shell, nav, footer, JSON-LD, OG/Twitter meta, theme toggle)
 │   ├── components/
-│   │   └── SubscribeForm.astro (native Beehiiv signup form)
+│   │   ├── SubscribeForm.astro    (native Beehiiv signup form)
+│   │   └── AuthorBio.astro        (reusable author bio block)
+│   ├── content/
+│   │   ├── notes/                 (longform articles as Markdown, Astro content collection)
+│   │   └── intro/                 (standalone intro pages, e.g. subway-birder.md)
+│   ├── content.config.ts          (collection schemas: notes + intro, with references, birdsMentioned, subwayRoutes)
 │   ├── pages/
 │   │   ├── index.astro
 │   │   ├── about.astro
 │   │   ├── work.astro
-│   │   └── newsletter.astro
+│   │   ├── newsletter.astro
+│   │   ├── subway-birder.astro
+│   │   ├── library.astro
+│   │   ├── library/               (sub-pages: opera-glass gallery, image-credits)
+│   │   ├── links.astro
+│   │   ├── tools/index.astro
+│   │   ├── notes/index.astro
+│   │   ├── notes/[...slug].astro
+│   │   ├── notes/subway-birder.astro
+│   │   └── rss.xml.ts
+│   ├── rehype-citations.mjs       (custom rehype plugin: numbered inline citations with scroll-to-reference)
 │   └── styles/
 │       └── global.css
-├── worker.js                  (Cloudflare Worker entry: handles /api/subscribe, falls through to ASSETS)
-├── wrangler.jsonc             (Workers config: main + assets binding)
-├── astro.config.mjs
+├── worker.js                      (Cloudflare Worker entry: handles /api/subscribe, falls through to ASSETS)
+├── wrangler.jsonc                 (Workers config: main + assets binding)
+├── astro.config.mjs               (sitemap integration, rehype-citations plugin)
 └── package.json
 ```
 
