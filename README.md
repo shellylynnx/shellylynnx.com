@@ -1,6 +1,6 @@
 # shellylynnx.com
 
-Personal site for Shelly Xiong. NYC birder, illustrator, and developer.
+Personal site for Shelly Xiong, a NYC birder on a Linnaean Society committee. Art, writing, and software for the city's birds.
 
 Live at [shellylynnx.com](https://shellylynnx.com).
 
