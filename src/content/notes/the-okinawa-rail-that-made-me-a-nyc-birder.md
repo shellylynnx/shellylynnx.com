@@ -4,16 +4,16 @@ description: "Before NYC, before the subway, there was a flightless bird in a su
 pubDate: 2026-05-06
 draft: false
 author: "Shelly Xiong"
-category: "Origin Story"
+category: "Personal Essay"
 tags:
-  - origin-story
+  - personal-essay
   - okinawa
   - conservation
   - environmental-ethics
   - yanbaru
 topics:
   - NYC birding
-  - origin story
+  - personal essay
   - environmental ethics
   - Okinawa
   - US military
@@ -22,49 +22,60 @@ photoCredits: "All photographs by Shelly Xiong, Yambaru Wildlife Conservation Ce
 birdsMentioned:
   - commonName: "Okinawa Rail"
     ebirdCode: "okirai1"
-    note: "Yanbaru, Okinawa"
   - commonName: "Okinawa Woodpecker"
     ebirdCode: "okiwoo1"
-    note: "Yanbaru, Okinawa"
   - commonName: "Northern Cardinal"
     ebirdCode: "norcar"
-    note: "post-return US"
   - commonName: "House Sparrow"
     ebirdCode: "houspa"
-    note: "NYC, baseline urban"
   - commonName: "Rock Pigeon"
     ebirdCode: "rocpig"
-    note: "NYC, baseline urban"
   - commonName: "Louisiana Waterthrush"
     ebirdCode: "louwat"
-    note: "Prospect Park, spring"
 references:
-  - author: "Congressional Research Service"
+  - number: 1
+    author: "Congressional Research Service"
     title: "The U.S.-Japan Alliance"
     publication: "Report RL33740"
     date: "2016"
     url: "https://crsreports.congress.gov/product/pdf/RL/RL33740"
-  - author: "Joel Cox"
-    title: "The Marines and Okinawa"
+  - number: 2
+    author: "R. Cox"
+    title: "The Sound of Freedom: US Military Aircraft Noise in Okinawa, Japan"
+    publication: "Anthropology News 51(9): 13–14"
     date: "2010"
-  - author: "Y. Itô, K. Miyagi, and H. Ota"
+    url: "https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/j.1556-3502.2010.51913.x"
+  - number: 3
+    author: "Y. Itô, K. Miyagi, and H. Ota"
     title: "Imminent Extinction Crisis Among the Endemic Species of the Forests of Yanbaru, Okinawa, Japan"
     publication: "Oryx 34(4): 305–316"
     date: "2000"
     url: "https://doi.org/10.1046/j.1365-3008.2000.00130.x"
-  - author: "Takehiko Kambayashi"
-    title: "Okinawans Want U.S. Marines Off Their Island"
-    date: "2008"
-  - author: "Arasaki Moriteru"
+  - number: 4
+    author: "Center for Biological Diversity et al."
+    title: "Okinawa Dugong v. Mattis (case background and filings)"
+    publication: "U.S. District Court for the Northern District of California; Ninth Circuit"
+    url: "https://en.wikipedia.org/wiki/Okinawa_Dugong_v._Rumsfeld"
+  - number: 5
+    author: "Takehiko Kambayashi"
+    title: "Ruling to protect dugong could put Northern Okinawa aid at risk"
+    publication: "Christian Science Monitor"
+    date: "February 5, 2008"
+    url: "https://www.csmonitor.com/2008/0205/p04s01-woap.html"
+  - number: 6
+    author: "Arasaki Moriteru"
     title: "The Struggle Against Military Bases in Okinawa: Its History and Current Situation"
     publication: "Inter-Asia Cultural Studies 2(1): 101–108"
     date: "2001"
     url: "https://doi.org/10.1080/14649370120039506"
-  - author: "Miyume Tanji"
-    title: "Myth, Protest and Struggle in Okinawa"
-    publication: "Routledge"
+  - number: 7
+    author: "Miyume Tanji"
+    title: "U.S. Court Rules in the 'Okinawa Dugong' Case"
+    publication: "Critical Asian Studies 40(3): 475–487"
     date: "2008"
-  - author: "Shelly Xiong"
+    url: "https://doi.org/10.1080/14672710802274094"
+  - number: 8
+    author: "Shelly Xiong"
     title: "Field Report on Yanbaru and the Okinawa Rail"
     publication: "Arizona State University"
     date: "2018"
@@ -91,11 +102,11 @@ Yanbaru itself is dense and wet, with evergreen broadleaf canopy and bamboo in t
 
 The most alarming thing I heard at the Rail Ecology Center was about understory clearing. The rail feeds and nests on the forest floor, though it also roosts in trees at night. It hides in dense lower vegetation, where it forages for snails, amphibians, insects, and small lizards. When the understory is cleared for roads, helipads, or service access, the rail loses both cover and food at once. A rail in a thinned forest is a rail in a predator exhibit.
 
-The U.S. military footprint in Okinawa has historically included substantial access to Yanbaru. The paper by [Itô, Miyagi, and Ota (2000)](https://doi.org/10.1046/j.1365-3008.2000.00130.x) describes the extinction crisis facing the region's endemic species and notes that the Camp Gonsalves Jungle Warfare Training Center occupies about a quarter of the Yanbaru region. Over time, land returns have been paired with other construction, including new helipads elsewhere in the forest. Those are not minor concessions. In a habitat that depends on intact understory, building access roads and landing sites is an environmental intervention, not a procedural one.
+The U.S. military footprint in Okinawa has historically included substantial access to Yanbaru. The paper by Itô, Miyagi, and Ota (3) describes the extinction crisis facing the region's endemic species and notes that the Camp Gonsalves Jungle Warfare Training Center occupies about a quarter of the Yanbaru region. Over time, land returns have been paired with other construction, including new helipads elsewhere in the forest. Those are not minor concessions. In a habitat that depends on intact understory, building access roads and landing sites is an environmental intervention, not a procedural one.
 
 I did not understand most of this when I first arrived in Okinawa. I knew it was beautiful. I knew Kadena was big. I had been told in training that I was an ambassador for the United States in a place where locals had complicated feelings about the ongoing American presence. I understood "ambassador" to mean, roughly, don't get drunk and loud off base. The part about forests and birds was not covered.
 
-I was taking a long-distance class at Arizona State and needed a research paper topic. I chose the military's environmental impact in Okinawa because I was there and it seemed like useful due diligence: What do the people who live here think about us, and what are the actual effects we're having? I read Congressional Research Service reports. I read Itô, Miyagi, and Ota on the extinction crisis facing Yanbaru's endemic species. I read legal filings from the [Okinawa dugong case](https://earthjustice.org/case/okinawa-dugong-v-mattis), in which conservation groups argued in federal court that the Department of Defense was violating preservation law by building over dugong habitat. I read about Osprey crashes. I read about the Henoko landfill proposal and the coral reef in Oura Bay.
+I was taking a long-distance class at Arizona State and needed a research paper topic. I chose the military's environmental impact in Okinawa because I was there and it seemed like useful due diligence: What do the people who live here think about us, and what are the actual effects we're having? I read Congressional Research Service reports (1). I read ethnographic work on the noise of U.S. military aircraft over Okinawa (2). I read Itô, Miyagi, and Ota on the extinction crisis facing Yanbaru's endemic species (3). I read legal filings and scholarly analysis of the Okinawa dugong case (4, 7), in which conservation groups argued in federal court that the Department of Defense was violating preservation law by building over dugong habitat, alongside reporting on what the ruling meant for northern Okinawan aid (5). I read scholarly accounts of the long protest history (6). I read about Osprey crashes. I read about the Henoko landfill proposal and the coral reef in Oura Bay.
 
 And then I drove to Kunigami to talk to the people doing conservation work on the ground.
 
@@ -108,7 +119,7 @@ What they told me, in essence, was this: the big fights are about base construct
 
 The cat issue was the specific lesson. Service-member pet abandonment is one contributor to the feral cat population on the island. Personnel sometimes bring pets onto assignment and leave them behind when they rotate out. An abandoned pet either dies or becomes feral; either way, it becomes part of an ecosystem that did not evolve with it. Feral cats are efficient hunters of ground-nesting birds, and the rail is a ground-nesting bird.
 
-I wrote the paper. I made a poster to accompany it. The poster said: Your cat is a predator. Protect endangered wildlife. Between an image of a tiger and an image of a kitten, I placed a photograph of an Okinawa Rail. The point was simple: the domestic cat, which most Americans treat as a companion, can become part of an extinction pipeline on a small island that happens to hold one of the rarest birds in the Western Pacific.
+I wrote the paper (8). I made a poster to accompany it. The poster said: Your cat is a predator. Protect endangered wildlife. Between an image of a tiger and an image of a kitten, I placed a photograph of an Okinawa Rail. The point was simple: the domestic cat, which most Americans treat as a companion, can become part of an extinction pipeline on a small island that happens to hold one of the rarest birds in the Western Pacific.
 
 <figure>
   <img src="/images/notes/okinawa-rail/rail-psa-poster.jpg" alt="PSA poster created by Shelly Xiong in 2018: an image of a tiger, an image of a kitten, and a photograph of an Okinawa Rail, with the text 'Your cat is a predator. Protect endangered wildlife.'" />
@@ -122,8 +133,8 @@ The paper was not a great paper. I reread it this week, and the arguments are ea
 Before that paper, birds were background. I saw them; I didn't look at them. After it, I couldn't walk in Yanbaru without scanning the understory for movement. I couldn't drive the northern roads without watching the edge of the asphalt. A rail crossing would appear as a dark shape, low and careful, then vanish into vegetation. I never got a long look. I wasn't trying to.
 
 <figure>
-  <img src="/images/notes/okinawa-rail/rail-fullbody.jpg" alt="An Okinawa Rail in profile on grass at the Yambaru Wildlife Conservation Center, showing its full body: dark plumage with pale flank barring, a red bill, and red legs." />
-  <figcaption>Okinawa Rail at the Yambaru Wildlife Conservation Center, June 2018. The bird's red bill and legs are diagnostic; the dark plumage with pale flank markings is the field-mark combination that makes it unmistakable.</figcaption>
+  <img src="/images/notes/okinawa-rail/rail-center-interior.jpg" alt="Interior of the Yambaru Wildlife Conservation Center: a bulletin board with a map of Okinawa, conservation posters, and a table of Yanbaru kuina plush mascots and educational materials about the endemic species." />
+  <figcaption>Educational displays and Yanbaru kuina merchandise inside the Yambaru Wildlife Conservation Center, June 2018. The rail is a regional icon; protecting it is a cultural project as much as an ecological one.</figcaption>
 </figure>
 
 What I developed, without naming it, was a practice of attention. A new kind of object had entered the category of things I noticed.
