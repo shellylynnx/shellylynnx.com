@@ -11,6 +11,7 @@ tags:
   - conservation
   - environmental-ethics
   - yanbaru
+  - subway-birder
 topics:
   - NYC birding
   - personal essay
@@ -32,6 +33,13 @@ birdsMentioned:
     ebirdCode: "rocpig"
   - commonName: "Louisiana Waterthrush"
     ebirdCode: "louwat"
+subwayRoutes:
+  - hotspot: "Prospect Park (where I watched a Louisiana Waterthrush this spring)"
+    lines: ["2", "3", "F", "G", "B", "Q"]
+    directions: "2 or 3 to Grand Army Plaza for the Long Meadow north entrance. F or G to 15 St-Prospect Park for Lookout Hill and the lake. B or Q to Prospect Park for the east side. Quiet ponds along the watercourse pull migrants like the Louisiana Waterthrush in spring."
+  - hotspot: "Central Park, the Ramble (where the warblers come through)"
+    lines: ["B", "C", "1", "6"]
+    directions: "B or C to 72 St or 81 St-Museum of Natural History, then walk east into the park. 1 to 79 St or 6 to 77 St for the east-side approach. Peak warbler diversity runs the last week of April through the first two weeks of May."
 references:
   - number: 1
     author: "Congressional Research Service"

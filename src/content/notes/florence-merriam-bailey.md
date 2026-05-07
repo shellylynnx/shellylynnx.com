@@ -12,6 +12,7 @@ tags:
   - field-guides
   - nyc-birding
   - conservation-history
+  - subway-birder
 topics:
   - NYC birding
   - birdwatching history
