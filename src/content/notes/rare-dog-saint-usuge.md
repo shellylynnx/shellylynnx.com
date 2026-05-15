@@ -89,6 +89,14 @@ I brought Cherry home from Germany while I was in the Air Force. She had been bo
 
 She was bred for woodcock. I didn't know that at the time. I knew she was a good dog. I knew her breed was unusual, not quite a setter, not quite a spaniel by the American definition of spaniel. She was medium-sized, chestnut-pied on white, with heavily feathered ears and a saber-carried tail he never had docked. I would learn, years later, that every one of those features was specified in a breed standard written in the Bresse region of eastern France in 1936, and that the breed as a whole existed because one rural priest spent thirty-three years saving it after the Second World War nearly took it to zero.
 
+<figure class="note-media">
+  <img
+    src="/images/notes/rare-dog-saint-usuge/coral-standing.jpg"
+    alt="Coral, an Épagneul de Saint-Usuge, standing in profile with saber-carried tail curled up over her back, heavily feathered chestnut-pied coat, on a Manhattan sidewalk in front of a stone planter."
+  />
+  <figcaption>Coral in midtown Manhattan. Every breed-standard trait visible: chestnut-pied coat, feathered ears, saber-carried tail.</figcaption>
+</figure>
+
 This is a piece about that priest, the breed he saved, the bird it was bred to hunt, the bird that drew crowds to Bryant Park this spring, and the ethics I carry when I bird with a dog in a city that is full of both.
 
 ## The priest
