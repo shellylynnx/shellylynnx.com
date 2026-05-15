@@ -94,7 +94,7 @@ She was bred for woodcock. I didn't know that at the time. I knew she was a good
     src="/images/notes/rare-dog-saint-usuge/coral-standing.jpg"
     alt="Coral, an Épagneul de Saint-Usuge, standing in profile with saber-carried tail curled up over her back, heavily feathered chestnut-pied coat, on a Manhattan sidewalk in front of a stone planter."
   />
-  <figcaption>Coral in midtown Manhattan. Every breed-standard trait visible: chestnut-pied coat, feathered ears, saber-carried tail.</figcaption>
+  <figcaption>Coral in midtown Manhattan. Every breed-standard trait visible:<br>chestnut-pied coat, feathered ears, saber-carried tail.</figcaption>
 </figure>
 
 This is a piece about that priest, the breed he saved, the bird it was bred to hunt, the bird that drew crowds to Bryant Park this spring, and the ethics I carry when I bird with a dog in a city that is full of both.
