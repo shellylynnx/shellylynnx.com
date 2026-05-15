@@ -80,6 +80,11 @@ references:
     note: "Confirms birth April 29, 1912 in Saint-Agnès (Jura); ordained June 6, 1936; named curé of Savigny-en-Revermont in 1939; POW 1939–45; died 2000."
 ---
 
+<aside class="epigraph">
+  <p><br><strong class="epigraph-lede">What is a Peent? It is the noise from an American Woodcock.</strong><br>"<em>It's a single, buzzy, nasal, 0.2-second note that a male gives at dusk and dawn from a display ground in early spring. Peent is the opening beat of the sky dance, his mating display.</em>"</p>
+  <p class="epigraph-source">From <a href="/notes/woodcocks-bryant-park/">The Bryant Park Woodcocks</a></p>
+</aside>
+
 I brought Cherry home from Germany while I was in the Air Force. She had been born there in 2007, to Axel Hehl, a K9 search-and-rescue trainer whose family had been training working dogs for generations. She was an Épagneul de Saint-Usuge, the rarest breed most American birders will never hear about. On weekends I worked with Hehl's team through cold rural fields looking for scenarios they had set up to test young dogs. Cherry was the dog he set aside for me.
 
 She was bred for woodcock. I didn't know that at the time. I knew she was a good dog. I knew her breed was unusual, not quite a setter, not quite a spaniel by the American definition of spaniel. She was medium-sized, chestnut-pied on white, with heavily feathered ears and a saber-carried tail he never had docked. I would learn, years later, that every one of those features was specified in a breed standard written in the Bresse region of eastern France in 1936, and that the breed as a whole existed because one rural priest spent thirty-three years saving it after the Second World War nearly took it to zero.
