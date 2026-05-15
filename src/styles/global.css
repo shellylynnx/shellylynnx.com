@@ -1733,6 +1733,37 @@ body.light .notes-filter-pill.active {
     color: var(--color-text);
 }
 
+.epigraph {
+    max-width: 38em;
+    margin: 1.5rem auto 2rem;
+    padding: 0.25rem 1.25rem;
+    border-left: 3px solid currentColor;
+    opacity: 0.85;
+    font-size: 0.95em;
+}
+
+.epigraph p {
+    margin: 0 0 0.5rem;
+}
+
+.epigraph-source {
+    font-size: 0.85em;
+    text-align: right;
+    font-style: normal;
+    opacity: 0.75;
+}
+
+.epigraph-source a {
+    color: inherit;
+}
+
+.epigraph-lede {
+    display: block;
+    text-align: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
 .note-body p {
     margin-bottom: 20px;
     color: var(--color-text-secondary);
