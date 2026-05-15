@@ -1736,9 +1736,10 @@ body.light .notes-filter-pill.active {
 .epigraph {
     max-width: 38em;
     margin: 1.5rem auto 2rem;
-    padding: 0.25rem 1.25rem;
-    border-left: 3px solid currentColor;
-    opacity: 0.85;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--color-secondary);
+    background: rgba(200, 165, 78, 0.06);
+    border-radius: 4px;
     font-size: 0.95em;
 }
 
@@ -1750,7 +1751,6 @@ body.light .notes-filter-pill.active {
     font-size: 0.85em;
     text-align: right;
     font-style: normal;
-    opacity: 0.75;
 }
 
 .epigraph-source a {
