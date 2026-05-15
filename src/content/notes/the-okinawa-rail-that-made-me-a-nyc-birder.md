@@ -1,5 +1,5 @@
 ---
-title: "Origin Stories: The Okinawa Rail That Made Me a NYC Birder"
+title: "The Okinawa Rail That Made Me a NYC Birder"
 description: "Before NYC, before the subway, a flightless bird in a subtropical forest and a college paper I wrote post-service in Okinawa. That was the beginning of the practice."
 pubDate: 2026-05-06
 draft: false
